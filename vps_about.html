@@ -1,0 +1,1339 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About — VPS Lakeshore Medical Centre</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,700&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* VPS LAKESHORE — SHARED DESIGN SYSTEM */
+      :root {
+        --navy: #002855;
+        --blue: #003f8a;
+        --brand: #1b6db5;
+        --azure: #0057b8;
+        --sky: #e8f1fb;
+        --red: #c8102e;
+        --red2: #a00d24;
+        --sand: #f7f4ef;
+        --warm: #ede8e0;
+        --line: #d4ccc4;
+        --ink: #0d1b2e;
+        --muted: #5c6878;
+        --serif: "Cormorant Garamond", Georgia, serif;
+        --sans: "DM Sans", sans-serif;
+        --mono: "DM Mono", monospace;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--sans);
+        color: var(--ink);
+        background: #fff;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 48px;
+      }
+      /* Logo */
+      .logo {
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+        flex-shrink: 0;
+      }
+      .logo-vps {
+        font-family: var(--sans);
+        font-size: 28px;
+        font-weight: 700;
+        font-style: italic;
+        color: var(--brand);
+        letter-spacing: -1px;
+        line-height: 1;
+      }
+      .logo-sep {
+        width: 1.5px;
+        height: 40px;
+        background: #9eaab8;
+        margin: 0 12px;
+        flex-shrink: 0;
+      }
+      .logo-right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        line-height: 1;
+      }
+      .logo-top-row {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .logo-lakeshore {
+        font-family: var(--sans);
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--brand);
+        letter-spacing: -0.5px;
+        line-height: 1;
+      }
+      .logo-cross {
+        position: relative;
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+      }
+      .logo-cross-arm {
+        position: absolute;
+        width: 20px;
+        height: 10px;
+        border-radius: 5px;
+        top: 50%;
+        left: 50%;
+      }
+      .logo-cross-blue {
+        background: var(--brand);
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+      .logo-cross-red {
+        background: var(--red);
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+      .logo-mc {
+        font-family: var(--sans);
+        font-size: 11.5px;
+        font-weight: 400;
+        color: var(--brand);
+        letter-spacing: 0.4px;
+        margin-top: 3px;
+      }
+      /* Util bar */
+      .util-bar {
+        background: var(--navy);
+        padding: 7px 0;
+      }
+      .util-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .util-links,
+      .util-right {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+      .util-links a,
+      .util-right a {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.04em;
+        color: rgba(255, 255, 255, 0.62);
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+      .util-links a:hover,
+      .util-right a:hover {
+        color: white;
+      }
+      .emerg {
+        background: var(--red);
+        color: white;
+        font-family: var(--mono);
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        padding: 3px 10px;
+        border-radius: 2px;
+      }
+      /* Nav */
+      nav {
+        background: white;
+        border-bottom: 1px solid #e6dfd6;
+        position: sticky;
+        top: 0;
+        z-index: 200;
+        box-shadow: 0 1px 16px rgba(0, 40, 85, 0.07);
+      }
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 76px;
+        padding: 0 48px;
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+      .nav-links {
+        display: flex;
+        gap: 4px;
+        list-style: none;
+      }
+      .nav-links a {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--ink);
+        text-decoration: none;
+        padding: 8px 14px;
+        border-radius: 5px;
+        transition:
+          background 0.15s,
+          color 0.15s;
+      }
+      .nav-links a:hover,
+      .nav-links a.active {
+        background: var(--sky);
+        color: var(--blue);
+      }
+      .nav-cta {
+        display: flex;
+        gap: 10px;
+        margin-left: 20px;
+      }
+      .btn-outline {
+        border: 1.5px solid var(--navy);
+        color: var(--navy);
+        background: transparent;
+        padding: 9px 20px;
+        border-radius: 5px;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        font-family: var(--sans);
+        transition: all 0.15s;
+      }
+      .btn-outline:hover {
+        background: var(--navy);
+        color: white;
+      }
+      .btn-primary {
+        background: var(--red);
+        color: white;
+        border: none;
+        padding: 10px 22px;
+        border-radius: 5px;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        font-family: var(--sans);
+        transition: background 0.15s;
+      }
+      .btn-primary:hover {
+        background: var(--red2);
+      }
+      /* Page hero */
+      .page-hero {
+        background: var(--navy);
+        padding: 72px 0 64px;
+        position: relative;
+        overflow: hidden;
+      }
+      .page-hero::before {
+        content: "";
+        position: absolute;
+        right: -100px;
+        top: -100px;
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(0, 87, 184, 0.35) 0%, transparent 68%);
+      }
+      .breadcrumb {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.4);
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .breadcrumb a {
+        color: rgba(255, 255, 255, 0.4);
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+      .breadcrumb a:hover {
+        color: rgba(255, 255, 255, 0.75);
+      }
+      .breadcrumb-sep {
+        color: rgba(255, 255, 255, 0.2);
+      }
+      .page-hero h1 {
+        font-family: var(--serif);
+        font-size: clamp(40px, 4.5vw, 60px);
+        font-weight: 300;
+        color: white;
+        line-height: 1.08;
+        letter-spacing: -0.025em;
+        margin-bottom: 16px;
+      }
+      .page-hero h1 strong {
+        font-weight: 600;
+      }
+      .page-hero .hero-sub {
+        font-size: 16px;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.6);
+        line-height: 1.7;
+        max-width: 600px;
+      }
+      /* Section labels */
+      .sec-eye {
+        font-family: var(--mono);
+        font-size: 10.5px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--red);
+        margin-bottom: 10px;
+      }
+      .sec-title {
+        font-family: var(--serif);
+        font-size: clamp(28px, 3.2vw, 42px);
+        font-weight: 300;
+        color: var(--navy);
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+      }
+      .sec-title strong {
+        font-weight: 600;
+      }
+      /* Buttons */
+      .btn-dark {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--navy);
+        color: white;
+        padding: 12px 22px;
+        border-radius: 5px;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        font-family: var(--sans);
+        transition:
+          background 0.15s,
+          transform 0.15s;
+      }
+      .btn-dark:hover {
+        background: var(--blue);
+        transform: translateY(-1px);
+      }
+      .btn-red {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--red);
+        color: white;
+        padding: 12px 22px;
+        border-radius: 5px;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        font-family: var(--sans);
+        border: none;
+        cursor: pointer;
+        transition: background 0.15s;
+      }
+      .btn-red:hover {
+        background: var(--red2);
+      }
+      /* Footer */
+      footer {
+        background: #0a1828;
+        color: rgba(255, 255, 255, 0.52);
+        padding: 60px 0 30px;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 48px;
+        margin-bottom: 48px;
+      }
+      .footer-logo {
+        display: inline-flex;
+        align-items: center;
+      }
+      .fl-vps {
+        font-family: var(--sans);
+        font-size: 25px;
+        font-weight: 700;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.75);
+        letter-spacing: -0.5px;
+      }
+      .fl-sep {
+        width: 1.5px;
+        height: 36px;
+        background: rgba(255, 255, 255, 0.2);
+        margin: 0 10px;
+      }
+      .fl-right {
+        display: flex;
+        flex-direction: column;
+      }
+      .fl-ls {
+        font-family: var(--sans);
+        font-size: 23px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.75);
+        letter-spacing: -0.5px;
+        line-height: 1;
+      }
+      .fl-mc {
+        font-family: var(--sans);
+        font-size: 10.5px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.32);
+        letter-spacing: 0.3px;
+        margin-top: 3px;
+      }
+      .f-tagline {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.36);
+        line-height: 1.6;
+        margin: 12px 0 14px;
+      }
+      .f-addr {
+        font-size: 12px;
+        line-height: 1.75;
+        color: rgba(255, 255, 255, 0.34);
+      }
+      .f-title {
+        font-size: 11px;
+        font-weight: 600;
+        color: white;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+        font-family: var(--mono);
+      }
+      .f-links {
+        list-style: none;
+      }
+      .f-links li {
+        margin-bottom: 9px;
+      }
+      .f-links a {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.46);
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+      .f-links a:hover {
+        color: white;
+      }
+      .f-btm {
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+        padding-top: 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+      .f-btm-l {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.24);
+        font-family: var(--mono);
+      }
+      .f-btm-r {
+        display: flex;
+        gap: 16px;
+      }
+      .f-btm-r a {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.24);
+        text-decoration: none;
+        font-family: var(--mono);
+        transition: color 0.15s;
+      }
+      .f-btm-r a:hover {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      /* Reveal */
+      .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      @media (max-width: 900px) {
+        .nav-links {
+          display: none;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 600px) {
+        .container {
+          padding: 0 20px;
+        }
+        .nav-inner {
+          padding: 0 20px;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .about-tabs {
+        display: flex;
+        gap: 0;
+        border-bottom: 2px solid var(--line);
+        margin-bottom: 0;
+        overflow-x: auto;
+      }
+      .atab {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 14px 22px;
+        cursor: pointer;
+        color: var(--muted);
+        border-bottom: 2px solid transparent;
+        margin-bottom: -2px;
+        transition:
+          color 0.15s,
+          border-color 0.15s;
+        white-space: nowrap;
+      }
+      .atab:hover {
+        color: var(--navy);
+      }
+      .atab.active {
+        color: var(--navy);
+        border-bottom-color: var(--red);
+        font-weight: 600;
+      }
+      .tab-pane {
+        display: none;
+        padding: 56px 0;
+      }
+      .tab-pane.active {
+        display: block;
+      }
+      /* Profile */
+      .profile-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 72px;
+        align-items: start;
+      }
+      .profile-lead {
+        font-family: var(--serif);
+        font-size: 22px;
+        font-weight: 300;
+        color: var(--navy);
+        line-height: 1.5;
+        letter-spacing: -0.01em;
+        margin-bottom: 24px;
+      }
+      .profile-body {
+        font-size: 15px;
+        color: var(--muted);
+        line-height: 1.75;
+        margin-bottom: 20px;
+      }
+      .profile-pillars {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        margin-top: 32px;
+      }
+      .pillar {
+        background: var(--sand);
+        border-radius: 8px;
+        padding: 20px 18px;
+      }
+      .pillar-icon {
+        font-size: 22px;
+        margin-bottom: 10px;
+      }
+      .pillar-title {
+        font-family: var(--serif);
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--navy);
+        margin-bottom: 6px;
+      }
+      .pillar-text {
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+      /* Chairman */
+      .msg-grid {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        gap: 56px;
+        align-items: start;
+      }
+      .msg-photo {
+        background: var(--navy);
+        border-radius: 12px;
+        aspect-ratio: 3/4;
+        display: flex;
+        align-items: flex-end;
+        overflow: hidden;
+        position: relative;
+      }
+      .msg-photo-inner {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, #002855 0%, #003f8a 100%);
+      }
+      .msg-photo-label {
+        position: relative;
+        z-index: 1;
+        padding: 20px;
+        width: 100%;
+      }
+      .msg-photo-name {
+        font-family: var(--serif);
+        font-size: 20px;
+        font-weight: 600;
+        color: white;
+        line-height: 1.2;
+      }
+      .msg-photo-role {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.5);
+        margin-top: 4px;
+      }
+      .msg-pull {
+        font-family: var(--serif);
+        font-size: 22px;
+        font-style: italic;
+        font-weight: 300;
+        color: var(--navy);
+        line-height: 1.45;
+        letter-spacing: -0.01em;
+        border-left: 3px solid var(--red);
+        padding-left: 22px;
+        margin-bottom: 24px;
+      }
+      .msg-body {
+        font-size: 15px;
+        color: var(--muted);
+        line-height: 1.75;
+        margin-bottom: 16px;
+      }
+      /* Board */
+      .board-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+      .board-card {
+        background: var(--sand);
+        border-radius: 10px;
+        padding: 24px 20px;
+        text-align: center;
+      }
+      .board-avatar {
+        width: 72px;
+        height: 72px;
+        background: var(--navy);
+        border-radius: 50%;
+        margin: 0 auto 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--serif);
+        font-size: 26px;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.3);
+      }
+      .board-name {
+        font-family: var(--serif);
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--navy);
+        line-height: 1.3;
+        margin-bottom: 4px;
+      }
+      .board-role {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      /* Vision */
+      .vision-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+      .vision-box {
+        background: var(--navy);
+        border-radius: 12px;
+        padding: 40px 36px;
+      }
+      .vision-box.light {
+        background: var(--sand);
+      }
+      .vision-box-label {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.38);
+        margin-bottom: 16px;
+      }
+      .vision-box.light .vision-box-label {
+        color: var(--red);
+      }
+      .vision-statement {
+        font-family: var(--serif);
+        font-size: 22px;
+        font-weight: 300;
+        color: white;
+        line-height: 1.5;
+        letter-spacing: -0.01em;
+      }
+      .vision-box.light .vision-statement {
+        color: var(--navy);
+      }
+      .quality-list {
+        list-style: none;
+        margin-top: 32px;
+      }
+      .quality-list li {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.65);
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .quality-list li::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--red);
+        flex-shrink: 0;
+      }
+      /* Achievements */
+      .ach-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .ach-card {
+        border: 1.5px solid #ebe5dc;
+        border-radius: 10px;
+        padding: 24px 22px;
+        background: white;
+        transition:
+          box-shadow 0.2s,
+          transform 0.2s;
+      }
+      .ach-card:hover {
+        box-shadow: 0 8px 28px rgba(0, 40, 85, 0.1);
+        transform: translateY(-2px);
+      }
+      .ach-year {
+        font-family: var(--mono);
+        font-size: 10.5px;
+        letter-spacing: 0.1em;
+        color: var(--red);
+        margin-bottom: 10px;
+      }
+      .ach-title {
+        font-family: var(--serif);
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--navy);
+        line-height: 1.25;
+        margin-bottom: 8px;
+      }
+      .ach-desc {
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+      @media (max-width: 900px) {
+        .profile-grid,
+        .msg-grid,
+        .vision-grid {
+          grid-template-columns: 1fr;
+        }
+        .board-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 600px) {
+        .board-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .ach-grid {
+          grid-template-columns: 1fr;
+        }
+        .profile-pillars {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="util-bar">
+      <div class="container">
+        <div class="util-inner">
+          <div class="util-links">
+            <a href="#">For Patients</a><a href="#">For Doctors</a><a href="vps_academics.html">Academics</a
+            ><a href="vps_careers.html">Careers</a><a href="#">عربى</a>
+          </div>
+          <div class="util-right">
+            <span class="emerg">A&amp;E: 99616 30000</span><a href="#">Help Desk: 99616 40000</a
+            ><a href="#">Patient Portal</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav>
+      <div class="nav-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-vps">vps</span>
+          <div class="logo-sep"></div>
+          <div class="logo-right">
+            <div class="logo-top-row">
+              <span class="logo-lakeshore">Lakeshore</span>
+              <div class="logo-cross">
+                <div class="logo-cross-arm logo-cross-blue"></div>
+                <div class="logo-cross-arm logo-cross-red"></div>
+              </div>
+            </div>
+            <span class="logo-mc">Medical Centre</span>
+          </div>
+        </a>
+        <ul class="nav-links">
+          <li><a href="vps_departments.html">Departments</a></li>
+          <li><a href="vps_doctors.html">Doctors</a></li>
+          <li><a href="vps_international.html">International</a></li>
+          <li><a href="vps_news.html">News &amp; Research</a></li>
+          <li><a href="vps_about.html" class="active">About</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="#" class="btn-outline">Video Consultation</a
+          ><a href="vps_appointment.html" class="btn-primary">Book Appointment</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="page-hero">
+      <div class="container">
+        <div class="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep">/</span>About</div>
+        <h1>Two decades of<br /><strong>healing excellence.</strong></h1>
+        <p class="hero-sub">
+          Founded in 1996, open since 2003 — VPS Lakeshore has grown from Kerala's most comprehensive independent
+          multi-specialty hospital into a globally recognised centre of quaternary care, research and medical education.
+        </p>
+      </div>
+    </div>
+
+    <div style="background: var(--sand); border-bottom: 1px solid #e0d8ce; position: sticky; top: 76px; z-index: 100">
+      <div class="container">
+        <div class="about-tabs">
+          <div class="atab active" onclick="showTab('profile', this)">Hospital Profile</div>
+          <div class="atab" onclick="showTab('chairman', this)">Chairman's Message</div>
+          <div class="atab" onclick="showTab('md', this)">MD's Message</div>
+          <div class="atab" onclick="showTab('board', this)">Board of Directors</div>
+          <div class="atab" onclick="showTab('vision', this)">Vision &amp; Mission</div>
+          <div class="atab" onclick="showTab('achievements', this)">Achievements</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background: white">
+      <div class="container">
+        <!-- Profile -->
+        <div class="tab-pane active" id="tab-profile">
+          <div class="profile-grid reveal">
+            <div>
+              <div class="sec-eye">Hospital Profile</div>
+              <h2 class="sec-title" style="margin-bottom: 20px">
+                One of Kerala's largest<br /><strong>quaternary care centres</strong>
+              </h2>
+              <p class="profile-lead">
+                VPS Lakeshore is recognised as a leader in medical education, groundbreaking research, and innovative,
+                patient-centred clinical care — the hospital of choice for patients worldwide.
+              </p>
+              <p class="profile-body">
+                Incorporated as a public limited company in 1996 and officially opening its doors to integrated
+                healthcare in January 2003, VPS Lakeshore has emerged as a centre of international healthcare excellence
+                through a broad range of advanced clinical programmes, cutting-edge treatments and comprehensive
+                diagnostic services.
+              </p>
+              <p class="profile-body">
+                The hospital stands with 470 beds, more than 35 specialties, and is a centre of excellence for
+                multi-organ transplant services — one of the largest quaternary care hospitals in India. A new block
+                will add a further 250 inpatient beds, a comprehensive radiation oncology wing and family-friendly
+                patient rooms.
+              </p>
+              <p class="profile-body">
+                VPS Lakeshore is part of VPS Healthcare, a global healthcare group operating across 9 countries
+                including UAE, UK, Germany and India — with flagship properties Burjeel and Medeor.
+              </p>
+              <a href="vps_departments.html" class="btn-dark" style="margin-top: 16px">Explore Our Departments →</a>
+            </div>
+            <div>
+              <div class="profile-pillars">
+                <div class="pillar">
+                  <div class="pillar-icon">🏆</div>
+                  <div class="pillar-title">Exemplary Expertise</div>
+                  <div class="pillar-text">
+                    160+ highly trained specialists with expertise across 35+ specialties providing compassionate,
+                    personalised care.
+                  </div>
+                </div>
+                <div class="pillar">
+                  <div class="pillar-icon">🤖</div>
+                  <div class="pillar-title">Cutting-Edge Technology</div>
+                  <div class="pillar-text">
+                    Robotic surgery, 3D laparoscopy, nanoscopic techniques and advanced imaging — always at the frontier
+                    of medicine.
+                  </div>
+                </div>
+                <div class="pillar">
+                  <div class="pillar-icon">🔬</div>
+                  <div class="pillar-title">Research Heritage</div>
+                  <div class="pillar-text">
+                    Pioneering research in life-threatening diseases with special attention paid to conditions endemic
+                    to Kerala.
+                  </div>
+                </div>
+                <div class="pillar">
+                  <div class="pillar-icon">🎓</div>
+                  <div class="pillar-title">Training &amp; Education</div>
+                  <div class="pillar-text">
+                    14 DNB-accredited departments, MEM programme, PDCC courses and endoscopy training for doctors from
+                    India and abroad.
+                  </div>
+                </div>
+                <div class="pillar">
+                  <div class="pillar-icon">✨</div>
+                  <div class="pillar-title">Clinical Hygiene</div>
+                  <div class="pillar-text">
+                    Spotless, professionally managed cleanliness across all areas reflects attention to detail and
+                    patient safety standards.
+                  </div>
+                </div>
+                <div class="pillar">
+                  <div class="pillar-icon">💙</div>
+                  <div class="pillar-title">Affordable Care</div>
+                  <div class="pillar-text">
+                    Moderate costs ensuring that the benefits of world-class modern healthcare reach all strata of
+                    society.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chairman -->
+        <div class="tab-pane" id="tab-chairman">
+          <div class="msg-grid reveal">
+            <div class="msg-photo">
+              <div class="msg-photo-inner"></div>
+              <div class="msg-photo-label">
+                <div class="msg-photo-name">Dr. Shamsheer Vayalil</div>
+                <div class="msg-photo-role">Chairman, VPS Lakeshore</div>
+              </div>
+            </div>
+            <div>
+              <div class="sec-eye">Message from the Chairman</div>
+              <h2 class="sec-title" style="margin-bottom: 28px">
+                "The greatest wealth<br /><strong>is good health."</strong>
+              </h2>
+              <div class="msg-pull">
+                "It is health that is real wealth and not pieces of gold and silver." — Mahatma Gandhi
+              </div>
+              <p class="msg-body">
+                When we started our first hospital in 2007, our focus was on delivering quality healthcare to areas
+                deprived of basic healthcare services. Today, with operations across the Middle East, Europe, UK and
+                India, we still strive to deliver the best of care and wellness to people across the world.
+              </p>
+              <p class="msg-body">
+                With VPS Lakeshore, the bedrock of our global healthcare mission has been set solid in God's Own
+                Country. For more than two decades, VPS Lakeshore has been taking giant strides in delivering premium
+                care and path-breaking innovation in the healthcare arena.
+              </p>
+              <p class="msg-body">
+                The hospital stands with 470 beds, more than 40 specialities and a centre of excellence for multi-organ
+                transplant services — one of the largest quaternary care hospitals in India. We are glad that today we
+                have VPS Lakeshore Hospital as part of our global healthcare mission and together we look forward to
+                providing quality healthcare services and shaping a healthier future.
+              </p>
+              <p
+                style="
+                  font-family: var(--serif);
+                  font-size: 16px;
+                  font-weight: 600;
+                  color: var(--navy);
+                  margin-top: 28px;
+                "
+              >
+                Dr. Shamsheer Vayalil<br /><span style="font-weight: 300; font-size: 14px"
+                  >Chairman, VPS Lakeshore Hospital</span
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- MD -->
+        <div class="tab-pane" id="tab-md">
+          <div class="msg-grid reveal">
+            <div class="msg-photo">
+              <div class="msg-photo-inner" style="background: linear-gradient(135deg, #003f8a 0%, #0057b8 100%)"></div>
+              <div class="msg-photo-label">
+                <div class="msg-photo-name">Mr. S.K. Abdulla</div>
+                <div class="msg-photo-role">Managing Director</div>
+              </div>
+            </div>
+            <div>
+              <div class="sec-eye">Managing Director's Message</div>
+              <h2 class="sec-title" style="margin-bottom: 28px">
+                Extraordinary doctors.<br /><strong>Extraordinary care.</strong>
+              </h2>
+              <p class="msg-body">
+                VPS Lakeshore is one of only a few hospitals named among Kerala's top performers on key quality measures
+                by the leading accreditors of healthcare organisations in India.
+              </p>
+              <p class="msg-body">
+                In keeping with our 20-year heritage, everyone on our team — from our medical, nursing, paramedical and
+                supportive service healthcare professionals to the board of directors — is working together to ensure
+                that quality healthcare is available to our patients. Our team of extraordinary doctors provides
+                extraordinary care, on a foundation of innovation, compassion, and service excellence.
+              </p>
+              <p class="msg-body">
+                VPS Lakeshore is a 470-bedded, quaternary care multi super specialty hospital best known for management
+                of digestive diseases and as an oncology centre which pioneered peripheral stem cell therapy in adults
+                and children. We are continually investing in and developing new services and programmes that keep our
+                system at the very forefront of medicine.
+              </p>
+              <p class="msg-body">
+                Our goal is that every patient and family member has a positive experience in our facility. We look
+                forward to being your hospital of choice for all of your future healthcare needs.
+              </p>
+              <p style="font-family: var(--sans); font-size: 13px; color: var(--muted); margin-top: 16px">
+                Write to the MD:
+                <a href="mailto:ceo@lakeshorehospital.org" style="color: var(--blue)">ceo@lakeshorehospital.org</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Board -->
+        <div class="tab-pane" id="tab-board">
+          <div class="reveal" style="margin-bottom: 40px">
+            <div class="sec-eye">Governance</div>
+            <h2 class="sec-title">Board of<br /><strong>Directors</strong></h2>
+          </div>
+          <div class="board-grid reveal">
+            <div class="board-card">
+              <div class="board-avatar">SV</div>
+              <div class="board-name">Dr. Shamsheer Vayalil</div>
+              <div class="board-role">Chairman</div>
+            </div>
+            <div class="board-card">
+              <div class="board-avatar">SK</div>
+              <div class="board-name">Mr. S.K. Abdulla</div>
+              <div class="board-role">Managing Director</div>
+            </div>
+            <div class="board-card">
+              <div class="board-avatar">KN</div>
+              <div class="board-name">Mr. K.N.P. Nair</div>
+              <div class="board-role">Director</div>
+            </div>
+            <div class="board-card">
+              <div class="board-avatar">KJ</div>
+              <div class="board-name">Dr. K.V. Johny</div>
+              <div class="board-role">Director</div>
+            </div>
+            <div class="board-card">
+              <div class="board-avatar">PM</div>
+              <div class="board-name">Mr. P.D. Mathew</div>
+              <div class="board-role">Director</div>
+            </div>
+            <div class="board-card">
+              <div class="board-avatar">MM</div>
+              <div class="board-name">Mr. M.M. Mathai</div>
+              <div class="board-role">Director</div>
+            </div>
+            <div class="board-card">
+              <div class="board-avatar">JV</div>
+              <div class="board-name">Mr. Job Varghese</div>
+              <div class="board-role">Director</div>
+            </div>
+            <div class="board-card">
+              <div class="board-avatar">KC</div>
+              <div class="board-name">Dr. K. Chitrathara</div>
+              <div class="board-role">Woman Director</div>
+            </div>
+            <div class="board-card">
+              <div class="board-avatar">VV</div>
+              <div class="board-name">Mr. V. Venugopal</div>
+              <div class="board-role">Independent Director</div>
+            </div>
+            <div class="board-card">
+              <div class="board-avatar">RV</div>
+              <div class="board-name">Mr. R. Venkataramanan</div>
+              <div class="board-role">Independent Director</div>
+            </div>
+            <div class="board-card">
+              <div class="board-avatar">RG</div>
+              <div class="board-name">Mr. Reuben George Joseph</div>
+              <div class="board-role">Additional Director</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vision -->
+        <div class="tab-pane" id="tab-vision">
+          <div class="reveal" style="margin-bottom: 40px">
+            <div class="sec-eye">Our Purpose</div>
+            <h2 class="sec-title">Vision, Mission<br /><strong>&amp; Quality Policy</strong></h2>
+          </div>
+          <div class="vision-grid reveal">
+            <div class="vision-box">
+              <div class="vision-box-label">Vision</div>
+              <div class="vision-statement">
+                To be the destination of choice for people seeking superior healthcare through leading-edge treatments
+                and research.
+              </div>
+            </div>
+            <div class="vision-box light">
+              <div class="vision-box-label">Mission</div>
+              <div class="vision-statement">
+                To deliver world-class, patient-centred healthcare with compassion and integrity — making advanced
+                medicine accessible to all strata of society.
+              </div>
+            </div>
+          </div>
+          <div style="margin-top: 28px" class="reveal">
+            <div class="vision-box" style="background: var(--navy); border-radius: 12px; padding: 40px 36px">
+              <div class="vision-box-label">Quality Policy</div>
+              <div class="vision-statement" style="margin-bottom: 24px">
+                VPS Lakeshore is committed to providing safe and quality patient care by meeting national and
+                international standards.
+              </div>
+              <ul class="quality-list">
+                <li>Compliance with NABH standards and accreditation requirements</li>
+                <li>Continual improvement in clinical outcomes and patient safety</li>
+                <li>Evidence-based clinical practice across all departments</li>
+                <li>Investing in staff training, research and technology</li>
+                <li>Transparent, patient-first governance and ethical practice</li>
+                <li>Bureau Veritas certified · NABH accredited · Green OT certified</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Achievements -->
+        <div class="tab-pane" id="tab-achievements">
+          <div class="reveal" style="margin-bottom: 40px">
+            <div class="sec-eye">Milestones</div>
+            <h2 class="sec-title">A history of<br /><strong>firsts</strong></h2>
+          </div>
+          <div class="ach-grid reveal">
+            <div class="ach-card">
+              <div class="ach-year">2003</div>
+              <div class="ach-title">Hospital Opens</div>
+              <div class="ach-desc">
+                VPS Lakeshore officially opens in Kochi as a multi-specialty hospital following incorporation in 1996.
+              </div>
+            </div>
+            <div class="ach-card">
+              <div class="ach-year">2004</div>
+              <div class="ach-title">Limca Book of Records</div>
+              <div class="ach-desc">
+                Air, water and surface ambulance services listed — a first in India — in the Limca Book of Records.
+              </div>
+            </div>
+            <div class="ach-card">
+              <div class="ach-year">2016</div>
+              <div class="ach-title">VPS Healthcare Acquisition</div>
+              <div class="ach-desc">
+                VPS Healthcare acquires majority stake, integrating the hospital into its global network and
+                accelerating expansion.
+              </div>
+            </div>
+            <div class="ach-card">
+              <div class="ach-year">2019</div>
+              <div class="ach-title">Guinness World Record</div>
+              <div class="ach-desc">
+                VPS Lakeshore's 'HEART' — a full-scale anatomical replica — awarded Guinness World Record for Largest
+                Model of a Human Organ.
+              </div>
+            </div>
+            <div class="ach-card">
+              <div class="ach-year">Dec 2023</div>
+              <div class="ach-title">World First: Endo-Robotic Surgery</div>
+              <div class="ach-desc">
+                World's first endo-robotic surgery for post-cricoid cancer — restoring speech and swallowing in a
+                75-year-old patient.
+              </div>
+            </div>
+            <div class="ach-card">
+              <div class="ach-year">Jan 2024</div>
+              <div class="ach-title">India First: Bunion Surgery</div>
+              <div class="ach-desc">
+                India's first minimally invasive bunion (hallux valgus) correction using small incisions and specialised
+                instruments.
+              </div>
+            </div>
+            <div class="ach-card">
+              <div class="ach-year">Oct 2024</div>
+              <div class="ach-title">India First: Head &amp; Neck Cancer Centre</div>
+              <div class="ach-desc">
+                Inaugurated India's first dedicated Centre for Complex Head &amp; Neck Cancer, integrating surgery,
+                radiation and medical oncology.
+              </div>
+            </div>
+            <div class="ach-card">
+              <div class="ach-year">Nov 2025</div>
+              <div class="ach-title">Asia First: Nanoscopic ACL Surgery</div>
+              <div class="ach-desc">
+                Asia's first nanoscopic ACL reconstruction and meniscal repair — a breakthrough for sportspersons and
+                knee injury patients.
+              </div>
+            </div>
+            <div class="ach-card">
+              <div class="ach-year">Jan 2026</div>
+              <div class="ach-title">Rare 3D Laparoscopic Kidney Removal</div>
+              <div class="ach-desc">
+                Rare 3D laparoscopic removal of a 4 kg giant polycystic kidney — showcasing the depth of VPS Lakeshore's
+                MIS capabilities.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- container -->
+    </div>
+    <!-- bg -->
+
+    <script>
+      function showTab(id, el) {
+        document.querySelectorAll(".tab-pane").forEach((p) => p.classList.remove("active"));
+        document.querySelectorAll(".atab").forEach((t) => t.classList.remove("active"));
+        document.getElementById("tab-" + id).classList.add("active");
+        el.classList.add("active");
+        // re-trigger reveals
+        document.querySelectorAll("#tab-" + id + " .reveal").forEach((r) => {
+          r.classList.remove("visible");
+          setTimeout(() => r.classList.add("visible"), 50);
+        });
+      }
+      // trigger initial reveals
+      setTimeout(
+        () => document.querySelectorAll("#tab-profile .reveal").forEach((r) => r.classList.add("visible")),
+        100,
+      );
+    </script>
+
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="footer-logo">
+              <span class="fl-vps">vps</span>
+              <div class="fl-sep"></div>
+              <div class="fl-right"><span class="fl-ls">Lakeshore</span><span class="fl-mc">Medical Centre</span></div>
+            </div>
+            <div class="f-tagline">"Care beyond boundaries, medicine beyond limits."</div>
+            <div class="f-addr">
+              XVI/612, NH-66 Bypass, Maradu, Nettoor P.O., Kochi – 682040, Kerala<br />
+              Tel: +91-484-2701032 / 2701033 / 2703951<br />
+              Emergency: 99616 30000 · Help Desk: 99616 40000<br />
+              info@lakeshorehospital.com · ips@lakeshorehospital.org
+            </div>
+          </div>
+          <div>
+            <div class="f-title">Patient Care</div>
+            <ul class="f-links">
+              <li><a href="vps_appointment.html">Book Appointment</a></li>
+              <li><a href="vps_doctors.html">Find a Doctor</a></li>
+              <li><a href="vps_departments.html">Departments</a></li>
+              <li><a href="vps_packages.html">Health Packages</a></li>
+              <li><a href="#">Patient Portal</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="f-title">International</div>
+            <ul class="f-links">
+              <li><a href="vps_international.html">International Patients</a></li>
+              <li><a href="vps_international.html#enquiry">Send Your Case</a></li>
+              <li><a href="#">Medical Visa</a></li>
+              <li><a href="vps_contact.html">Contact IPS Desk</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="f-title">About</div>
+            <ul class="f-links">
+              <li><a href="vps_about.html">About VPS Lakeshore</a></li>
+              <li><a href="vps_academics.html">Academics &amp; Research</a></li>
+              <li><a href="vps_news.html">News &amp; Events</a></li>
+              <li><a href="vps_careers.html">Careers</a></li>
+              <li><a href="vps_contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="f-btm">
+          <div class="f-btm-l">
+            © 2026 Lakeshore Hospital and Research Centre Ltd · Kochi, Kerala · Design Prototype
+          </div>
+          <div class="f-btm-r">
+            <a href="#">Privacy Policy</a><a href="#">Terms &amp; Conditions</a><a href="#">Refund Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const obs = new IntersectionObserver(
+        (e) =>
+          e.forEach((en, i) => {
+            if (en.isIntersecting) {
+              setTimeout(() => en.target.classList.add("visible"), i * 70);
+              obs.unobserve(en.target);
+            }
+          }),
+        { threshold: 0.08, rootMargin: "0px 0px -30px 0px" },
+      );
+      document.querySelectorAll(".reveal").forEach((el) => obs.observe(el));
+    </script>
+  </body>
+</html>

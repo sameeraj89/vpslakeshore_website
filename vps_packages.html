@@ -1,0 +1,1164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Health Care Packages — VPS Lakeshore Medical Centre</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,700&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* VPS LAKESHORE — SHARED DESIGN SYSTEM */
+      :root {
+        --navy: #002855;
+        --blue: #003f8a;
+        --brand: #1b6db5;
+        --azure: #0057b8;
+        --sky: #e8f1fb;
+        --red: #c8102e;
+        --red2: #a00d24;
+        --sand: #f7f4ef;
+        --warm: #ede8e0;
+        --line: #d4ccc4;
+        --ink: #0d1b2e;
+        --muted: #5c6878;
+        --serif: "Cormorant Garamond", Georgia, serif;
+        --sans: "DM Sans", sans-serif;
+        --mono: "DM Mono", monospace;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--sans);
+        color: var(--ink);
+        background: #fff;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 48px;
+      }
+      /* Logo */
+      .logo {
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+        flex-shrink: 0;
+      }
+      .logo-vps {
+        font-family: var(--sans);
+        font-size: 28px;
+        font-weight: 700;
+        font-style: italic;
+        color: var(--brand);
+        letter-spacing: -1px;
+        line-height: 1;
+      }
+      .logo-sep {
+        width: 1.5px;
+        height: 40px;
+        background: #9eaab8;
+        margin: 0 12px;
+        flex-shrink: 0;
+      }
+      .logo-right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        line-height: 1;
+      }
+      .logo-top-row {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .logo-lakeshore {
+        font-family: var(--sans);
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--brand);
+        letter-spacing: -0.5px;
+        line-height: 1;
+      }
+      .logo-cross {
+        position: relative;
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+      }
+      .logo-cross-arm {
+        position: absolute;
+        width: 20px;
+        height: 10px;
+        border-radius: 5px;
+        top: 50%;
+        left: 50%;
+      }
+      .logo-cross-blue {
+        background: var(--brand);
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+      .logo-cross-red {
+        background: var(--red);
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+      .logo-mc {
+        font-family: var(--sans);
+        font-size: 11.5px;
+        font-weight: 400;
+        color: var(--brand);
+        letter-spacing: 0.4px;
+        margin-top: 3px;
+      }
+      /* Util bar */
+      .util-bar {
+        background: var(--navy);
+        padding: 7px 0;
+      }
+      .util-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .util-links,
+      .util-right {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+      .util-links a,
+      .util-right a {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.04em;
+        color: rgba(255, 255, 255, 0.62);
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+      .util-links a:hover,
+      .util-right a:hover {
+        color: white;
+      }
+      .emerg {
+        background: var(--red);
+        color: white;
+        font-family: var(--mono);
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        padding: 3px 10px;
+        border-radius: 2px;
+      }
+      /* Nav */
+      nav {
+        background: white;
+        border-bottom: 1px solid #e6dfd6;
+        position: sticky;
+        top: 0;
+        z-index: 200;
+        box-shadow: 0 1px 16px rgba(0, 40, 85, 0.07);
+      }
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 76px;
+        padding: 0 48px;
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+      .nav-links {
+        display: flex;
+        gap: 4px;
+        list-style: none;
+      }
+      .nav-links a {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--ink);
+        text-decoration: none;
+        padding: 8px 14px;
+        border-radius: 5px;
+        transition:
+          background 0.15s,
+          color 0.15s;
+      }
+      .nav-links a:hover,
+      .nav-links a.active {
+        background: var(--sky);
+        color: var(--blue);
+      }
+      .nav-cta {
+        display: flex;
+        gap: 10px;
+        margin-left: 20px;
+      }
+      .btn-outline {
+        border: 1.5px solid var(--navy);
+        color: var(--navy);
+        background: transparent;
+        padding: 9px 20px;
+        border-radius: 5px;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        font-family: var(--sans);
+        transition: all 0.15s;
+      }
+      .btn-outline:hover {
+        background: var(--navy);
+        color: white;
+      }
+      .btn-primary {
+        background: var(--red);
+        color: white;
+        border: none;
+        padding: 10px 22px;
+        border-radius: 5px;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        font-family: var(--sans);
+        transition: background 0.15s;
+      }
+      .btn-primary:hover {
+        background: var(--red2);
+      }
+      /* Page hero */
+      .page-hero {
+        background: var(--navy);
+        padding: 72px 0 64px;
+        position: relative;
+        overflow: hidden;
+      }
+      .page-hero::before {
+        content: "";
+        position: absolute;
+        right: -100px;
+        top: -100px;
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(0, 87, 184, 0.35) 0%, transparent 68%);
+      }
+      .breadcrumb {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.4);
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .breadcrumb a {
+        color: rgba(255, 255, 255, 0.4);
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+      .breadcrumb a:hover {
+        color: rgba(255, 255, 255, 0.75);
+      }
+      .breadcrumb-sep {
+        color: rgba(255, 255, 255, 0.2);
+      }
+      .page-hero h1 {
+        font-family: var(--serif);
+        font-size: clamp(40px, 4.5vw, 60px);
+        font-weight: 300;
+        color: white;
+        line-height: 1.08;
+        letter-spacing: -0.025em;
+        margin-bottom: 16px;
+      }
+      .page-hero h1 strong {
+        font-weight: 600;
+      }
+      .page-hero .hero-sub {
+        font-size: 16px;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.6);
+        line-height: 1.7;
+        max-width: 600px;
+      }
+      /* Section labels */
+      .sec-eye {
+        font-family: var(--mono);
+        font-size: 10.5px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--red);
+        margin-bottom: 10px;
+      }
+      .sec-title {
+        font-family: var(--serif);
+        font-size: clamp(28px, 3.2vw, 42px);
+        font-weight: 300;
+        color: var(--navy);
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+      }
+      .sec-title strong {
+        font-weight: 600;
+      }
+      /* Buttons */
+      .btn-dark {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--navy);
+        color: white;
+        padding: 12px 22px;
+        border-radius: 5px;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        font-family: var(--sans);
+        transition:
+          background 0.15s,
+          transform 0.15s;
+      }
+      .btn-dark:hover {
+        background: var(--blue);
+        transform: translateY(-1px);
+      }
+      .btn-red {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--red);
+        color: white;
+        padding: 12px 22px;
+        border-radius: 5px;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        font-family: var(--sans);
+        border: none;
+        cursor: pointer;
+        transition: background 0.15s;
+      }
+      .btn-red:hover {
+        background: var(--red2);
+      }
+      /* Footer */
+      footer {
+        background: #0a1828;
+        color: rgba(255, 255, 255, 0.52);
+        padding: 60px 0 30px;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 48px;
+        margin-bottom: 48px;
+      }
+      .footer-logo {
+        display: inline-flex;
+        align-items: center;
+      }
+      .fl-vps {
+        font-family: var(--sans);
+        font-size: 25px;
+        font-weight: 700;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.75);
+        letter-spacing: -0.5px;
+      }
+      .fl-sep {
+        width: 1.5px;
+        height: 36px;
+        background: rgba(255, 255, 255, 0.2);
+        margin: 0 10px;
+      }
+      .fl-right {
+        display: flex;
+        flex-direction: column;
+      }
+      .fl-ls {
+        font-family: var(--sans);
+        font-size: 23px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.75);
+        letter-spacing: -0.5px;
+        line-height: 1;
+      }
+      .fl-mc {
+        font-family: var(--sans);
+        font-size: 10.5px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.32);
+        letter-spacing: 0.3px;
+        margin-top: 3px;
+      }
+      .f-tagline {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.36);
+        line-height: 1.6;
+        margin: 12px 0 14px;
+      }
+      .f-addr {
+        font-size: 12px;
+        line-height: 1.75;
+        color: rgba(255, 255, 255, 0.34);
+      }
+      .f-title {
+        font-size: 11px;
+        font-weight: 600;
+        color: white;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+        font-family: var(--mono);
+      }
+      .f-links {
+        list-style: none;
+      }
+      .f-links li {
+        margin-bottom: 9px;
+      }
+      .f-links a {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.46);
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+      .f-links a:hover {
+        color: white;
+      }
+      .f-btm {
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+        padding-top: 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+      .f-btm-l {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.24);
+        font-family: var(--mono);
+      }
+      .f-btm-r {
+        display: flex;
+        gap: 16px;
+      }
+      .f-btm-r a {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.24);
+        text-decoration: none;
+        font-family: var(--mono);
+        transition: color 0.15s;
+      }
+      .f-btm-r a:hover {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      /* Reveal */
+      .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      @media (max-width: 900px) {
+        .nav-links {
+          display: none;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 600px) {
+        .container {
+          padding: 0 20px;
+        }
+        .nav-inner {
+          padding: 0 20px;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .pkg-tabs {
+        display: flex;
+        gap: 0;
+        border-bottom: 2px solid var(--line);
+        overflow-x: auto;
+        margin-bottom: 0;
+      }
+      .ptab {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 14px 20px;
+        cursor: pointer;
+        color: var(--muted);
+        border-bottom: 2px solid transparent;
+        margin-bottom: -2px;
+        transition:
+          color 0.15s,
+          border-color 0.15s;
+        white-space: nowrap;
+      }
+      .ptab:hover {
+        color: var(--navy);
+      }
+      .ptab.active {
+        color: var(--navy);
+        border-bottom-color: var(--red);
+        font-weight: 600;
+      }
+      .pkg-pane {
+        display: none;
+        padding: 52px 0;
+      }
+      .pkg-pane.active {
+        display: block;
+      }
+      .pkg-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 60px;
+        align-items: start;
+      }
+      .pkg-badge {
+        background: var(--red);
+        color: white;
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        padding: 5px 12px;
+        border-radius: 2px;
+        display: inline-block;
+        margin-bottom: 18px;
+      }
+      .pkg-title {
+        font-family: var(--serif);
+        font-size: clamp(28px, 3vw, 40px);
+        font-weight: 300;
+        color: var(--navy);
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        margin-bottom: 16px;
+      }
+      .pkg-title strong {
+        font-weight: 600;
+      }
+      .pkg-desc {
+        font-size: 15px;
+        color: var(--muted);
+        line-height: 1.7;
+        margin-bottom: 24px;
+      }
+      .pkg-instructions {
+        background: var(--sky);
+        border-radius: 8px;
+        padding: 20px 22px;
+        font-size: 13.5px;
+        color: var(--ink);
+        line-height: 1.7;
+        margin-bottom: 28px;
+      }
+      .pkg-instructions strong {
+        color: var(--navy);
+        display: block;
+        margin-bottom: 6px;
+        font-family: var(--mono);
+        font-size: 10.5px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .pkg-tests {
+        background: white;
+        border: 1.5px solid #ebe5dc;
+        border-radius: 10px;
+        padding: 28px 26px;
+      }
+      .pkg-tests-title {
+        font-family: var(--mono);
+        font-size: 10.5px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--red);
+        margin-bottom: 16px;
+      }
+      .test-list {
+        list-style: none;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px 14px;
+      }
+      .test-list li {
+        font-size: 13.5px;
+        color: var(--ink);
+        padding: 5px 0;
+        border-bottom: 1px solid #f0ebe3;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .test-list li::before {
+        content: "";
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--brand);
+        flex-shrink: 0;
+      }
+      .appt-box {
+        background: var(--navy);
+        border-radius: 10px;
+        padding: 24px 22px;
+        margin-top: 20px;
+      }
+      .appt-box p {
+        font-size: 13.5px;
+        color: rgba(255, 255, 255, 0.65);
+        line-height: 1.6;
+        margin-bottom: 16px;
+      }
+      .pkg-cta-row {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      @media (max-width: 900px) {
+        .pkg-grid {
+          grid-template-columns: 1fr;
+        }
+        .test-list {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="util-bar">
+      <div class="container">
+        <div class="util-inner">
+          <div class="util-links">
+            <a href="#">For Patients</a><a href="#">For Doctors</a><a href="vps_academics.html">Academics</a
+            ><a href="vps_careers.html">Careers</a><a href="#">عربى</a>
+          </div>
+          <div class="util-right">
+            <span class="emerg">A&amp;E: 99616 30000</span><a href="#">Help Desk: 99616 40000</a
+            ><a href="#">Patient Portal</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav>
+      <div class="nav-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-vps">vps</span>
+          <div class="logo-sep"></div>
+          <div class="logo-right">
+            <div class="logo-top-row">
+              <span class="logo-lakeshore">Lakeshore</span>
+              <div class="logo-cross">
+                <div class="logo-cross-arm logo-cross-blue"></div>
+                <div class="logo-cross-arm logo-cross-red"></div>
+              </div>
+            </div>
+            <span class="logo-mc">Medical Centre</span>
+          </div>
+        </a>
+        <ul class="nav-links">
+          <li><a href="vps_departments.html">Departments</a></li>
+          <li><a href="vps_doctors.html">Doctors</a></li>
+          <li><a href="vps_international.html">International</a></li>
+          <li><a href="vps_news.html">News &amp; Research</a></li>
+          <li><a href="vps_about.html">About</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="#" class="btn-outline">Video Consultation</a
+          ><a href="vps_appointment.html" class="btn-primary">Book Appointment</a>
+        </div>
+      </div>
+    </nav>
+    <div class="page-hero">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a><span class="breadcrumb-sep">/</span>Health Care Packages
+        </div>
+        <h1>Prevention is<br /><strong>real wealth.</strong></h1>
+        <p class="hero-sub">
+          VPS Lakeshore has designed comprehensive health check packages for those concerned about their wellbeing but
+          short on time. Arrive at 7:30 AM, complete all investigations, and receive your full report within 48 hours —
+          with physician guidance included.
+        </p>
+      </div>
+    </div>
+
+    <div style="background: var(--sand); border-bottom: 1px solid #e0d8ce; position: sticky; top: 76px; z-index: 100">
+      <div class="container">
+        <div class="pkg-tabs">
+          <div class="ptab active" onclick="showPkg('basic', this)">Basic Health</div>
+          <div class="ptab" onclick="showPkg('sehat', this)">Sehat Plan</div>
+          <div class="ptab" onclick="showPkg('women40', this)">Women (Below 40)</div>
+          <div class="ptab" onclick="showPkg('women40plus', this)">Women (Above 40)</div>
+          <div class="ptab" onclick="showPkg('child', this)">Child Health</div>
+          <div class="ptab" onclick="showPkg('diabetic', this)">Diabetic</div>
+          <div class="ptab" onclick="showPkg('cardiac', this)">Cardiac</div>
+          <div class="ptab" onclick="showPkg('cancer', this)">Cancer Screening</div>
+          <div class="ptab" onclick="showPkg('ayur', this)">Ayurkshethra</div>
+        </div>
+      </div>
+    </div>
+
+    <section style="background: white">
+      <div class="container">
+        <div class="pkg-pane active" id="pkg-basic">
+          <div class="pkg-grid reveal">
+            <div>
+              <div class="pkg-badge">Lakeshore Basic Health Plan</div>
+              <h2 class="pkg-title">Complete health<br /><strong>screening in one day</strong></h2>
+              <p class="pkg-desc">
+                The package simplifies health check-up for you. Arrive at 7:30 AM on an empty stomach. Our PR Officer
+                will guide you through all investigations, after which a complimentary breakfast is served.
+              </p>
+              <div class="pkg-instructions">
+                <strong>How It Works</strong>Make a prior appointment by calling 0484-2701032 / 2701033. Arrive at 7:30
+                AM on an empty stomach. Once investigations are complete, breakfast is served. Your physician will
+                evaluate results and advise you. If any health concerns are identified, you will be referred to the
+                relevant department.
+              </div>
+              <div class="appt-box">
+                <p>To book a health package or for any enquiries, call our Public Relations team.</p>
+                <div style="font-size: 15px; font-weight: 600; color: white">0484-2701032 · 2701033 · 2703951</div>
+              </div>
+            </div>
+            <div>
+              <div class="pkg-tests">
+                <div class="pkg-tests-title">Investigations Included</div>
+                <ul class="test-list">
+                  <li>Lab Investigations (Full Panel)</li>
+                  <li>Chest X-ray (PA View)</li>
+                  <li>Abdominal Ultrasound Scan</li>
+                  <li>ECG (Resting)</li>
+                  <li>Echocardiography</li>
+                  <li>Treadmill Test (TMT)</li>
+                  <li>Complete Blood Count</li>
+                  <li>Blood Sugar (Fasting &amp; PP)</li>
+                  <li>Lipid Profile</li>
+                  <li>Liver Function Tests</li>
+                  <li>Kidney Function Tests</li>
+                  <li>Thyroid Profile (TSH)</li>
+                  <li>Urine Routine &amp; Microscopy</li>
+                  <li>Physician Consultation</li>
+                </ul>
+                <div
+                  style="
+                    margin-top: 18px;
+                    font-size: 12.5px;
+                    color: var(--muted);
+                    border-top: 1px solid #ebe5dc;
+                    padding-top: 14px;
+                  "
+                >
+                  Full report delivered within 48 hours · Complimentary breakfast included
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pkg-pane" id="pkg-sehat">
+          <div class="pkg-grid reveal">
+            <div>
+              <div class="pkg-badge">Lakeshore Sehat Plan</div>
+              <h2 class="pkg-title">Comprehensive wellness<br /><strong>for the whole family</strong></h2>
+              <p class="pkg-desc">
+                The Sehat Plan offers a broader panel of investigations with extended specialist consultations — ideal
+                for families seeking a thorough annual health review.
+              </p>
+              <div class="pkg-instructions">
+                <strong>How It Works</strong>Book your appointment in advance. Arrive at 7:30 AM fasting. Your PR
+                Officer coordinates all investigations. Complimentary breakfast is served after tests. Physician reviews
+                results and provides detailed guidance with referrals where required.
+              </div>
+              <div class="appt-box">
+                <p>Book your Sehat Plan appointment:</p>
+                <div style="font-size: 15px; font-weight: 600; color: white">0484-2701032 · 2701033</div>
+              </div>
+            </div>
+            <div>
+              <div class="pkg-tests">
+                <div class="pkg-tests-title">Investigations Included</div>
+                <ul class="test-list">
+                  <li>All Basic Plan Tests</li>
+                  <li>HbA1c (3-Month Glucose)</li>
+                  <li>PSA (Men above 40)</li>
+                  <li>Uric Acid</li>
+                  <li>Vitamin D3 &amp; B12</li>
+                  <li>Stool Examination</li>
+                  <li>Pulmonary Function Test</li>
+                  <li>Eye Examination</li>
+                  <li>Dental Screening</li>
+                  <li>Dietician Consultation</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pkg-pane" id="pkg-women40">
+          <div class="pkg-grid reveal">
+            <div>
+              <div class="pkg-badge">Lakeshore Women Health Plan · Below 40</div>
+              <h2 class="pkg-title">Women's health<br /><strong>tailored for you</strong></h2>
+              <p class="pkg-desc">
+                Designed for women below 40, this package focuses on early detection of common conditions including
+                anaemia, cervical health, ovarian disorders and general metabolic risk factors.
+              </p>
+              <div class="pkg-instructions">
+                <strong>How It Works</strong>Book in advance via 0484-2701032 / 2701033. Arrive at 7:30 AM fasting. Your
+                PR Officer guides you through all tests. Breakfast served after. Physician provides personal health
+                guidance with specialist referrals as needed.
+              </div>
+              <div class="appt-box">
+                <p>Book Women's Health Package:</p>
+                <div style="font-size: 15px; font-weight: 600; color: white">0484-2701032 · 2701033</div>
+              </div>
+            </div>
+            <div>
+              <div class="pkg-tests">
+                <div class="pkg-tests-title">Investigations Included</div>
+                <ul class="test-list">
+                  <li>Complete Blood Count</li>
+                  <li>Lipid Profile</li>
+                  <li>Blood Sugar (FBS &amp; PPBS)</li>
+                  <li>Thyroid Profile (T3, T4, TSH)</li>
+                  <li>Liver Function Tests</li>
+                  <li>Kidney Function Tests</li>
+                  <li>Pap Smear</li>
+                  <li>Pelvic Ultrasound</li>
+                  <li>Urine Routine</li>
+                  <li>ECG</li>
+                  <li>Gynaecologist Consultation</li>
+                  <li>Physician Consultation</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pkg-pane" id="pkg-women40plus">
+          <div class="pkg-grid reveal">
+            <div>
+              <div class="pkg-badge">Lakeshore Women Health Plan · Above 40</div>
+              <h2 class="pkg-title">Comprehensive care<br /><strong>for women above 40</strong></h2>
+              <p class="pkg-desc">
+                Women above 40 should undergo a thorough clinical check every year. This plan screens for anaemia,
+                cancer (ovary, cervix, breast), uterine fibroids, osteoporosis and menopausal syndrome. Correct diet and
+                regular physical exercise are keys to good health.
+              </p>
+              <div class="pkg-instructions">
+                <strong>Additional Consultations Included</strong>Clinical Psychologist · Senior Dietician ·
+                Physiotherapist
+              </div>
+              <div class="appt-box">
+                <p>Book Women's Health Package (Above 40):</p>
+                <div style="font-size: 15px; font-weight: 600; color: white">0484-2701032 · 0484-2772000</div>
+              </div>
+            </div>
+            <div>
+              <div class="pkg-tests">
+                <div class="pkg-tests-title">Investigations Included</div>
+                <ul class="test-list">
+                  <li>Detailed Clinical Examination</li>
+                  <li>Pap Smear</li>
+                  <li>Pelvic Ultrasound</li>
+                  <li>Mammography</li>
+                  <li>Complete Blood Count</li>
+                  <li>Lipid Profile</li>
+                  <li>Random Blood Sugar</li>
+                  <li>Urine Routine</li>
+                  <li>Bone Density (DEXA) Scan</li>
+                  <li>Thyroid Profile</li>
+                  <li>Clinical Psychologist</li>
+                  <li>Dietician Consultation</li>
+                  <li>Physiotherapy Assessment</li>
+                  <li>Gynaecologist Consultation</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pkg-pane" id="pkg-child">
+          <div class="pkg-grid reveal">
+            <div>
+              <div class="pkg-badge">Lakeshore Child Basic Health Plan</div>
+              <h2 class="pkg-title">Keeping your child<br /><strong>healthy and growing</strong></h2>
+              <p class="pkg-desc">
+                Designed for children, this plan monitors growth, developmental milestones and screens for common
+                childhood conditions. Paediatrician-led with child-friendly facilities.
+              </p>
+              <div class="appt-box">
+                <p>Book Child Health Package:</p>
+                <div style="font-size: 15px; font-weight: 600; color: white">0484-2701032 · 2701033</div>
+              </div>
+            </div>
+            <div>
+              <div class="pkg-tests">
+                <div class="pkg-tests-title">Investigations Included</div>
+                <ul class="test-list">
+                  <li>Complete Blood Count</li>
+                  <li>Blood Sugar</li>
+                  <li>Urine Analysis</li>
+                  <li>Stool Examination</li>
+                  <li>Vision Assessment</li>
+                  <li>Dental Examination</li>
+                  <li>Growth &amp; Development Assessment</li>
+                  <li>Paediatrician Consultation</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pkg-pane" id="pkg-diabetic">
+          <div class="pkg-grid reveal">
+            <div>
+              <div class="pkg-badge">Lakeshore Diabetic Health Plans</div>
+              <h2 class="pkg-title">Monitoring your<br /><strong>diabetes, proactively</strong></h2>
+              <p class="pkg-desc">
+                Both Basic and Advanced Diabetic plans are available, offering structured monitoring of glucose control,
+                organ function, and complication screening — essential for long-term diabetes management.
+              </p>
+              <div class="appt-box">
+                <p>Book Diabetic Health Package:</p>
+                <div style="font-size: 15px; font-weight: 600; color: white">0484-2701032 · 2701033</div>
+              </div>
+            </div>
+            <div>
+              <div class="pkg-tests">
+                <div class="pkg-tests-title">Advanced Diabetic Plan Includes</div>
+                <ul class="test-list">
+                  <li>HbA1c</li>
+                  <li>Fasting &amp; PP Blood Sugar</li>
+                  <li>Kidney Function Tests</li>
+                  <li>Urine Microalbumin</li>
+                  <li>Lipid Profile</li>
+                  <li>Liver Function Tests</li>
+                  <li>Thyroid (TSH)</li>
+                  <li>ECG</li>
+                  <li>Foot Examination</li>
+                  <li>Eye Examination</li>
+                  <li>Dietician Consultation</li>
+                  <li>Diabetologist Consultation</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pkg-pane" id="pkg-cardiac">
+          <div class="pkg-grid reveal">
+            <div>
+              <div class="pkg-badge">Lakeshore Comprehensive Cardiac Health Plan</div>
+              <h2 class="pkg-title">Your heart deserves<br /><strong>expert attention</strong></h2>
+              <p class="pkg-desc">
+                Designed for individuals with cardiac risk factors or those seeking a thorough cardiovascular screening
+                — includes advanced imaging and cardiologist consultation.
+              </p>
+              <div class="appt-box">
+                <p>Book Cardiac Health Package:</p>
+                <div style="font-size: 15px; font-weight: 600; color: white">0484-2701032 · 2701033</div>
+              </div>
+            </div>
+            <div>
+              <div class="pkg-tests">
+                <div class="pkg-tests-title">Cardiac Plan Includes</div>
+                <ul class="test-list">
+                  <li>ECG (Resting)</li>
+                  <li>Echocardiography</li>
+                  <li>Treadmill Test (TMT)</li>
+                  <li>Lipid Profile (Full)</li>
+                  <li>Blood Sugar (FBS &amp; PPBS)</li>
+                  <li>HbA1c</li>
+                  <li>Complete Blood Count</li>
+                  <li>Kidney Function Tests</li>
+                  <li>Liver Function Tests</li>
+                  <li>Chest X-ray</li>
+                  <li>CRP (Cardiac Risk)</li>
+                  <li>Cardiologist Consultation</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pkg-pane" id="pkg-cancer">
+          <div class="pkg-grid reveal">
+            <div>
+              <div class="pkg-badge">Lakeshore Cancer Screening Plans</div>
+              <h2 class="pkg-title">Early detection<br /><strong>saves lives</strong></h2>
+              <p class="pkg-desc">
+                Separate cancer screening plans for male and female — designed to detect the most common cancers at
+                their earliest and most treatable stages. Oncologist review included.
+              </p>
+              <div class="appt-box">
+                <p>Book Cancer Screening Package:</p>
+                <div style="font-size: 15px; font-weight: 600; color: white">0484-2701032 · 2701033</div>
+              </div>
+            </div>
+            <div>
+              <div class="pkg-tests">
+                <div class="pkg-tests-title">Female Cancer Screening Includes</div>
+                <ul class="test-list">
+                  <li>Pap Smear (Cervical)</li>
+                  <li>Mammography (Breast)</li>
+                  <li>CA-125 (Ovarian)</li>
+                  <li>CEA (Colorectal)</li>
+                  <li>Pelvic Ultrasound</li>
+                  <li>Thyroid Examination</li>
+                  <li>Complete Blood Count</li>
+                  <li>Oncologist Consultation</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pkg-pane" id="pkg-ayur">
+          <div class="pkg-grid reveal">
+            <div>
+              <div class="pkg-badge">VPS Lakeshore Ayurkshethra</div>
+              <h2 class="pkg-title">Kerala's healing<br /><strong>heritage, integrated</strong></h2>
+              <p class="pkg-desc">
+                VPS Lakeshore Ayurkshethra integrates classical Ayurvedic treatments with modern diagnostic support —
+                offering Kerala's ancient healing tradition within a contemporary hospital environment.
+              </p>
+              <p class="pkg-desc">
+                Treatments include Panchakarma, Rasayana therapies, joint care programmes and post-surgical
+                rehabilitation using traditional methods. All treatments are performed by trained Ayurvedic physicians.
+              </p>
+              <div class="appt-box">
+                <p>Book Ayurkshethra Consultation:</p>
+                <div style="font-size: 15px; font-weight: 600; color: white">0484-2701032 · 2701033</div>
+              </div>
+            </div>
+            <div>
+              <div class="pkg-tests">
+                <div class="pkg-tests-title">Ayurkshethra Services</div>
+                <ul class="test-list">
+                  <li>Panchakarma Therapy</li>
+                  <li>Abhyanga (Oil Massage)</li>
+                  <li>Shirodhara</li>
+                  <li>Kizhi (Herbal Bundle)</li>
+                  <li>Nasyam</li>
+                  <li>Basti (Enema Therapy)</li>
+                  <li>Rasayana (Rejuvenation)</li>
+                  <li>Joint Care Programme</li>
+                  <li>Spine Care Programme</li>
+                  <li>Stress Management</li>
+                  <li>Weight Management</li>
+                  <li>Ayurvedic Physician Consultation</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      function showPkg(id, el) {
+        document.querySelectorAll(".pkg-pane").forEach((p) => p.classList.remove("active"));
+        document.querySelectorAll(".ptab").forEach((t) => t.classList.remove("active"));
+        document.getElementById("pkg-" + id).classList.add("active");
+        el.classList.add("active");
+        setTimeout(
+          () => document.querySelectorAll("#pkg-" + id + " .reveal").forEach((r) => r.classList.add("visible")),
+          50,
+        );
+      }
+      setTimeout(() => document.querySelectorAll("#pkg-basic .reveal").forEach((r) => r.classList.add("visible")), 100);
+    </script>
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="footer-logo">
+              <span class="fl-vps">vps</span>
+              <div class="fl-sep"></div>
+              <div class="fl-right"><span class="fl-ls">Lakeshore</span><span class="fl-mc">Medical Centre</span></div>
+            </div>
+            <div class="f-tagline">"Care beyond boundaries, medicine beyond limits."</div>
+            <div class="f-addr">
+              XVI/612, NH-66 Bypass, Maradu, Nettoor P.O., Kochi – 682040<br />Tel: +91-484-2701032 · A&amp;E: 99616
+              30000<br />info@lakeshorehospital.com
+            </div>
+          </div>
+          <div>
+            <div class="f-title">Patient Care</div>
+            <ul class="f-links">
+              <li><a href="vps_appointment.html">Book Appointment</a></li>
+              <li><a href="vps_doctors.html">Find a Doctor</a></li>
+              <li><a href="vps_packages.html">Health Packages</a></li>
+              <li><a href="#">Patient Portal</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="f-title">International</div>
+            <ul class="f-links">
+              <li><a href="vps_international.html">International Patients</a></li>
+              <li><a href="vps_contact.html">Contact IPS</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="f-title">About</div>
+            <ul class="f-links">
+              <li><a href="vps_about.html">About Us</a></li>
+              <li><a href="vps_academics.html">Academics</a></li>
+              <li><a href="vps_careers.html">Careers</a></li>
+              <li><a href="vps_contact.html">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="f-btm">
+          <div class="f-btm-l">© 2026 Lakeshore Hospital and Research Centre Ltd · Design Prototype</div>
+          <div class="f-btm-r"><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const obs = new IntersectionObserver(
+        (e) =>
+          e.forEach((en, i) => {
+            if (en.isIntersecting) {
+              setTimeout(() => en.target.classList.add("visible"), i * 70);
+              obs.unobserve(en.target);
+            }
+          }),
+        { threshold: 0.08, rootMargin: "0px 0px -30px 0px" },
+      );
+      document.querySelectorAll(".reveal").forEach((el) => obs.observe(el));
+    </script>
+  </body>
+</html>

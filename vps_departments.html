@@ -1,0 +1,1211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Departments — VPS Lakeshore Medical Centre</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,700&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --navy: #002855;
+        --blue: #003f8a;
+        --brand: #1b6db5;
+        --azure: #0057b8;
+        --sky: #e8f1fb;
+        --red: #c8102e;
+        --red2: #a00d24;
+        --sand: #f7f4ef;
+        --warm: #ede8e0;
+        --line: #d4ccc4;
+        --ink: #0d1b2e;
+        --muted: #5c6878;
+        --serif: "Cormorant Garamond", Georgia, serif;
+        --sans: "DM Sans", sans-serif;
+        --mono: "DM Mono", monospace;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--sans);
+        color: var(--ink);
+        background: #fff;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 48px;
+      }
+
+      /* ── LOGO ── */
+      .logo {
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+        flex-shrink: 0;
+      }
+      .logo-vps {
+        font-family: var(--sans);
+        font-size: 28px;
+        font-weight: 700;
+        font-style: italic;
+        color: var(--brand);
+        letter-spacing: -1px;
+        line-height: 1;
+      }
+      .logo-sep {
+        width: 1.5px;
+        height: 40px;
+        background: #9eaab8;
+        margin: 0 12px;
+        flex-shrink: 0;
+      }
+      .logo-right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        line-height: 1;
+      }
+      .logo-top-row {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .logo-lakeshore {
+        font-family: var(--sans);
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--brand);
+        letter-spacing: -0.5px;
+        line-height: 1;
+      }
+      .logo-cross {
+        position: relative;
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+      }
+      .logo-cross-arm {
+        position: absolute;
+        width: 20px;
+        height: 10px;
+        border-radius: 5px;
+        top: 50%;
+        left: 50%;
+      }
+      .logo-cross-blue {
+        background: var(--brand);
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+      .logo-cross-red {
+        background: var(--red);
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+      .logo-mc {
+        font-family: var(--sans);
+        font-size: 11.5px;
+        font-weight: 400;
+        color: var(--brand);
+        letter-spacing: 0.4px;
+        margin-top: 3px;
+      }
+
+      /* ── UTILITY ── */
+      .util-bar {
+        background: var(--navy);
+        padding: 7px 0;
+      }
+      .util-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .util-links,
+      .util-right {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+      .util-links a,
+      .util-right a {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.04em;
+        color: rgba(255, 255, 255, 0.62);
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+      .util-links a:hover,
+      .util-right a:hover {
+        color: white;
+      }
+      .emerg {
+        background: var(--red);
+        color: white;
+        font-family: var(--mono);
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        padding: 3px 10px;
+        border-radius: 2px;
+      }
+
+      /* ── NAV ── */
+      nav {
+        background: white;
+        border-bottom: 1px solid #e6dfd6;
+        position: sticky;
+        top: 0;
+        z-index: 200;
+        box-shadow: 0 1px 16px rgba(0, 40, 85, 0.07);
+      }
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 76px;
+        padding: 0 48px;
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+      .nav-links {
+        display: flex;
+        gap: 4px;
+        list-style: none;
+      }
+      .nav-links a {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--ink);
+        text-decoration: none;
+        padding: 8px 14px;
+        border-radius: 5px;
+        transition:
+          background 0.15s,
+          color 0.15s;
+      }
+      .nav-links a:hover,
+      .nav-links a.active {
+        background: var(--sky);
+        color: var(--blue);
+      }
+      .nav-cta {
+        display: flex;
+        gap: 10px;
+        margin-left: 20px;
+      }
+      .btn-outline {
+        border: 1.5px solid var(--navy);
+        color: var(--navy);
+        background: transparent;
+        padding: 9px 20px;
+        border-radius: 5px;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        font-family: var(--sans);
+        transition: all 0.15s;
+      }
+      .btn-outline:hover {
+        background: var(--navy);
+        color: white;
+      }
+      .btn-primary {
+        background: var(--red);
+        color: white;
+        border: none;
+        padding: 10px 22px;
+        border-radius: 5px;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        font-family: var(--sans);
+        transition: background 0.15s;
+      }
+      .btn-primary:hover {
+        background: var(--red2);
+      }
+
+      /* ── PAGE HERO ── */
+      .page-hero {
+        background: var(--navy);
+        padding: 72px 0 64px;
+        position: relative;
+        overflow: hidden;
+      }
+      .page-hero::before {
+        content: "";
+        position: absolute;
+        right: -100px;
+        top: -100px;
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(0, 87, 184, 0.35) 0%, transparent 68%);
+      }
+      .page-hero::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.08);
+      }
+      .hero-breadcrumb {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.4);
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .hero-breadcrumb a {
+        color: rgba(255, 255, 255, 0.4);
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+      .hero-breadcrumb a:hover {
+        color: rgba(255, 255, 255, 0.75);
+      }
+      .hero-breadcrumb span {
+        color: rgba(255, 255, 255, 0.2);
+      }
+      .page-hero h1 {
+        font-family: var(--serif);
+        font-size: clamp(40px, 4.5vw, 60px);
+        font-weight: 300;
+        color: white;
+        line-height: 1.08;
+        letter-spacing: -0.025em;
+        margin-bottom: 16px;
+      }
+      .page-hero h1 strong {
+        font-weight: 600;
+      }
+      .page-hero p {
+        font-size: 16px;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.6);
+        line-height: 1.7;
+        max-width: 560px;
+      }
+
+      /* ── FILTER BAR ── */
+      .filter-bar {
+        background: var(--sand);
+        border-bottom: 1px solid #e0d8ce;
+        padding: 22px 0;
+        position: sticky;
+        top: 76px;
+        z-index: 100;
+      }
+      .filter-inner {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+      .filter-label {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        white-space: nowrap;
+      }
+      .filter-scroll {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .fchip {
+        font-size: 12.5px;
+        font-weight: 500;
+        color: var(--muted);
+        padding: 6px 16px;
+        border: 1.5px solid #d4ccc4;
+        border-radius: 20px;
+        background: white;
+        cursor: pointer;
+        transition: all 0.15s;
+        white-space: nowrap;
+      }
+      .fchip:hover,
+      .fchip.active {
+        border-color: var(--blue);
+        color: var(--blue);
+        background: var(--sky);
+      }
+      .search-dept {
+        flex: 1;
+        min-width: 220px;
+        display: flex;
+        background: white;
+        border: 1.5px solid #d4ccc4;
+        border-radius: 6px;
+        overflow: hidden;
+        transition:
+          border-color 0.15s,
+          box-shadow 0.15s;
+        margin-left: auto;
+      }
+      .search-dept:focus-within {
+        border-color: var(--azure);
+        box-shadow: 0 0 0 3px rgba(0, 87, 184, 0.08);
+      }
+      .search-dept input {
+        flex: 1;
+        border: none;
+        outline: none;
+        padding: 9px 16px;
+        font-size: 13.5px;
+        font-family: var(--sans);
+        color: var(--ink);
+      }
+
+      /* ── DEPT GRID ── */
+      .dept-section {
+        padding: 64px 0;
+      }
+      .dept-category-label {
+        font-family: var(--mono);
+        font-size: 10.5px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--red);
+        margin-bottom: 24px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--line);
+      }
+      .dept-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2px;
+        margin-bottom: 48px;
+      }
+      .dept-card {
+        background: white;
+        border: 1.5px solid #ebe5dc;
+        padding: 28px 26px;
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        transition:
+          box-shadow 0.2s,
+          transform 0.2s,
+          border-color 0.2s;
+        position: relative;
+        overflow: hidden;
+      }
+      .dept-card::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: var(--red);
+        transform: scaleY(0);
+        transform-origin: bottom;
+        transition: transform 0.25s ease;
+      }
+      .dept-card:hover {
+        box-shadow: 0 8px 32px rgba(0, 40, 85, 0.1);
+        transform: translateY(-2px);
+        border-color: transparent;
+      }
+      .dept-card:hover::before {
+        transform: scaleY(1);
+      }
+      .dept-icon {
+        width: 46px;
+        height: 46px;
+        background: var(--sky);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 21px;
+        flex-shrink: 0;
+      }
+      .dept-name {
+        font-family: var(--serif);
+        font-size: 19px;
+        font-weight: 600;
+        color: var(--navy);
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+      }
+      .dept-desc {
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.55;
+        flex: 1;
+      }
+      .dept-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 4px;
+      }
+      .dept-hod {
+        font-family: var(--mono);
+        font-size: 10.5px;
+        color: var(--muted);
+        letter-spacing: 0.04em;
+      }
+      .dept-arr {
+        color: #c4bdb4;
+        font-size: 16px;
+        transition:
+          color 0.15s,
+          transform 0.15s;
+      }
+      .dept-card:hover .dept-arr {
+        color: var(--navy);
+        transform: translate(3px, -3px);
+      }
+
+      /* featured dept card */
+      .dept-card.featured {
+        background: var(--navy);
+        border-color: var(--navy);
+      }
+      .dept-card.featured .dept-icon {
+        background: rgba(255, 255, 255, 0.1);
+      }
+      .dept-card.featured .dept-name {
+        color: white;
+      }
+      .dept-card.featured .dept-desc {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .dept-card.featured .dept-hod {
+        color: rgba(255, 255, 255, 0.38);
+      }
+      .dept-card.featured .dept-arr {
+        color: rgba(255, 255, 255, 0.3);
+      }
+      .dept-card.featured:hover .dept-arr {
+        color: white;
+      }
+      .dept-card.featured::before {
+        background: var(--red);
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        background: #0a1828;
+        color: rgba(255, 255, 255, 0.52);
+        padding: 56px 0 28px;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 48px;
+        margin-bottom: 44px;
+      }
+      .footer-logo {
+        display: inline-flex;
+        align-items: center;
+      }
+      .fl-vps {
+        font-family: var(--sans);
+        font-size: 25px;
+        font-weight: 700;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.75);
+        letter-spacing: -0.5px;
+      }
+      .fl-sep {
+        width: 1.5px;
+        height: 36px;
+        background: rgba(255, 255, 255, 0.2);
+        margin: 0 10px;
+      }
+      .fl-right {
+        display: flex;
+        flex-direction: column;
+      }
+      .fl-ls {
+        font-family: var(--sans);
+        font-size: 23px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.75);
+        letter-spacing: -0.5px;
+        line-height: 1;
+      }
+      .fl-mc {
+        font-family: var(--sans);
+        font-size: 10.5px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.32);
+        letter-spacing: 0.3px;
+        margin-top: 3px;
+      }
+      .footer-tagline {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.36);
+        line-height: 1.6;
+        margin: 12px 0 14px;
+      }
+      .footer-addr {
+        font-size: 12px;
+        line-height: 1.75;
+        color: rgba(255, 255, 255, 0.34);
+      }
+      .f-title {
+        font-size: 11px;
+        font-weight: 600;
+        color: white;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+        font-family: var(--mono);
+      }
+      .f-links {
+        list-style: none;
+      }
+      .f-links li {
+        margin-bottom: 9px;
+      }
+      .f-links a {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.46);
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+      .f-links a:hover {
+        color: white;
+      }
+      .footer-btm {
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+        padding-top: 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+      .footer-btm-l {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.24);
+        font-family: var(--mono);
+      }
+      .footer-btm-r {
+        display: flex;
+        gap: 16px;
+      }
+      .footer-btm-r a {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.24);
+        text-decoration: none;
+        font-family: var(--mono);
+        transition: color 0.15s;
+      }
+      .footer-btm-r a:hover {
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      /* ── REVEAL ── */
+      .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 900px) {
+        .dept-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .nav-links {
+          display: none;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 600px) {
+        .container {
+          padding: 0 20px;
+        }
+        .nav-inner {
+          padding: 0 20px;
+        }
+        .dept-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Utility Bar -->
+    <div class="util-bar">
+      <div class="container">
+        <div class="util-inner">
+          <div class="util-links">
+            <a href="#">For Patients</a><a href="#">For Doctors</a><a href="#">Academics</a><a href="#">Careers</a
+            ><a href="#">عربى</a>
+          </div>
+          <div class="util-right">
+            <span class="emerg">A&amp;E: 99616 30000</span><a href="#">Help Desk: 99616 40000</a
+            ><a href="#">Patient Portal</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nav -->
+    <nav>
+      <div class="nav-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-vps">vps</span>
+          <div class="logo-sep"></div>
+          <div class="logo-right">
+            <div class="logo-top-row">
+              <span class="logo-lakeshore">Lakeshore</span>
+              <div class="logo-cross">
+                <div class="logo-cross-arm logo-cross-blue"></div>
+                <div class="logo-cross-arm logo-cross-red"></div>
+              </div>
+            </div>
+            <span class="logo-mc">Medical Centre</span>
+          </div>
+        </a>
+        <ul class="nav-links">
+          <li><a href="vps_departments.html" class="active">Departments</a></li>
+          <li><a href="vps_doctors.html">Doctors</a></li>
+          <li><a href="vps_international.html">International</a></li>
+          <li><a href="#">Research</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="#" class="btn-outline">Video Consultation</a>
+          <a href="#" class="btn-primary">Book Appointment</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <div class="page-hero">
+      <div class="container">
+        <div class="hero-breadcrumb"><a href="index.html">Home</a><span>/</span>Departments</div>
+        <h1>35+ specialties.<br /><strong>One destination.</strong></h1>
+        <p>
+          From quaternary cardiac surgery to minimally invasive robotic procedures, our departments bring together
+          Kerala's most experienced specialists under one roof — supported by state-of-the-art infrastructure across 10
+          operating theatres and 43 ICUs.
+        </p>
+      </div>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+      <div class="container">
+        <div class="filter-inner">
+          <span class="filter-label">Filter</span>
+          <div class="filter-scroll">
+            <span class="fchip active" onclick="filterDepts('all', this)">All Departments</span>
+            <span class="fchip" onclick="filterDepts('oncology', this)">Oncology</span>
+            <span class="fchip" onclick="filterDepts('cardiac', this)">Cardiac</span>
+            <span class="fchip" onclick="filterDepts('neuro', this)">Neuro</span>
+            <span class="fchip" onclick="filterDepts('gastro', this)">Gastro &amp; Liver</span>
+            <span class="fchip" onclick="filterDepts('ortho', this)">Orthopaedics</span>
+            <span class="fchip" onclick="filterDepts('transplant', this)">Transplant</span>
+            <span class="fchip" onclick="filterDepts('mother', this)">Mother &amp; Child</span>
+          </div>
+          <div class="search-dept">
+            <input type="text" id="deptSearch" placeholder="Search departments…" oninput="searchDepts(this.value)" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Departments -->
+    <section class="dept-section">
+      <div class="container">
+        <!-- Centres of Excellence -->
+        <div class="dept-category-label reveal" data-cat="all">Centres of Excellence</div>
+        <div class="dept-grid reveal">
+          <a href="#" class="dept-card featured" data-tags="oncology">
+            <div class="dept-icon">🔬</div>
+            <div class="dept-name">Oncology &amp; Cancer Care</div>
+            <div class="dept-desc">
+              Medical oncology, surgical oncology, radiation oncology, head &amp; neck cancer, gynaec oncology. India's
+              first Centre for Complex Head &amp; Neck Cancer.
+            </div>
+            <div class="dept-meta">
+              <span class="dept-hod">HOD: Dr. V.P. Gangadharan</span><span class="dept-arr">↗</span>
+            </div>
+          </a>
+
+          <a href="#" class="dept-card featured" data-tags="cardiac transplant">
+            <div class="dept-icon">🫀</div>
+            <div class="dept-name">Cardiac Sciences</div>
+            <div class="dept-desc">
+              Cardiology, cardiothoracic &amp; vascular surgery, heart transplantation, ECMO, cardiac critical care. One
+              of Kerala's busiest cardiac programmes.
+            </div>
+            <div class="dept-meta">
+              <span class="dept-hod">HOD: Dr. MK Moosa Kunhi</span><span class="dept-arr">↗</span>
+            </div>
+          </a>
+
+          <a href="#" class="dept-card featured" data-tags="gastro transplant">
+            <div class="dept-icon">🫘</div>
+            <div class="dept-name">Comprehensive Liver Care Institute</div>
+            <div class="dept-desc">
+              Liver transplantation, hepatology, liver pathology, intensive liver care &amp; transplant anaesthesia.
+              South India's leading liver centre.
+            </div>
+            <div class="dept-meta">
+              <span class="dept-hod">Director: Dr. H. Ramesh</span><span class="dept-arr">↗</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Surgical Specialties -->
+        <div class="dept-category-label reveal" data-cat="all">Surgical Specialties</div>
+        <div class="dept-grid reveal">
+          <a href="#" class="dept-card" data-tags="oncology">
+            <div class="dept-icon">✂️</div>
+            <div class="dept-name">Surgical Oncology</div>
+            <div class="dept-desc">
+              Head &amp; neck, gastrointestinal, gynaecological &amp; soft-tissue cancer surgery. World's first
+              endo-robotic surgery for post-cricoid cancer (2023).
+            </div>
+            <div class="dept-meta">
+              <span class="dept-hod">Director: Dr. Shawn T. Joseph</span><span class="dept-arr">↗</span>
+            </div>
+          </a>
+
+          <a href="#" class="dept-card" data-tags="oncology">
+            <div class="dept-icon">🧬</div>
+            <div class="dept-name">Head &amp; Neck Oncology &amp; Reconstructive Surgery</div>
+            <div class="dept-desc">
+              Specialised surgical management of complex head and neck malignancies with microsurgical reconstruction.
+            </div>
+            <div class="dept-meta">
+              <span class="dept-hod">Institute of Head &amp; Neck Sciences</span><span class="dept-arr">↗</span>
+            </div>
+          </a>
+
+          <a href="#" class="dept-card" data-tags="oncology">
+            <div class="dept-icon">⚕️</div>
+            <div class="dept-name">Surgical Gynaec Oncology</div>
+            <div class="dept-desc">
+              Oncological surgery for cervical, uterine, ovarian and vulvar cancers with laparoscopic and robotic
+              approaches.
+            </div>
+            <div class="dept-meta"><span class="dept-hod">Dr. Chithrathara K</span><span class="dept-arr">↗</span></div>
+          </a>
+
+          <a href="#" class="dept-card" data-tags="gastro">
+            <div class="dept-icon">🍃</div>
+            <div class="dept-name">Surgical Gastroenterology</div>
+            <div class="dept-desc">
+              HPB surgery, pancreatic, biliary and colorectal procedures. First laparoscopic cholecystectomy in Kerala
+              performed here.
+            </div>
+            <div class="dept-meta">
+              <span class="dept-hod">Director: Dr. H. Ramesh</span><span class="dept-arr">↗</span>
+            </div>
+          </a>
+
+          <a href="#" class="dept-card" data-tags="">
+            <div class="dept-icon">🤖</div>
+            <div class="dept-name">Minimally Invasive Surgery</div>
+            <div class="dept-desc">
+              Advanced laparoscopic, robotic-assisted and single-port surgical techniques across all specialties.
+            </div>
+            <div class="dept-meta">
+              <span class="dept-hod">HOD: Dr. R. Padmakumar</span><span class="dept-arr">↗</span>
+            </div>
+          </a>
+
+          <a href="#" class="dept-card" data-tags="">
+            <div class="dept-icon">🎭</div>
+            <div class="dept-name">Plastic, Reconstructive &amp; Hand Surgery</div>
+            <div class="dept-desc">
+              Reconstructive microsurgery, burns, hand surgery, cosmetic surgery and skin cancer reconstruction.
+            </div>
+            <div class="dept-meta">
+              <span class="dept-hod">Senior Consultant: Dr. Jose Tharayil</span><span class="dept-arr">↗</span>
+            </div>
+          </a>
+
+          <a href="#" class="dept-card" data-tags="">
+            <div class="dept-icon">🔭</div>
+            <div class="dept-name">General &amp; Laparoscopic Surgery</div>
+            <div class="dept-desc">
+              Hernia repair, thyroid, parathyroid, adrenal and laparoscopic procedures across the abdomen.
+            </div>
+            <div class="dept-meta"><span class="dept-hod"></span><span class="dept-arr">↗</span></div>
+          </a>
+        </div>
+
+        <!-- Neurosciences -->
+        <div class="dept-category-label reveal" data-cat="all">Neuro Sciences</div>
+        <div class="dept-grid reveal">
+          <a href="#" class="dept-card" data-tags="neuro">
+            <div class="dept-icon">🧠</div>
+            <div class="dept-name">Neurology</div>
+            <div class="dept-desc">
+              Stroke (Rapid Six protocol), epilepsy, headache, neuromuscular disorders, Parkinson's and spinal
+              neurology.
+            </div>
+            <div class="dept-meta">
+              <span class="dept-hod">HOD: Dr. Murali Krishna Menon</span><span class="dept-arr">↗</span>
+            </div>
+          </a>
+
+          <a href="#" class="dept-card" data-tags="neuro">
+            <div class="dept-icon">🫧</div>
+            <div class="dept-name">Neurosurgery</div>
+            <div class="dept-desc">
+              Brain tumours, spinal surgery, vascular neurosurgery, skull base, trauma and paediatric neurosurgery.
+            </div>
+            <div class="dept-meta">
+              <span class="dept-hod">HOD: Dr. Sudish Karunakaran</span><span class="dept-arr">↗</span>
+            </div>
+          </a>
+
+          <a href="#" class="dept-card" data-tags="neuro">
+            <div class="dept-icon">🌐</div>
+            <div class="dept-name">Nuclear Medicine</div>
+            <div class="dept-desc">
+              PET-CT, SPECT, thyroid scanning and molecular imaging for cancer staging and treatment response.
+            </div>
+            <div class="dept-meta"><span class="dept-hod"></span><span class="dept-arr">↗</span></div>
+          </a>
+        </div>
+
+        <!-- Orthopaedics -->
+        <div class="dept-category-label reveal" data-cat="all">Orthopaedics &amp; Musculoskeletal</div>
+        <div class="dept-grid reveal">
+          <a href="#" class="dept-card" data-tags="ortho">
+            <div class="dept-icon">🦴</div>
+            <div class="dept-name">Orthopaedics</div>
+            <div class="dept-desc">
+              Comprehensive orthopaedic care including arthroplasty, limb deformity correction and complex
+              reconstructions.
+            </div>
+            <div class="dept-meta">
+              <span class="dept-hod">HOD: Dr. Jacob Varghese</span><span class="dept-arr">↗</span>
+            </div>
+          </a>
+
+          <a href="#" class="dept-card" data-tags="ortho">
+            <div class="dept-icon">🔩</div>
+            <div class="dept-name">Joint Replacement</div>
+            <div class="dept-desc">
+              Primary and revision hip, knee and shoulder arthroplasty using computer-assisted and robotic techniques.
+            </div>
+            <div class="dept-meta">
+              <span class="dept-hod">HOD: Dr. Lazar J. Chandy</span><span class="dept-arr">↗</span>
+            </div>
+          </a>
+
+          <a href="#" class="dept-card" data-tags="ortho">
+            <div class="dept-icon">🏃</div>
+            <div class="dept-name">Sports Medicine</div>
+            <div class="dept-desc">
+              Arthroscopy, ligament reconstruction, cartilage repair and athletic rehabilitation programmes.
+            </div>
+            <div class="dept-meta"><span class="dept-hod"></span><span class="dept-arr">↗</span></div>
+          </a>
+
+          <a href="#" class="dept-card" data-tags="ortho">
+            <div class="dept-icon">🦶</div>
+            <div class="dept-name">Foot &amp; Ankle Surgery</div>
+            <div class="dept-desc">
+              India's first minimally invasive bunion surgery (2024). Specialist care for foot and ankle pathology.
+            </div>
+            <div class="dept-meta"><span class="dept-hod">Dr. Rajesh Simon</span><span class="dept-arr">↗</span></div>
+          </a>
+
+          <a href="#" class="dept-card" data-tags="ortho">
+            <div class="dept-icon">🧱</div>
+            <div class="dept-name">Institute of Spine &amp; Scoliosis Surgery</div>
+            <div class="dept-desc">
+              Spinal deformity, disc disease, tumour and trauma surgery using minimal access and navigation techniques.
+            </div>
+            <div class="dept-meta"><span class="dept-hod"></span><span class="dept-arr">↗</span></div>
+          </a>
+
+          <a href="#" class="dept-card" data-tags="ortho oncology">
+            <div class="dept-icon">📐</div>
+            <div class="dept-name">Orthopaedic Oncology</div>
+            <div class="dept-desc">
+              Musculoskeletal tumour surgery — bone and soft tissue sarcomas, limb salvage and prosthetic
+              reconstruction.
+            </div>
+            <div class="dept-meta"><span class="dept-hod"></span><span class="dept-arr">↗</span></div>
+          </a>
+        </div>
+
+        <!-- Gastroenterology & Transplant -->
+        <div class="dept-category-label reveal" data-cat="all">Gastroenterology, Liver &amp; Transplant</div>
+        <div class="dept-grid reveal">
+          <a href="#" class="dept-card" data-tags="gastro">
+            <div class="dept-icon">🧫</div>
+            <div class="dept-name">Medical Gastroenterology</div>
+            <div class="dept-desc">
+              Endoscopy, ERCP, capsule endoscopy, inflammatory bowel disease and advanced therapeutic procedures.
+            </div>
+            <div class="dept-meta">
+              <span class="dept-hod">HOD: Dr. Roy J. Mukkada</span><span class="dept-arr">↗</span>
+            </div>
+          </a>
+
+          <a href="#" class="dept-card" data-tags="gastro transplant">
+            <div class="dept-icon">🫁</div>
+            <div class="dept-name">Hepatology &amp; Liver Transplant Medicine</div>
+            <div class="dept-desc">
+              Chronic liver disease, cirrhosis, hepatitis, acute liver failure and post-transplant medical management.
+            </div>
+            <div class="dept-meta"><span class="dept-hod"></span><span class="dept-arr">↗</span></div>
+          </a>
+
+          <a href="#" class="dept-card" data-tags="transplant">
+            <div class="dept-icon">💊</div>
+            <div class="dept-name">Nephrology &amp; Renal Transplantation</div>
+            <div class="dept-desc">
+              Kidney disease, dialysis, renal transplantation and post-transplant care. 24/7 dialysis services.
+            </div>
+            <div class="dept-meta"><span class="dept-hod"></span><span class="dept-arr">↗</span></div>
+          </a>
+
+          <a href="#" class="dept-card" data-tags="transplant">
+            <div class="dept-icon">💉</div>
+            <div class="dept-name">Urology &amp; Renal Transplantation</div>
+            <div class="dept-desc">
+              Uro-oncology, stone disease, reconstructive urology, andrology and minimally invasive urological surgery.
+            </div>
+            <div class="dept-meta">
+              <span class="dept-hod">HOD: Dr. George P. Abraham</span><span class="dept-arr">↗</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Mother & Child -->
+        <div class="dept-category-label reveal" data-cat="all">Mother &amp; Child</div>
+        <div class="dept-grid reveal">
+          <a href="#" class="dept-card" data-tags="mother">
+            <div class="dept-icon">🤱</div>
+            <div class="dept-name">Obstetrics &amp; Gynaecology</div>
+            <div class="dept-desc">
+              High-risk pregnancy, fetal medicine, normal and operative deliveries, gynaecological disorders and
+              menopause care.
+            </div>
+            <div class="dept-meta"><span class="dept-hod">Dr. Thresy George</span><span class="dept-arr">↗</span></div>
+          </a>
+
+          <a href="#" class="dept-card" data-tags="mother">
+            <div class="dept-icon">👶</div>
+            <div class="dept-name">Paediatrics &amp; Neonatology</div>
+            <div class="dept-desc">
+              NICU, paediatric intensive care, developmental paediatrics and paediatric subspecialty services.
+            </div>
+            <div class="dept-meta"><span class="dept-hod"></span><span class="dept-arr">↗</span></div>
+          </a>
+
+          <a href="#" class="dept-card" data-tags="mother ortho">
+            <div class="dept-icon">🧒</div>
+            <div class="dept-name">Paediatric Orthopaedic Surgery</div>
+            <div class="dept-desc">
+              Congenital deformities, clubfoot, cerebral palsy orthopaedics and paediatric trauma care.
+            </div>
+            <div class="dept-meta"><span class="dept-hod"></span><span class="dept-arr">↗</span></div>
+          </a>
+        </div>
+
+        <!-- Support & Diagnostic -->
+        <div class="dept-category-label reveal" data-cat="all">Diagnostic &amp; Support Services</div>
+        <div class="dept-grid reveal">
+          <a href="#" class="dept-card" data-tags="">
+            <div class="dept-icon">📡</div>
+            <div class="dept-name">Radiology &amp; Imaging</div>
+            <div class="dept-desc">
+              MRI, CT, PET-CT, digital X-ray, ultrasound and fluoroscopy with 24/7 reporting services.
+            </div>
+            <div class="dept-meta"><span class="dept-hod"></span><span class="dept-arr">↗</span></div>
+          </a>
+
+          <a href="#" class="dept-card" data-tags="">
+            <div class="dept-icon">🩻</div>
+            <div class="dept-name">Interventional Radiology</div>
+            <div class="dept-desc">
+              Image-guided minimally invasive procedures — embolisation, biopsies, drainage and vascular interventions.
+            </div>
+            <div class="dept-meta">
+              <span class="dept-hod">Senior Consultant: Dr. Rajesh Anthony</span><span class="dept-arr">↗</span>
+            </div>
+          </a>
+
+          <a href="#" class="dept-card" data-tags="">
+            <div class="dept-icon">🧪</div>
+            <div class="dept-name">Laboratory Medicine</div>
+            <div class="dept-desc">
+              Haematology, biochemistry, microbiology, molecular biology and pathology with NABL-accredited facilities.
+            </div>
+            <div class="dept-meta"><span class="dept-hod"></span><span class="dept-arr">↗</span></div>
+          </a>
+
+          <a href="#" class="dept-card" data-tags="">
+            <div class="dept-icon">🏃</div>
+            <div class="dept-name">Physiotherapy &amp; Rehabilitation</div>
+            <div class="dept-desc">
+              Neurological, musculoskeletal, cardiopulmonary and post-surgical rehabilitation. Clinical Director: Dr.
+              Vijita Jayan.
+            </div>
+            <div class="dept-meta"><span class="dept-hod"></span><span class="dept-arr">↗</span></div>
+          </a>
+
+          <a href="#" class="dept-card" data-tags="">
+            <div class="dept-icon">🌿</div>
+            <div class="dept-name">VPS Lakeshore Ayurkshethra</div>
+            <div class="dept-desc">
+              Classical Ayurvedic treatments integrated with modern diagnostics. Kerala's traditional healing heritage.
+            </div>
+            <div class="dept-meta"><span class="dept-hod"></span><span class="dept-arr">↗</span></div>
+          </a>
+
+          <a href="#" class="dept-card" data-tags="">
+            <div class="dept-icon">🕊️</div>
+            <div class="dept-name">Pain &amp; Palliative Care</div>
+            <div class="dept-desc">
+              Inpatient and outpatient palliative services for advanced illness — pain management, counselling and
+              family support.
+            </div>
+            <div class="dept-meta"><span class="dept-hod"></span><span class="dept-arr">↗</span></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="footer-logo">
+              <span class="fl-vps">vps</span>
+              <div class="fl-sep"></div>
+              <div class="fl-right"><span class="fl-ls">Lakeshore</span><span class="fl-mc">Medical Centre</span></div>
+            </div>
+            <div class="footer-tagline">"Care beyond boundaries, medicine beyond limits."</div>
+            <div class="footer-addr">
+              XVI/612, NH-66 Bypass, Maradu, Nettoor P.O., Kochi – 682040<br />Tel: +91-484-2701032 · A&amp;E: 99616
+              30000<br />info@lakeshorehospital.com
+            </div>
+          </div>
+          <div>
+            <div class="f-title">Patient Care</div>
+            <ul class="f-links">
+              <li><a href="#">Book Appointment</a></li>
+              <li><a href="#">Find a Doctor</a></li>
+              <li><a href="#">Health Packages</a></li>
+              <li><a href="#">Patient Portal</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="f-title">International</div>
+            <ul class="f-links">
+              <li><a href="#">IPS Desk</a></li>
+              <li><a href="#">Medical Visa</a></li>
+              <li><a href="#">Travel Support</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="f-title">About</div>
+            <ul class="f-links">
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Academics</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">VPS Healthcare</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-btm">
+          <div class="footer-btm-l">© 2026 Lakeshore Hospital and Research Centre Ltd · Design Prototype</div>
+          <div class="footer-btm-r"><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Scroll reveal
+      const obs = new IntersectionObserver(
+        (e) =>
+          e.forEach((en, i) => {
+            if (en.isIntersecting) {
+              setTimeout(() => en.target.classList.add("visible"), i * 60);
+              obs.unobserve(en.target);
+            }
+          }),
+        { threshold: 0.08 },
+      );
+      document.querySelectorAll(".reveal").forEach((el) => obs.observe(el));
+
+      // Filter
+      function filterDepts(cat, el) {
+        document.querySelectorAll(".fchip").forEach((c) => c.classList.remove("active"));
+        el.classList.add("active");
+        document.querySelectorAll(".dept-card").forEach((card) => {
+          const tags = card.dataset.tags || "";
+          if (cat === "all" || tags.includes(cat)) {
+            card.style.display = "flex";
+          } else {
+            card.style.display = "none";
+          }
+        });
+        // Hide empty grids
+        document.querySelectorAll(".dept-grid").forEach((grid) => {
+          const vis = [...grid.querySelectorAll(".dept-card")].filter((c) => c.style.display !== "none");
+          grid.style.display = vis.length ? "grid" : "none";
+        });
+        document.querySelectorAll(".dept-category-label").forEach((lbl) => {
+          const next = lbl.nextElementSibling;
+          if (next && next.style.display === "none") lbl.style.display = "none";
+          else lbl.style.display = "block";
+        });
+      }
+
+      // Search
+      function searchDepts(q) {
+        const ql = q.toLowerCase().trim();
+        document.querySelectorAll(".dept-card").forEach((card) => {
+          const text = card.textContent.toLowerCase();
+          card.style.display = !ql || text.includes(ql) ? "flex" : "none";
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,885 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Appointment — VPS Lakeshore Medical Centre</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,700&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* VPS LAKESHORE — SHARED DESIGN SYSTEM */
+      :root {
+        --navy: #002855;
+        --blue: #003f8a;
+        --brand: #1b6db5;
+        --azure: #0057b8;
+        --sky: #e8f1fb;
+        --red: #c8102e;
+        --red2: #a00d24;
+        --sand: #f7f4ef;
+        --warm: #ede8e0;
+        --line: #d4ccc4;
+        --ink: #0d1b2e;
+        --muted: #5c6878;
+        --serif: "Cormorant Garamond", Georgia, serif;
+        --sans: "DM Sans", sans-serif;
+        --mono: "DM Mono", monospace;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--sans);
+        color: var(--ink);
+        background: #fff;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 48px;
+      }
+      /* Logo */
+      .logo {
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+        flex-shrink: 0;
+      }
+      .logo-vps {
+        font-family: var(--sans);
+        font-size: 28px;
+        font-weight: 700;
+        font-style: italic;
+        color: var(--brand);
+        letter-spacing: -1px;
+        line-height: 1;
+      }
+      .logo-sep {
+        width: 1.5px;
+        height: 40px;
+        background: #9eaab8;
+        margin: 0 12px;
+        flex-shrink: 0;
+      }
+      .logo-right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        line-height: 1;
+      }
+      .logo-top-row {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .logo-lakeshore {
+        font-family: var(--sans);
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--brand);
+        letter-spacing: -0.5px;
+        line-height: 1;
+      }
+      .logo-cross {
+        position: relative;
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+      }
+      .logo-cross-arm {
+        position: absolute;
+        width: 20px;
+        height: 10px;
+        border-radius: 5px;
+        top: 50%;
+        left: 50%;
+      }
+      .logo-cross-blue {
+        background: var(--brand);
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+      .logo-cross-red {
+        background: var(--red);
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+      .logo-mc {
+        font-family: var(--sans);
+        font-size: 11.5px;
+        font-weight: 400;
+        color: var(--brand);
+        letter-spacing: 0.4px;
+        margin-top: 3px;
+      }
+      /* Util bar */
+      .util-bar {
+        background: var(--navy);
+        padding: 7px 0;
+      }
+      .util-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .util-links,
+      .util-right {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+      .util-links a,
+      .util-right a {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.04em;
+        color: rgba(255, 255, 255, 0.62);
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+      .util-links a:hover,
+      .util-right a:hover {
+        color: white;
+      }
+      .emerg {
+        background: var(--red);
+        color: white;
+        font-family: var(--mono);
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        padding: 3px 10px;
+        border-radius: 2px;
+      }
+      /* Nav */
+      nav {
+        background: white;
+        border-bottom: 1px solid #e6dfd6;
+        position: sticky;
+        top: 0;
+        z-index: 200;
+        box-shadow: 0 1px 16px rgba(0, 40, 85, 0.07);
+      }
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 76px;
+        padding: 0 48px;
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+      .nav-links {
+        display: flex;
+        gap: 4px;
+        list-style: none;
+      }
+      .nav-links a {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--ink);
+        text-decoration: none;
+        padding: 8px 14px;
+        border-radius: 5px;
+        transition:
+          background 0.15s,
+          color 0.15s;
+      }
+      .nav-links a:hover,
+      .nav-links a.active {
+        background: var(--sky);
+        color: var(--blue);
+      }
+      .nav-cta {
+        display: flex;
+        gap: 10px;
+        margin-left: 20px;
+      }
+      .btn-outline {
+        border: 1.5px solid var(--navy);
+        color: var(--navy);
+        background: transparent;
+        padding: 9px 20px;
+        border-radius: 5px;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        font-family: var(--sans);
+        transition: all 0.15s;
+      }
+      .btn-outline:hover {
+        background: var(--navy);
+        color: white;
+      }
+      .btn-primary {
+        background: var(--red);
+        color: white;
+        border: none;
+        padding: 10px 22px;
+        border-radius: 5px;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        font-family: var(--sans);
+        transition: background 0.15s;
+      }
+      .btn-primary:hover {
+        background: var(--red2);
+      }
+      /* Page hero */
+      .page-hero {
+        background: var(--navy);
+        padding: 72px 0 64px;
+        position: relative;
+        overflow: hidden;
+      }
+      .page-hero::before {
+        content: "";
+        position: absolute;
+        right: -100px;
+        top: -100px;
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(0, 87, 184, 0.35) 0%, transparent 68%);
+      }
+      .breadcrumb {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.4);
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .breadcrumb a {
+        color: rgba(255, 255, 255, 0.4);
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+      .breadcrumb a:hover {
+        color: rgba(255, 255, 255, 0.75);
+      }
+      .breadcrumb-sep {
+        color: rgba(255, 255, 255, 0.2);
+      }
+      .page-hero h1 {
+        font-family: var(--serif);
+        font-size: clamp(40px, 4.5vw, 60px);
+        font-weight: 300;
+        color: white;
+        line-height: 1.08;
+        letter-spacing: -0.025em;
+        margin-bottom: 16px;
+      }
+      .page-hero h1 strong {
+        font-weight: 600;
+      }
+      .page-hero .hero-sub {
+        font-size: 16px;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.6);
+        line-height: 1.7;
+        max-width: 600px;
+      }
+      /* Section labels */
+      .sec-eye {
+        font-family: var(--mono);
+        font-size: 10.5px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--red);
+        margin-bottom: 10px;
+      }
+      .sec-title {
+        font-family: var(--serif);
+        font-size: clamp(28px, 3.2vw, 42px);
+        font-weight: 300;
+        color: var(--navy);
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+      }
+      .sec-title strong {
+        font-weight: 600;
+      }
+      /* Buttons */
+      .btn-dark {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--navy);
+        color: white;
+        padding: 12px 22px;
+        border-radius: 5px;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        font-family: var(--sans);
+        transition:
+          background 0.15s,
+          transform 0.15s;
+      }
+      .btn-dark:hover {
+        background: var(--blue);
+        transform: translateY(-1px);
+      }
+      .btn-red {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--red);
+        color: white;
+        padding: 12px 22px;
+        border-radius: 5px;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        font-family: var(--sans);
+        border: none;
+        cursor: pointer;
+        transition: background 0.15s;
+      }
+      .btn-red:hover {
+        background: var(--red2);
+      }
+      /* Footer */
+      footer {
+        background: #0a1828;
+        color: rgba(255, 255, 255, 0.52);
+        padding: 60px 0 30px;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 48px;
+        margin-bottom: 48px;
+      }
+      .footer-logo {
+        display: inline-flex;
+        align-items: center;
+      }
+      .fl-vps {
+        font-family: var(--sans);
+        font-size: 25px;
+        font-weight: 700;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.75);
+        letter-spacing: -0.5px;
+      }
+      .fl-sep {
+        width: 1.5px;
+        height: 36px;
+        background: rgba(255, 255, 255, 0.2);
+        margin: 0 10px;
+      }
+      .fl-right {
+        display: flex;
+        flex-direction: column;
+      }
+      .fl-ls {
+        font-family: var(--sans);
+        font-size: 23px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.75);
+        letter-spacing: -0.5px;
+        line-height: 1;
+      }
+      .fl-mc {
+        font-family: var(--sans);
+        font-size: 10.5px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.32);
+        letter-spacing: 0.3px;
+        margin-top: 3px;
+      }
+      .f-tagline {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.36);
+        line-height: 1.6;
+        margin: 12px 0 14px;
+      }
+      .f-addr {
+        font-size: 12px;
+        line-height: 1.75;
+        color: rgba(255, 255, 255, 0.34);
+      }
+      .f-title {
+        font-size: 11px;
+        font-weight: 600;
+        color: white;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+        font-family: var(--mono);
+      }
+      .f-links {
+        list-style: none;
+      }
+      .f-links li {
+        margin-bottom: 9px;
+      }
+      .f-links a {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.46);
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+      .f-links a:hover {
+        color: white;
+      }
+      .f-btm {
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+        padding-top: 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+      .f-btm-l {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.24);
+        font-family: var(--mono);
+      }
+      .f-btm-r {
+        display: flex;
+        gap: 16px;
+      }
+      .f-btm-r a {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.24);
+        text-decoration: none;
+        font-family: var(--mono);
+        transition: color 0.15s;
+      }
+      .f-btm-r a:hover {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      /* Reveal */
+      .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      @media (max-width: 900px) {
+        .nav-links {
+          display: none;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 600px) {
+        .container {
+          padding: 0 20px;
+        }
+        .nav-inner {
+          padding: 0 20px;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .appt-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 72px;
+        padding: 72px 0;
+      }
+      .appt-form {
+        background: white;
+        border-radius: 12px;
+        border: 1.5px solid #ebe5dc;
+        padding: 42px 38px;
+      }
+      .afg {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-bottom: 16px;
+      }
+      .afg label {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .afg input,
+      .afg select,
+      .afg textarea {
+        border: 1.5px solid #d4ccc4;
+        border-radius: 6px;
+        padding: 10px 14px;
+        font-size: 14px;
+        font-family: var(--sans);
+        color: var(--ink);
+        background: white;
+        outline: none;
+        transition:
+          border-color 0.15s,
+          box-shadow 0.15s;
+      }
+      .afg input:focus,
+      .afg select:focus,
+      .afg textarea:focus {
+        border-color: var(--azure);
+        box-shadow: 0 0 0 3px rgba(0, 87, 184, 0.08);
+      }
+      .afg-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .appt-submit {
+        background: var(--red);
+        color: white;
+        border: none;
+        padding: 14px 28px;
+        border-radius: 5px;
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+        font-family: var(--sans);
+        width: 100%;
+        transition: background 0.15s;
+        margin-top: 6px;
+      }
+      .appt-submit:hover {
+        background: var(--red2);
+      }
+      .appt-sidebar {
+      }
+      .quick-num {
+        background: var(--navy);
+        border-radius: 10px;
+        padding: 28px 26px;
+        margin-bottom: 18px;
+      }
+      .qn-label {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.38);
+        margin-bottom: 14px;
+      }
+      .qn-num {
+        font-family: var(--serif);
+        font-size: 30px;
+        font-weight: 300;
+        color: white;
+        letter-spacing: -0.02em;
+        margin-bottom: 4px;
+      }
+      .qn-desc {
+        font-size: 12.5px;
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .what-card {
+        background: var(--sand);
+        border-radius: 10px;
+        padding: 24px 22px;
+        margin-bottom: 18px;
+      }
+      .what-title {
+        font-family: var(--serif);
+        font-size: 17px;
+        font-weight: 600;
+        color: var(--navy);
+        margin-bottom: 10px;
+      }
+      .what-list {
+        list-style: none;
+      }
+      .what-list li {
+        font-size: 13.5px;
+        color: var(--muted);
+        padding: 7px 0;
+        border-bottom: 1px solid #e8e2d9;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .what-list li:last-child {
+        border-bottom: none;
+      }
+      .what-list li::before {
+        content: "";
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--brand);
+        flex-shrink: 0;
+      }
+      @media (max-width: 900px) {
+        .appt-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 600px) {
+        .afg-row {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="util-bar">
+      <div class="container">
+        <div class="util-inner">
+          <div class="util-links">
+            <a href="#">For Patients</a><a href="#">For Doctors</a><a href="vps_academics.html">Academics</a
+            ><a href="vps_careers.html">Careers</a><a href="#">عربى</a>
+          </div>
+          <div class="util-right">
+            <span class="emerg">A&amp;E: 99616 30000</span><a href="#">Help Desk: 99616 40000</a
+            ><a href="#">Patient Portal</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav>
+      <div class="nav-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-vps">vps</span>
+          <div class="logo-sep"></div>
+          <div class="logo-right">
+            <div class="logo-top-row">
+              <span class="logo-lakeshore">Lakeshore</span>
+              <div class="logo-cross">
+                <div class="logo-cross-arm logo-cross-blue"></div>
+                <div class="logo-cross-arm logo-cross-red"></div>
+              </div>
+            </div>
+            <span class="logo-mc">Medical Centre</span>
+          </div>
+        </a>
+        <ul class="nav-links">
+          <li><a href="vps_departments.html">Departments</a></li>
+          <li><a href="vps_doctors.html">Doctors</a></li>
+          <li><a href="vps_international.html">International</a></li>
+          <li><a href="vps_news.html">News &amp; Research</a></li>
+          <li><a href="vps_about.html">About</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="#" class="btn-outline">Video Consultation</a
+          ><a href="vps_appointment.html" class="btn-primary">Book Appointment</a>
+        </div>
+      </div>
+    </nav>
+    <div class="page-hero">
+      <div class="container">
+        <div class="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep">/</span>Book Appointment</div>
+        <h1>Appointment<br /><strong>booking</strong></h1>
+        <p class="hero-sub">
+          Book your consultation with any of our 160+ specialist doctors. Arrive at 7:30 AM for health packages, or at
+          your scheduled time for specialist consultations. Emergencies: call 99616 30000 any time.
+        </p>
+      </div>
+    </div>
+
+    <section style="background: var(--sand)">
+      <div class="container">
+        <div class="appt-grid reveal">
+          <div class="appt-form">
+            <div
+              style="
+                font-family: var(--serif);
+                font-size: 26px;
+                font-weight: 600;
+                color: var(--navy);
+                margin-bottom: 6px;
+              "
+            >
+              Book a Consultation
+            </div>
+            <div style="font-size: 13.5px; color: var(--muted); margin-bottom: 28px">
+              Fill in your details and we will confirm your appointment within 24 hours.
+            </div>
+            <div class="afg-row">
+              <div class="afg"><label>First Name *</label><input type="text" placeholder="First name" /></div>
+              <div class="afg"><label>Last Name *</label><input type="text" placeholder="Last name" /></div>
+            </div>
+            <div class="afg-row">
+              <div class="afg"><label>Phone / WhatsApp *</label><input type="tel" placeholder="+91 XXXXX XXXXX" /></div>
+              <div class="afg"><label>Email Address</label><input type="email" placeholder="your@email.com" /></div>
+            </div>
+            <div class="afg">
+              <label>Department / Specialty *</label>
+              <select>
+                <option value="">Select a specialty…</option>
+                <option>Cardiology &amp; Cardiac Surgery</option>
+                <option>Oncology / Cancer Care</option>
+                <option>Neurology &amp; Neurosurgery</option>
+                <option>Gastroenterology &amp; GI Surgery</option>
+                <option>Comprehensive Liver Care &amp; Transplant</option>
+                <option>Orthopaedics &amp; Joint Replacement</option>
+                <option>Nephrology &amp; Renal Transplant</option>
+                <option>Minimally Invasive / Robotic Surgery</option>
+                <option>Obstetrics &amp; Gynaecology</option>
+                <option>Paediatrics &amp; Neonatology</option>
+                <option>Internal Medicine</option>
+                <option>Dermatology</option>
+                <option>ENT</option>
+                <option>Ophthalmology</option>
+                <option>Psychiatry &amp; De-addiction</option>
+                <option>Pain &amp; Palliative Care</option>
+                <option>Health Packages / Preventive Care</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="afg">
+              <label>Preferred Doctor (optional)</label><input type="text" placeholder="e.g. Dr. V.P. Gangadharan" />
+            </div>
+            <div class="afg-row">
+              <div class="afg"><label>Preferred Date *</label><input type="date" /></div>
+              <div class="afg">
+                <label>Preferred Time</label>
+                <select>
+                  <option>Morning (8am – 12pm)</option>
+                  <option>Afternoon (12pm – 4pm)</option>
+                  <option>Evening (4pm – 7pm)</option>
+                </select>
+              </div>
+            </div>
+            <div class="afg">
+              <label>Type of Appointment</label>
+              <select>
+                <option>In-Person Consultation</option>
+                <option>Video Consultation</option>
+                <option>Health Package</option>
+                <option>Emergency (please call 99616 30000)</option>
+              </select>
+            </div>
+            <div class="afg">
+              <label>Brief Description of Your Concern</label
+              ><textarea
+                placeholder="Briefly describe your symptoms or reason for visit…"
+                style="min-height: 80px"
+              ></textarea>
+            </div>
+            <button class="appt-submit">Request Appointment →</button>
+            <div style="font-size: 12px; color: var(--muted); margin-top: 14px; text-align: center">
+              Or call us directly: <strong>0484-2701032 / 2701033 / 2703951</strong>
+            </div>
+          </div>
+
+          <div class="appt-sidebar">
+            <div class="quick-num">
+              <div class="qn-label">Emergency — Available 24/7</div>
+              <div class="qn-num">99616 30000</div>
+              <div class="qn-desc">Accident &amp; Emergency · Air, water and surface ambulance</div>
+            </div>
+            <div class="quick-num" style="background: var(--blue)">
+              <div class="qn-label">Help Desk — Available 24/7</div>
+              <div class="qn-num">99616 40000</div>
+              <div class="qn-desc">General queries, ward information, patient support</div>
+            </div>
+            <div class="what-card">
+              <div class="what-title">What to bring on the day</div>
+              <ul class="what-list">
+                <li>Government-issued photo ID (Aadhar / Passport)</li>
+                <li>Insurance card / TPA card (if applicable)</li>
+                <li>Previous medical records and reports</li>
+                <li>List of current medications</li>
+                <li>Referral letter (if applicable)</li>
+                <li>Arrive fasting for health packages (7:30 AM)</li>
+              </ul>
+            </div>
+            <div class="what-card">
+              <div class="what-title">Video Consultation</div>
+              <div style="font-size: 13.5px; color: var(--muted); line-height: 1.65; margin-bottom: 14px">
+                Consult with our specialists from anywhere in the world via our secure video platform. No travel
+                required — ideal for follow-up consultations and international patients.
+              </div>
+              <a href="https://www.connect2mydoctor.com/vpslakeshore" class="btn-dark" target="_blank"
+                >Launch Video Consultation →</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="footer-logo">
+              <span class="fl-vps">vps</span>
+              <div class="fl-sep"></div>
+              <div class="fl-right"><span class="fl-ls">Lakeshore</span><span class="fl-mc">Medical Centre</span></div>
+            </div>
+            <div class="f-tagline">"Care beyond boundaries, medicine beyond limits."</div>
+            <div class="f-addr">
+              XVI/612, NH-66 Bypass, Maradu, Nettoor P.O., Kochi – 682040<br />Tel: +91-484-2701032 · A&amp;E: 99616
+              30000<br />info@lakeshorehospital.com
+            </div>
+          </div>
+          <div>
+            <div class="f-title">Patient Care</div>
+            <ul class="f-links">
+              <li><a href="vps_appointment.html">Book Appointment</a></li>
+              <li><a href="vps_doctors.html">Find a Doctor</a></li>
+              <li><a href="vps_packages.html">Health Packages</a></li>
+              <li><a href="#">Patient Portal</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="f-title">International</div>
+            <ul class="f-links">
+              <li><a href="vps_international.html">International Patients</a></li>
+              <li><a href="vps_contact.html">Contact IPS</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="f-title">About</div>
+            <ul class="f-links">
+              <li><a href="vps_about.html">About Us</a></li>
+              <li><a href="vps_academics.html">Academics</a></li>
+              <li><a href="vps_careers.html">Careers</a></li>
+              <li><a href="vps_contact.html">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="f-btm">
+          <div class="f-btm-l">© 2026 Lakeshore Hospital and Research Centre Ltd · Design Prototype</div>
+          <div class="f-btm-r"><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const obs = new IntersectionObserver(
+        (e) =>
+          e.forEach((en, i) => {
+            if (en.isIntersecting) {
+              setTimeout(() => en.target.classList.add("visible"), i * 70);
+              obs.unobserve(en.target);
+            }
+          }),
+        { threshold: 0.08, rootMargin: "0px 0px -30px 0px" },
+      );
+      document.querySelectorAll(".reveal").forEach((el) => obs.observe(el));
+    </script>
+  </body>
+</html>

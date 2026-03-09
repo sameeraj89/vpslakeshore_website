@@ -1,0 +1,980 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News & Research — VPS Lakeshore Medical Centre</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,700&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* VPS LAKESHORE — SHARED DESIGN SYSTEM */
+      :root {
+        --navy: #002855;
+        --blue: #003f8a;
+        --brand: #1b6db5;
+        --azure: #0057b8;
+        --sky: #e8f1fb;
+        --red: #c8102e;
+        --red2: #a00d24;
+        --sand: #f7f4ef;
+        --warm: #ede8e0;
+        --line: #d4ccc4;
+        --ink: #0d1b2e;
+        --muted: #5c6878;
+        --serif: "Cormorant Garamond", Georgia, serif;
+        --sans: "DM Sans", sans-serif;
+        --mono: "DM Mono", monospace;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--sans);
+        color: var(--ink);
+        background: #fff;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 48px;
+      }
+      /* Logo */
+      .logo {
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+        flex-shrink: 0;
+      }
+      .logo-vps {
+        font-family: var(--sans);
+        font-size: 28px;
+        font-weight: 700;
+        font-style: italic;
+        color: var(--brand);
+        letter-spacing: -1px;
+        line-height: 1;
+      }
+      .logo-sep {
+        width: 1.5px;
+        height: 40px;
+        background: #9eaab8;
+        margin: 0 12px;
+        flex-shrink: 0;
+      }
+      .logo-right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        line-height: 1;
+      }
+      .logo-top-row {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .logo-lakeshore {
+        font-family: var(--sans);
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--brand);
+        letter-spacing: -0.5px;
+        line-height: 1;
+      }
+      .logo-cross {
+        position: relative;
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+      }
+      .logo-cross-arm {
+        position: absolute;
+        width: 20px;
+        height: 10px;
+        border-radius: 5px;
+        top: 50%;
+        left: 50%;
+      }
+      .logo-cross-blue {
+        background: var(--brand);
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+      .logo-cross-red {
+        background: var(--red);
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+      .logo-mc {
+        font-family: var(--sans);
+        font-size: 11.5px;
+        font-weight: 400;
+        color: var(--brand);
+        letter-spacing: 0.4px;
+        margin-top: 3px;
+      }
+      /* Util bar */
+      .util-bar {
+        background: var(--navy);
+        padding: 7px 0;
+      }
+      .util-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .util-links,
+      .util-right {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+      .util-links a,
+      .util-right a {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.04em;
+        color: rgba(255, 255, 255, 0.62);
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+      .util-links a:hover,
+      .util-right a:hover {
+        color: white;
+      }
+      .emerg {
+        background: var(--red);
+        color: white;
+        font-family: var(--mono);
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        padding: 3px 10px;
+        border-radius: 2px;
+      }
+      /* Nav */
+      nav {
+        background: white;
+        border-bottom: 1px solid #e6dfd6;
+        position: sticky;
+        top: 0;
+        z-index: 200;
+        box-shadow: 0 1px 16px rgba(0, 40, 85, 0.07);
+      }
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 76px;
+        padding: 0 48px;
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+      .nav-links {
+        display: flex;
+        gap: 4px;
+        list-style: none;
+      }
+      .nav-links a {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--ink);
+        text-decoration: none;
+        padding: 8px 14px;
+        border-radius: 5px;
+        transition:
+          background 0.15s,
+          color 0.15s;
+      }
+      .nav-links a:hover,
+      .nav-links a.active {
+        background: var(--sky);
+        color: var(--blue);
+      }
+      .nav-cta {
+        display: flex;
+        gap: 10px;
+        margin-left: 20px;
+      }
+      .btn-outline {
+        border: 1.5px solid var(--navy);
+        color: var(--navy);
+        background: transparent;
+        padding: 9px 20px;
+        border-radius: 5px;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        font-family: var(--sans);
+        transition: all 0.15s;
+      }
+      .btn-outline:hover {
+        background: var(--navy);
+        color: white;
+      }
+      .btn-primary {
+        background: var(--red);
+        color: white;
+        border: none;
+        padding: 10px 22px;
+        border-radius: 5px;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        font-family: var(--sans);
+        transition: background 0.15s;
+      }
+      .btn-primary:hover {
+        background: var(--red2);
+      }
+      /* Page hero */
+      .page-hero {
+        background: var(--navy);
+        padding: 72px 0 64px;
+        position: relative;
+        overflow: hidden;
+      }
+      .page-hero::before {
+        content: "";
+        position: absolute;
+        right: -100px;
+        top: -100px;
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(0, 87, 184, 0.35) 0%, transparent 68%);
+      }
+      .breadcrumb {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.4);
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .breadcrumb a {
+        color: rgba(255, 255, 255, 0.4);
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+      .breadcrumb a:hover {
+        color: rgba(255, 255, 255, 0.75);
+      }
+      .breadcrumb-sep {
+        color: rgba(255, 255, 255, 0.2);
+      }
+      .page-hero h1 {
+        font-family: var(--serif);
+        font-size: clamp(40px, 4.5vw, 60px);
+        font-weight: 300;
+        color: white;
+        line-height: 1.08;
+        letter-spacing: -0.025em;
+        margin-bottom: 16px;
+      }
+      .page-hero h1 strong {
+        font-weight: 600;
+      }
+      .page-hero .hero-sub {
+        font-size: 16px;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.6);
+        line-height: 1.7;
+        max-width: 600px;
+      }
+      /* Section labels */
+      .sec-eye {
+        font-family: var(--mono);
+        font-size: 10.5px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--red);
+        margin-bottom: 10px;
+      }
+      .sec-title {
+        font-family: var(--serif);
+        font-size: clamp(28px, 3.2vw, 42px);
+        font-weight: 300;
+        color: var(--navy);
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+      }
+      .sec-title strong {
+        font-weight: 600;
+      }
+      /* Buttons */
+      .btn-dark {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--navy);
+        color: white;
+        padding: 12px 22px;
+        border-radius: 5px;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        font-family: var(--sans);
+        transition:
+          background 0.15s,
+          transform 0.15s;
+      }
+      .btn-dark:hover {
+        background: var(--blue);
+        transform: translateY(-1px);
+      }
+      .btn-red {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--red);
+        color: white;
+        padding: 12px 22px;
+        border-radius: 5px;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        font-family: var(--sans);
+        border: none;
+        cursor: pointer;
+        transition: background 0.15s;
+      }
+      .btn-red:hover {
+        background: var(--red2);
+      }
+      /* Footer */
+      footer {
+        background: #0a1828;
+        color: rgba(255, 255, 255, 0.52);
+        padding: 60px 0 30px;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 48px;
+        margin-bottom: 48px;
+      }
+      .footer-logo {
+        display: inline-flex;
+        align-items: center;
+      }
+      .fl-vps {
+        font-family: var(--sans);
+        font-size: 25px;
+        font-weight: 700;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.75);
+        letter-spacing: -0.5px;
+      }
+      .fl-sep {
+        width: 1.5px;
+        height: 36px;
+        background: rgba(255, 255, 255, 0.2);
+        margin: 0 10px;
+      }
+      .fl-right {
+        display: flex;
+        flex-direction: column;
+      }
+      .fl-ls {
+        font-family: var(--sans);
+        font-size: 23px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.75);
+        letter-spacing: -0.5px;
+        line-height: 1;
+      }
+      .fl-mc {
+        font-family: var(--sans);
+        font-size: 10.5px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.32);
+        letter-spacing: 0.3px;
+        margin-top: 3px;
+      }
+      .f-tagline {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.36);
+        line-height: 1.6;
+        margin: 12px 0 14px;
+      }
+      .f-addr {
+        font-size: 12px;
+        line-height: 1.75;
+        color: rgba(255, 255, 255, 0.34);
+      }
+      .f-title {
+        font-size: 11px;
+        font-weight: 600;
+        color: white;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+        font-family: var(--mono);
+      }
+      .f-links {
+        list-style: none;
+      }
+      .f-links li {
+        margin-bottom: 9px;
+      }
+      .f-links a {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.46);
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+      .f-links a:hover {
+        color: white;
+      }
+      .f-btm {
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+        padding-top: 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+      .f-btm-l {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.24);
+        font-family: var(--mono);
+      }
+      .f-btm-r {
+        display: flex;
+        gap: 16px;
+      }
+      .f-btm-r a {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.24);
+        text-decoration: none;
+        font-family: var(--mono);
+        transition: color 0.15s;
+      }
+      .f-btm-r a:hover {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      /* Reveal */
+      .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      @media (max-width: 900px) {
+        .nav-links {
+          display: none;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 600px) {
+        .container {
+          padding: 0 20px;
+        }
+        .nav-inner {
+          padding: 0 20px;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .news-filter-bar {
+        background: var(--sand);
+        border-bottom: 1px solid #e0d8ce;
+        padding: 20px 0;
+        position: sticky;
+        top: 76px;
+        z-index: 100;
+      }
+      .news-filter-inner {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .news-sec {
+        padding: 64px 0;
+      }
+      .news-featured {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 2px;
+        margin-bottom: 2px;
+      }
+      .news-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2px;
+        margin-bottom: 48px;
+      }
+      .nc {
+        background: white;
+        border: 1.5px solid #ebe5dc;
+        padding: 32px 28px;
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        transition:
+          box-shadow 0.2s,
+          transform 0.2s;
+      }
+      .nc:hover {
+        box-shadow: 0 8px 28px rgba(0, 40, 85, 0.09);
+        transform: translateY(-3px);
+      }
+      .nc.big {
+        padding: 42px 38px;
+      }
+      .nc-cat {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--red);
+        margin-bottom: 12px;
+      }
+      .nc-date {
+        font-family: var(--mono);
+        font-size: 10.5px;
+        color: #a09890;
+        letter-spacing: 0.06em;
+        margin-bottom: 12px;
+      }
+      .nc-hl {
+        font-family: var(--serif);
+        font-size: 19px;
+        font-weight: 600;
+        color: var(--navy);
+        line-height: 1.25;
+        margin-bottom: 10px;
+        flex: 1;
+      }
+      .nc.big .nc-hl {
+        font-size: 28px;
+      }
+      .nc-exc {
+        font-size: 13.5px;
+        color: var(--muted);
+        line-height: 1.6;
+        margin-bottom: 18px;
+      }
+      .nc-tag {
+        display: inline-block;
+        background: var(--sky);
+        color: var(--blue);
+        font-family: var(--mono);
+        font-size: 10px;
+        padding: 3px 9px;
+        border-radius: 3px;
+        letter-spacing: 0.06em;
+      }
+      .fchip {
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--muted);
+        padding: 5px 14px;
+        border: 1.5px solid #d4ccc4;
+        border-radius: 20px;
+        background: white;
+        cursor: pointer;
+        transition: all 0.15s;
+        white-space: nowrap;
+      }
+      .fchip:hover,
+      .fchip.active {
+        border-color: var(--blue);
+        color: var(--blue);
+        background: var(--sky);
+      }
+      @media (max-width: 900px) {
+        .news-featured,
+        .news-row {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="util-bar">
+      <div class="container">
+        <div class="util-inner">
+          <div class="util-links">
+            <a href="#">For Patients</a><a href="#">For Doctors</a><a href="vps_academics.html">Academics</a
+            ><a href="vps_careers.html">Careers</a><a href="#">عربى</a>
+          </div>
+          <div class="util-right">
+            <span class="emerg">A&amp;E: 99616 30000</span><a href="#">Help Desk: 99616 40000</a
+            ><a href="#">Patient Portal</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav>
+      <div class="nav-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-vps">vps</span>
+          <div class="logo-sep"></div>
+          <div class="logo-right">
+            <div class="logo-top-row">
+              <span class="logo-lakeshore">Lakeshore</span>
+              <div class="logo-cross">
+                <div class="logo-cross-arm logo-cross-blue"></div>
+                <div class="logo-cross-arm logo-cross-red"></div>
+              </div>
+            </div>
+            <span class="logo-mc">Medical Centre</span>
+          </div>
+        </a>
+        <ul class="nav-links">
+          <li><a href="vps_departments.html">Departments</a></li>
+          <li><a href="vps_doctors.html">Doctors</a></li>
+          <li><a href="vps_international.html">International</a></li>
+          <li><a href="vps_news.html" class="active">News &amp; Research</a></li>
+          <li><a href="vps_about.html">About</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="#" class="btn-outline">Video Consultation</a
+          ><a href="vps_appointment.html" class="btn-primary">Book Appointment</a>
+        </div>
+      </div>
+    </nav>
+    <div class="page-hero">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a><span class="breadcrumb-sep">/</span>News &amp; Research
+        </div>
+        <h1>Breaking barriers.<br /><strong>Making headlines.</strong></h1>
+        <p class="hero-sub">
+          World firsts, national firsts, research breakthroughs and patient stories from VPS Lakeshore — a hospital that
+          continues to redefine what is possible in South Asian medicine.
+        </p>
+      </div>
+    </div>
+
+    <div class="news-filter-bar">
+      <div class="container">
+        <div class="news-filter-inner">
+          <span class="fchip active">All News</span>
+          <span class="fchip">Surgery</span>
+          <span class="fchip">Oncology</span>
+          <span class="fchip">Orthopaedics</span>
+          <span class="fchip">Cardiology</span>
+          <span class="fchip">Community</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="news-sec">
+      <div class="container">
+        <div class="news-featured reveal">
+          <a href="#" class="nc big">
+            <div class="nc-cat">World First · Surgery</div>
+            <div class="nc-date">December 2023</div>
+            <div class="nc-hl">
+              World's first endo-robotic surgery for post-cricoid cancer performed at VPS Lakeshore, Kochi
+            </div>
+            <div class="nc-exc">
+              A pioneering procedure removed a tumour extending from the head and neck region into the oesophagus using
+              robotic assistance through endoscopic access — restoring the 75-year-old patient's ability to speak and
+              swallow. First-ever such procedure performed globally.
+            </div>
+            <span class="nc-tag">Surgical Oncology</span>
+          </a>
+          <div style="display: flex; flex-direction: column; gap: 2px">
+            <a href="#" class="nc" style="flex: 1">
+              <div class="nc-cat">Asia First · Sports Medicine</div>
+              <div class="nc-date">November 4, 2025</div>
+              <div class="nc-hl">Asia's first nanoscopic ACL reconstruction and meniscal repair</div>
+              <div class="nc-exc">
+                Offering new hope for sportspersons and patients recovering from knee injuries with ultra-minimal access
+                technique.
+              </div>
+              <span class="nc-tag">Sports Medicine</span>
+            </a>
+            <a href="#" class="nc" style="flex: 1">
+              <div class="nc-cat">India First · Oncology</div>
+              <div class="nc-date">October 21, 2025</div>
+              <div class="nc-hl">India's first Centre for Complex Head &amp; Neck Cancer launched</div>
+              <div class="nc-exc">
+                Dedicated centre integrating surgery, radiation and medical oncology for the most challenging head and
+                neck cases.
+              </div>
+              <span class="nc-tag">Oncology</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="news-row reveal">
+          <a href="#" class="nc">
+            <div class="nc-cat">Minimally Invasive Surgery</div>
+            <div class="nc-date">January 28, 2026</div>
+            <div class="nc-hl">Rare 3D laparoscopic removal of 4 kg giant polycystic kidney</div>
+            <div class="nc-exc">
+              Complex 3D laparoscopic nephrectomy showcasing the depth of VPS Lakeshore's minimally invasive surgical
+              capabilities.
+            </div>
+            <span class="nc-tag">MIS</span>
+          </a>
+          <a href="#" class="nc">
+            <div class="nc-cat">India First · Orthopaedics</div>
+            <div class="nc-date">January 2024</div>
+            <div class="nc-hl">India's first minimally invasive bunion correction surgery</div>
+            <div class="nc-exc">
+              Using small incisions and specialised instruments to dramatically reduce recovery time for hallux valgus
+              correction.
+            </div>
+            <span class="nc-tag">Orthopaedics</span>
+          </a>
+          <a href="#" class="nc">
+            <div class="nc-cat">Community</div>
+            <div class="nc-date">November 24, 2025</div>
+            <div class="nc-hl">Chairman Dr. Shamsheer Vayalil announces free surgery for wedding couple</div>
+            <div class="nc-exc">
+              Avani and Sharon receive a wedding gift: VPS Lakeshore Chairman announces free surgery and treatment for
+              the couple.
+            </div>
+            <span class="nc-tag">CSR</span>
+          </a>
+        </div>
+
+        <div class="news-row reveal">
+          <a href="#" class="nc">
+            <div class="nc-cat">Emergency Medicine</div>
+            <div class="nc-date">November 21, 2025</div>
+            <div class="nc-hl">A wedding in the Emergency Department: Love triumphs over tragedy at VPS Lakeshore</div>
+            <div class="nc-exc">A moving story of resilience and compassion from the VPS Lakeshore emergency team.</div>
+            <span class="nc-tag">Emergency</span>
+          </a>
+          <a href="#" class="nc">
+            <div class="nc-cat">Cardiology</div>
+            <div class="nc-date">2024</div>
+            <div class="nc-hl">Advanced ECMO programme supports complex cardiac patients</div>
+            <div class="nc-exc">
+              VPS Lakeshore's ECMO programme continues to support the most critically ill cardiac and respiratory
+              patients in Kerala.
+            </div>
+            <span class="nc-tag">Cardiac</span>
+          </a>
+          <a href="#" class="nc">
+            <div class="nc-cat">Transplant</div>
+            <div class="nc-date">2024</div>
+            <div class="nc-hl">
+              Successful combined multi-organ transplant performed at Comprehensive Liver Care Institute
+            </div>
+            <div class="nc-exc">
+              The transplant team under Dr. H. Ramesh continues to set benchmarks in liver and combined organ
+              transplantation in South India.
+            </div>
+            <span class="nc-tag">Transplant</span>
+          </a>
+        </div>
+
+        <!-- Research Section -->
+        <div style="border-top: 1px solid var(--line); padding-top: 56px" class="reveal">
+          <div class="sec-eye">Research &amp; Academics</div>
+          <h2 class="sec-title" style="margin-bottom: 36px">
+            Contributing to<br /><strong>global medical knowledge</strong>
+          </h2>
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px">
+            <div style="background: var(--navy); border-radius: 10px; padding: 28px 24px">
+              <div
+                style="
+                  font-family: var(--mono);
+                  font-size: 10px;
+                  letter-spacing: 0.18em;
+                  text-transform: uppercase;
+                  color: rgba(255, 255, 255, 0.38);
+                  margin-bottom: 14px;
+                "
+              >
+                Clinical Trials
+              </div>
+              <div
+                style="font-family: var(--serif); font-size: 18px; font-weight: 600; color: white; margin-bottom: 10px"
+              >
+                Active Clinical Trials Programme
+              </div>
+              <div style="font-size: 13px; color: rgba(255, 255, 255, 0.55); line-height: 1.6; margin-bottom: 18px">
+                Dr. V.P. Gangadharan has served as Principal Investigator in 38+ national and international multicentre
+                clinical trials in oncology.
+              </div>
+              <a
+                href="vps_academics.html"
+                style="
+                  font-family: var(--mono);
+                  font-size: 11px;
+                  letter-spacing: 0.08em;
+                  color: rgba(255, 255, 255, 0.6);
+                  text-decoration: none;
+                "
+                >View Clinical Trials →</a
+              >
+            </div>
+            <div style="background: var(--sand); border-radius: 10px; padding: 28px 24px">
+              <div
+                style="
+                  font-family: var(--mono);
+                  font-size: 10px;
+                  letter-spacing: 0.18em;
+                  text-transform: uppercase;
+                  color: var(--red);
+                  margin-bottom: 14px;
+                "
+              >
+                DNB Programme
+              </div>
+              <div
+                style="
+                  font-family: var(--serif);
+                  font-size: 18px;
+                  font-weight: 600;
+                  color: var(--navy);
+                  margin-bottom: 10px;
+                "
+              >
+                14 DNB-Accredited Departments
+              </div>
+              <div style="font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 18px">
+                National Board of Examination accredited programmes across Anaesthesiology, Orthopaedics, Medical
+                Oncology, Gastroenterology, Neurosurgery and more.
+              </div>
+              <a
+                href="vps_academics.html"
+                style="
+                  font-family: var(--mono);
+                  font-size: 11px;
+                  letter-spacing: 0.08em;
+                  color: var(--blue);
+                  text-decoration: none;
+                "
+                >Academic Programmes →</a
+              >
+            </div>
+            <div style="background: var(--sky); border-radius: 10px; padding: 28px 24px">
+              <div
+                style="
+                  font-family: var(--mono);
+                  font-size: 10px;
+                  letter-spacing: 0.18em;
+                  text-transform: uppercase;
+                  color: var(--red);
+                  margin-bottom: 14px;
+                "
+              >
+                Publications
+              </div>
+              <div
+                style="
+                  font-family: var(--serif);
+                  font-size: 18px;
+                  font-weight: 600;
+                  color: var(--navy);
+                  margin-bottom: 10px;
+                "
+              >
+                40+ Oncology Publications
+              </div>
+              <div style="font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 18px">
+                Dr. V.P. Gangadharan alone has 40+ publications in national and international medical and oncology
+                journals, contributing to global cancer knowledge.
+              </div>
+              <a
+                href="vps_academics.html"
+                style="
+                  font-family: var(--mono);
+                  font-size: 11px;
+                  letter-spacing: 0.08em;
+                  color: var(--blue);
+                  text-decoration: none;
+                "
+                >Research Publications →</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="footer-logo">
+              <span class="fl-vps">vps</span>
+              <div class="fl-sep"></div>
+              <div class="fl-right"><span class="fl-ls">Lakeshore</span><span class="fl-mc">Medical Centre</span></div>
+            </div>
+            <div class="f-tagline">"Care beyond boundaries, medicine beyond limits."</div>
+            <div class="f-addr">
+              XVI/612, NH-66 Bypass, Maradu, Nettoor P.O., Kochi – 682040<br />Tel: +91-484-2701032 · A&amp;E: 99616
+              30000<br />info@lakeshorehospital.com
+            </div>
+          </div>
+          <div>
+            <div class="f-title">Patient Care</div>
+            <ul class="f-links">
+              <li><a href="vps_appointment.html">Book Appointment</a></li>
+              <li><a href="vps_doctors.html">Find a Doctor</a></li>
+              <li><a href="vps_packages.html">Health Packages</a></li>
+              <li><a href="#">Patient Portal</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="f-title">International</div>
+            <ul class="f-links">
+              <li><a href="vps_international.html">International Patients</a></li>
+              <li><a href="vps_contact.html">Contact IPS</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="f-title">About</div>
+            <ul class="f-links">
+              <li><a href="vps_about.html">About Us</a></li>
+              <li><a href="vps_academics.html">Academics</a></li>
+              <li><a href="vps_careers.html">Careers</a></li>
+              <li><a href="vps_contact.html">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="f-btm">
+          <div class="f-btm-l">© 2026 Lakeshore Hospital and Research Centre Ltd · Design Prototype</div>
+          <div class="f-btm-r"><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const obs = new IntersectionObserver(
+        (e) =>
+          e.forEach((en, i) => {
+            if (en.isIntersecting) {
+              setTimeout(() => en.target.classList.add("visible"), i * 70);
+              obs.unobserve(en.target);
+            }
+          }),
+        { threshold: 0.08, rootMargin: "0px 0px -30px 0px" },
+      );
+      document.querySelectorAll(".reveal").forEach((el) => obs.observe(el));
+    </script>
+  </body>
+</html>

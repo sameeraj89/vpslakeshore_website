@@ -1,0 +1,965 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Academics & Research — VPS Lakeshore Medical Centre</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,700&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* VPS LAKESHORE — SHARED DESIGN SYSTEM */
+      :root {
+        --navy: #002855;
+        --blue: #003f8a;
+        --brand: #1b6db5;
+        --azure: #0057b8;
+        --sky: #e8f1fb;
+        --red: #c8102e;
+        --red2: #a00d24;
+        --sand: #f7f4ef;
+        --warm: #ede8e0;
+        --line: #d4ccc4;
+        --ink: #0d1b2e;
+        --muted: #5c6878;
+        --serif: "Cormorant Garamond", Georgia, serif;
+        --sans: "DM Sans", sans-serif;
+        --mono: "DM Mono", monospace;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--sans);
+        color: var(--ink);
+        background: #fff;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 48px;
+      }
+      /* Logo */
+      .logo {
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+        flex-shrink: 0;
+      }
+      .logo-vps {
+        font-family: var(--sans);
+        font-size: 28px;
+        font-weight: 700;
+        font-style: italic;
+        color: var(--brand);
+        letter-spacing: -1px;
+        line-height: 1;
+      }
+      .logo-sep {
+        width: 1.5px;
+        height: 40px;
+        background: #9eaab8;
+        margin: 0 12px;
+        flex-shrink: 0;
+      }
+      .logo-right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        line-height: 1;
+      }
+      .logo-top-row {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .logo-lakeshore {
+        font-family: var(--sans);
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--brand);
+        letter-spacing: -0.5px;
+        line-height: 1;
+      }
+      .logo-cross {
+        position: relative;
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+      }
+      .logo-cross-arm {
+        position: absolute;
+        width: 20px;
+        height: 10px;
+        border-radius: 5px;
+        top: 50%;
+        left: 50%;
+      }
+      .logo-cross-blue {
+        background: var(--brand);
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+      .logo-cross-red {
+        background: var(--red);
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+      .logo-mc {
+        font-family: var(--sans);
+        font-size: 11.5px;
+        font-weight: 400;
+        color: var(--brand);
+        letter-spacing: 0.4px;
+        margin-top: 3px;
+      }
+      /* Util bar */
+      .util-bar {
+        background: var(--navy);
+        padding: 7px 0;
+      }
+      .util-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .util-links,
+      .util-right {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+      .util-links a,
+      .util-right a {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.04em;
+        color: rgba(255, 255, 255, 0.62);
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+      .util-links a:hover,
+      .util-right a:hover {
+        color: white;
+      }
+      .emerg {
+        background: var(--red);
+        color: white;
+        font-family: var(--mono);
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        padding: 3px 10px;
+        border-radius: 2px;
+      }
+      /* Nav */
+      nav {
+        background: white;
+        border-bottom: 1px solid #e6dfd6;
+        position: sticky;
+        top: 0;
+        z-index: 200;
+        box-shadow: 0 1px 16px rgba(0, 40, 85, 0.07);
+      }
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 76px;
+        padding: 0 48px;
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+      .nav-links {
+        display: flex;
+        gap: 4px;
+        list-style: none;
+      }
+      .nav-links a {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--ink);
+        text-decoration: none;
+        padding: 8px 14px;
+        border-radius: 5px;
+        transition:
+          background 0.15s,
+          color 0.15s;
+      }
+      .nav-links a:hover,
+      .nav-links a.active {
+        background: var(--sky);
+        color: var(--blue);
+      }
+      .nav-cta {
+        display: flex;
+        gap: 10px;
+        margin-left: 20px;
+      }
+      .btn-outline {
+        border: 1.5px solid var(--navy);
+        color: var(--navy);
+        background: transparent;
+        padding: 9px 20px;
+        border-radius: 5px;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        font-family: var(--sans);
+        transition: all 0.15s;
+      }
+      .btn-outline:hover {
+        background: var(--navy);
+        color: white;
+      }
+      .btn-primary {
+        background: var(--red);
+        color: white;
+        border: none;
+        padding: 10px 22px;
+        border-radius: 5px;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        font-family: var(--sans);
+        transition: background 0.15s;
+      }
+      .btn-primary:hover {
+        background: var(--red2);
+      }
+      /* Page hero */
+      .page-hero {
+        background: var(--navy);
+        padding: 72px 0 64px;
+        position: relative;
+        overflow: hidden;
+      }
+      .page-hero::before {
+        content: "";
+        position: absolute;
+        right: -100px;
+        top: -100px;
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(0, 87, 184, 0.35) 0%, transparent 68%);
+      }
+      .breadcrumb {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.4);
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .breadcrumb a {
+        color: rgba(255, 255, 255, 0.4);
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+      .breadcrumb a:hover {
+        color: rgba(255, 255, 255, 0.75);
+      }
+      .breadcrumb-sep {
+        color: rgba(255, 255, 255, 0.2);
+      }
+      .page-hero h1 {
+        font-family: var(--serif);
+        font-size: clamp(40px, 4.5vw, 60px);
+        font-weight: 300;
+        color: white;
+        line-height: 1.08;
+        letter-spacing: -0.025em;
+        margin-bottom: 16px;
+      }
+      .page-hero h1 strong {
+        font-weight: 600;
+      }
+      .page-hero .hero-sub {
+        font-size: 16px;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.6);
+        line-height: 1.7;
+        max-width: 600px;
+      }
+      /* Section labels */
+      .sec-eye {
+        font-family: var(--mono);
+        font-size: 10.5px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--red);
+        margin-bottom: 10px;
+      }
+      .sec-title {
+        font-family: var(--serif);
+        font-size: clamp(28px, 3.2vw, 42px);
+        font-weight: 300;
+        color: var(--navy);
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+      }
+      .sec-title strong {
+        font-weight: 600;
+      }
+      /* Buttons */
+      .btn-dark {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--navy);
+        color: white;
+        padding: 12px 22px;
+        border-radius: 5px;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        font-family: var(--sans);
+        transition:
+          background 0.15s,
+          transform 0.15s;
+      }
+      .btn-dark:hover {
+        background: var(--blue);
+        transform: translateY(-1px);
+      }
+      .btn-red {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--red);
+        color: white;
+        padding: 12px 22px;
+        border-radius: 5px;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        font-family: var(--sans);
+        border: none;
+        cursor: pointer;
+        transition: background 0.15s;
+      }
+      .btn-red:hover {
+        background: var(--red2);
+      }
+      /* Footer */
+      footer {
+        background: #0a1828;
+        color: rgba(255, 255, 255, 0.52);
+        padding: 60px 0 30px;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 48px;
+        margin-bottom: 48px;
+      }
+      .footer-logo {
+        display: inline-flex;
+        align-items: center;
+      }
+      .fl-vps {
+        font-family: var(--sans);
+        font-size: 25px;
+        font-weight: 700;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.75);
+        letter-spacing: -0.5px;
+      }
+      .fl-sep {
+        width: 1.5px;
+        height: 36px;
+        background: rgba(255, 255, 255, 0.2);
+        margin: 0 10px;
+      }
+      .fl-right {
+        display: flex;
+        flex-direction: column;
+      }
+      .fl-ls {
+        font-family: var(--sans);
+        font-size: 23px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.75);
+        letter-spacing: -0.5px;
+        line-height: 1;
+      }
+      .fl-mc {
+        font-family: var(--sans);
+        font-size: 10.5px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.32);
+        letter-spacing: 0.3px;
+        margin-top: 3px;
+      }
+      .f-tagline {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.36);
+        line-height: 1.6;
+        margin: 12px 0 14px;
+      }
+      .f-addr {
+        font-size: 12px;
+        line-height: 1.75;
+        color: rgba(255, 255, 255, 0.34);
+      }
+      .f-title {
+        font-size: 11px;
+        font-weight: 600;
+        color: white;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+        font-family: var(--mono);
+      }
+      .f-links {
+        list-style: none;
+      }
+      .f-links li {
+        margin-bottom: 9px;
+      }
+      .f-links a {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.46);
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+      .f-links a:hover {
+        color: white;
+      }
+      .f-btm {
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+        padding-top: 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+      .f-btm-l {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.24);
+        font-family: var(--mono);
+      }
+      .f-btm-r {
+        display: flex;
+        gap: 16px;
+      }
+      .f-btm-r a {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.24);
+        text-decoration: none;
+        font-family: var(--mono);
+        transition: color 0.15s;
+      }
+      .f-btm-r a:hover {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      /* Reveal */
+      .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      @media (max-width: 900px) {
+        .nav-links {
+          display: none;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 600px) {
+        .container {
+          padding: 0 20px;
+        }
+        .nav-inner {
+          padding: 0 20px;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .acad-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 72px;
+        padding: 64px 0;
+      }
+      .course-card {
+        border: 1.5px solid #ebe5dc;
+        border-radius: 10px;
+        padding: 28px 26px;
+        margin-bottom: 20px;
+        background: white;
+        transition: box-shadow 0.2s;
+      }
+      .course-card:hover {
+        box-shadow: 0 8px 24px rgba(0, 40, 85, 0.09);
+      }
+      .course-badge {
+        background: var(--red);
+        color: white;
+        font-family: var(--mono);
+        font-size: 9.5px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        padding: 4px 10px;
+        border-radius: 2px;
+        display: inline-block;
+        margin-bottom: 14px;
+      }
+      .course-title {
+        font-family: var(--serif);
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--navy);
+        margin-bottom: 8px;
+        line-height: 1.25;
+      }
+      .course-body {
+        font-size: 13.5px;
+        color: var(--muted);
+        line-height: 1.65;
+        margin-bottom: 16px;
+      }
+      .course-meta {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px 20px;
+      }
+      .cm-item {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+      .cm-label {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .cm-value {
+        font-size: 13.5px;
+        font-weight: 600;
+        color: var(--ink);
+      }
+      .dnb-dept {
+        border: 1.5px solid #ebe5dc;
+        border-radius: 8px;
+        padding: 20px 22px;
+        margin-bottom: 12px;
+        background: white;
+      }
+      .dnb-title {
+        font-family: var(--serif);
+        font-size: 17px;
+        font-weight: 600;
+        color: var(--navy);
+        margin-bottom: 4px;
+      }
+      .dnb-seats {
+        font-family: var(--mono);
+        font-size: 10.5px;
+        letter-spacing: 0.08em;
+        color: var(--red);
+        margin-bottom: 8px;
+      }
+      .dnb-faculty {
+        font-size: 12.5px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+      .sidebar-card {
+        background: var(--sand);
+        border-radius: 10px;
+        padding: 24px 22px;
+        margin-bottom: 18px;
+      }
+      .sidebar-card-title {
+        font-family: var(--serif);
+        font-size: 17px;
+        font-weight: 600;
+        color: var(--navy);
+        margin-bottom: 10px;
+      }
+      .sidebar-card-body {
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.6;
+        margin-bottom: 14px;
+      }
+      @media (max-width: 900px) {
+        .acad-grid {
+          grid-template-columns: 1fr;
+        }
+        .course-meta {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="util-bar">
+      <div class="container">
+        <div class="util-inner">
+          <div class="util-links">
+            <a href="#">For Patients</a><a href="#">For Doctors</a><a href="vps_academics.html">Academics</a
+            ><a href="vps_careers.html">Careers</a><a href="#">عربى</a>
+          </div>
+          <div class="util-right">
+            <span class="emerg">A&amp;E: 99616 30000</span><a href="#">Help Desk: 99616 40000</a
+            ><a href="#">Patient Portal</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav>
+      <div class="nav-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-vps">vps</span>
+          <div class="logo-sep"></div>
+          <div class="logo-right">
+            <div class="logo-top-row">
+              <span class="logo-lakeshore">Lakeshore</span>
+              <div class="logo-cross">
+                <div class="logo-cross-arm logo-cross-blue"></div>
+                <div class="logo-cross-arm logo-cross-red"></div>
+              </div>
+            </div>
+            <span class="logo-mc">Medical Centre</span>
+          </div>
+        </a>
+        <ul class="nav-links">
+          <li><a href="vps_departments.html">Departments</a></li>
+          <li><a href="vps_doctors.html">Doctors</a></li>
+          <li><a href="vps_international.html">International</a></li>
+          <li><a href="vps_news.html">News &amp; Research</a></li>
+          <li><a href="vps_about.html">About</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="#" class="btn-outline">Video Consultation</a
+          ><a href="vps_appointment.html" class="btn-primary">Book Appointment</a>
+        </div>
+      </div>
+    </nav>
+    <div class="page-hero">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a><span class="breadcrumb-sep">/</span>Academics &amp; Research
+        </div>
+        <h1>Training tomorrow's<br /><strong>healers, today.</strong></h1>
+        <p class="hero-sub">
+          VPS Lakeshore is committed to the continuing education and training of healthcare professionals. With 14
+          DNB-accredited departments, specialist programmes and active clinical trials, we are as much a teaching
+          institution as a tertiary care hospital.
+        </p>
+      </div>
+    </div>
+
+    <section style="background: white">
+      <div class="container">
+        <div class="acad-grid">
+          <div class="reveal">
+            <div class="sec-eye">Courses Offered</div>
+            <h2 class="sec-title" style="margin-bottom: 36px">Academic<br /><strong>programmes</strong></h2>
+
+            <div class="course-card">
+              <div class="course-badge">Admissions Open 2025</div>
+              <div class="course-title">Masters in Emergency Medicine (MEM) / CCT-EM</div>
+              <div class="course-body">
+                SEMI-certified academic programme providing comprehensive clinical training with real-time Emergency
+                Department exposure. Aligned to support MRCEM preparation with focused guidance to attain required
+                competencies. Certified by SEMI — Society for Emergency Medicine India.
+              </div>
+              <div class="course-meta">
+                <div class="cm-item">
+                  <div class="cm-label">Eligibility</div>
+                  <div class="cm-value">MBBS with valid registration</div>
+                </div>
+                <div class="cm-item">
+                  <div class="cm-label">Duration</div>
+                  <div class="cm-value">3 Years</div>
+                </div>
+                <div class="cm-item">
+                  <div class="cm-label">Last Date to Apply</div>
+                  <div class="cm-value">June 30, 2025</div>
+                </div>
+                <div class="cm-item">
+                  <div class="cm-label">Contact</div>
+                  <div class="cm-value">+91 9747021525</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="course-card">
+              <div class="course-badge">Admissions Open 2026</div>
+              <div class="course-title">Post-Doctoral Certificate Course in GI &amp; Hepatic Pathology</div>
+              <div class="course-body">
+                Recognised by the Indian College of Pathology (ICP). Includes training in gastrointestinal and hepatic
+                pathology — interpretation of biopsies, surgical resection and cytology specimens with emphasis on
+                clinical correlation.
+              </div>
+              <div class="course-meta">
+                <div class="cm-item">
+                  <div class="cm-label">Eligibility</div>
+                  <div class="cm-value">MD/DNB Pathology with valid reg.</div>
+                </div>
+                <div class="cm-item">
+                  <div class="cm-label">Duration</div>
+                  <div class="cm-value">1 Year (from January 2026)</div>
+                </div>
+                <div class="cm-item">
+                  <div class="cm-label">Last Date</div>
+                  <div class="cm-value">October 30, 2025</div>
+                </div>
+                <div class="cm-item">
+                  <div class="cm-label">Contact</div>
+                  <div class="cm-value">0484-2772253 / 9544177879</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="course-card">
+              <div class="course-badge">Certificate Course</div>
+              <div class="course-title">AHIMA/AAPC Medical Coding Certification (with CHISS)</div>
+              <div class="course-body">
+                Certificate of Medical Coding (CMC — 3 months) and Advanced Medical Coding (AMC — 4 months). Open to any
+                degree, professional degree or paramedical diploma holders.
+              </div>
+              <div class="course-meta">
+                <div class="cm-item">
+                  <div class="cm-label">Eligibility</div>
+                  <div class="cm-value">Any degree / paramedical diploma</div>
+                </div>
+                <div class="cm-item">
+                  <div class="cm-label">Duration</div>
+                  <div class="cm-value">3–4 Months</div>
+                </div>
+              </div>
+            </div>
+
+            <div style="border-top: 1px solid var(--line); padding-top: 40px; margin-top: 16px">
+              <div class="sec-eye">Diplomate of National Board</div>
+              <h3
+                style="
+                  font-family: var(--serif);
+                  font-size: 26px;
+                  font-weight: 600;
+                  color: var(--navy);
+                  margin-bottom: 28px;
+                  line-height: 1.2;
+                "
+              >
+                14 DNB-Accredited<br />Departments
+              </h3>
+
+              <div class="dnb-dept">
+                <div class="dnb-title">Anaesthesiology</div>
+                <div class="dnb-seats">2 Primary + 2 Secondary · 4 seats/year</div>
+                <div class="dnb-faculty">
+                  Dr. Jaya Susan Jacob · Dr. Mallie Abraham · Dr. Renny Chacko · Dr. John Ferns
+                </div>
+              </div>
+              <div class="dnb-dept">
+                <div class="dnb-title">Orthopaedics</div>
+                <div class="dnb-seats">2 Primary + 2 Secondary · 4 seats/year</div>
+                <div class="dnb-faculty">
+                  Dr. Jacob Varghese · Dr. Jose Thomas Pappanacherry · Dr. Appu Benny Thomas · Dr. Rajesh Simon
+                </div>
+              </div>
+              <div class="dnb-dept">
+                <div class="dnb-title">Medical Gastroenterology (Super Specialty)</div>
+                <div class="dnb-seats">2 seats/year</div>
+                <div class="dnb-faculty">
+                  Dr. Roy J. Mukkada · Dr. Antony Paul Chettupuzha · Dr. Shelly C. Paul · Dr. Maya P
+                </div>
+              </div>
+              <div class="dnb-dept">
+                <div class="dnb-title">Surgical Gastroenterology (Super Specialty)</div>
+                <div class="dnb-seats">2 seats/year</div>
+                <div class="dnb-faculty">Dr. H. Ramesh · Dr. Mahesh S · Dr. John Mathew Manipadam</div>
+              </div>
+              <div class="dnb-dept">
+                <div class="dnb-title">Medical Oncology (Super Specialty)</div>
+                <div class="dnb-seats">2 seats/year</div>
+                <div class="dnb-faculty">Dr. V.P. Gangadharan · Dr. Anupama G.D. · Dr. Annu Susan George</div>
+              </div>
+              <div class="dnb-dept">
+                <div class="dnb-title">Nephrology (Super Specialty)</div>
+                <div class="dnb-seats">2 seats/year</div>
+                <div class="dnb-faculty">Dr. Abi Abraham · Dr. Jithin S. Kumar · Dr. Karthik Ganesh</div>
+              </div>
+              <div class="dnb-dept">
+                <div class="dnb-title">Urology (Super Specialty)</div>
+                <div class="dnb-seats">2 seats/year</div>
+                <div class="dnb-faculty">Dr. George P. Abraham · Dr. Datson George P · Dr. Karthik Ganesh</div>
+              </div>
+              <div class="dnb-dept">
+                <div class="dnb-title">Gynaecological Oncology (Super Specialty)</div>
+                <div class="dnb-seats">1 seat/year</div>
+                <div class="dnb-faculty">Dr. Chitrathara K · Dr. Sanam P</div>
+              </div>
+              <div class="dnb-dept">
+                <div class="dnb-title">Neurosurgery (Super Specialty)</div>
+                <div class="dnb-seats">2 seats/year</div>
+                <div class="dnb-faculty">Dr. Sudhish Karunakaran · Dr. Arun Oommen · Dr. Ajay Kumar Ajanvi</div>
+              </div>
+              <div class="dnb-dept">
+                <div class="dnb-title">Nuclear Medicine · Radio Diagnosis · Pathology · Family Medicine</div>
+                <div class="dnb-seats">Various seats — see full listing</div>
+                <div class="dnb-faculty">Fulltime faculty available in all departments</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal">
+            <div class="sidebar-card">
+              <div class="sidebar-card-title">Research &amp; Clinical Trials</div>
+              <div class="sidebar-card-body">
+                VPS Lakeshore has an active research culture with special focus on diseases endemic to Kerala. Dr. V.P.
+                Gangadharan has served as Principal Investigator in 38+ national and international multicentre clinical
+                trials.
+              </div>
+              <a href="vps_news.html" class="btn-dark" style="font-size: 12px">View Research News →</a>
+            </div>
+            <div class="sidebar-card">
+              <div class="sidebar-card-title">Internship Enquiries</div>
+              <div class="sidebar-card-body">
+                Medical, nursing and paramedical internships available. Contact our HR &amp; Academic department for
+                current opportunities.
+              </div>
+              <div style="font-size: 13px; color: var(--ink); font-weight: 500">hrd2@lakeshorehospital.org</div>
+            </div>
+            <div class="sidebar-card">
+              <div class="sidebar-card-title">Academic Contact</div>
+              <div class="sidebar-card-body">For course-specific enquiries, contact the relevant programme office.</div>
+              <div style="font-size: 13px; color: var(--ink); margin-bottom: 4px">
+                <strong>MEM Programme:</strong> +91 9747021525
+              </div>
+              <div style="font-size: 13px; color: var(--ink); margin-bottom: 4px">
+                <strong>PDCC GI Pathology:</strong> 0484-2772253
+              </div>
+              <div style="font-size: 13px; color: var(--ink)"><strong>EMT-A Programme:</strong> +91 9495372374</div>
+            </div>
+            <div style="background: var(--navy); border-radius: 10px; padding: 24px 22px">
+              <div
+                style="
+                  font-family: var(--mono);
+                  font-size: 10px;
+                  letter-spacing: 0.14em;
+                  text-transform: uppercase;
+                  color: rgba(255, 255, 255, 0.38);
+                  margin-bottom: 12px;
+                "
+              >
+                Join Our Team
+              </div>
+              <div
+                style="font-family: var(--serif); font-size: 18px; font-weight: 600; color: white; margin-bottom: 10px"
+              >
+                Careers at VPS Lakeshore
+              </div>
+              <div style="font-size: 13px; color: rgba(255, 255, 255, 0.55); line-height: 1.6; margin-bottom: 18px">
+                We are always looking for outstanding clinicians, researchers and healthcare professionals committed to
+                excellence.
+              </div>
+              <a
+                href="vps_careers.html"
+                style="
+                  font-family: var(--mono);
+                  font-size: 11px;
+                  letter-spacing: 0.08em;
+                  color: rgba(255, 255, 255, 0.65);
+                  text-decoration: none;
+                "
+                >View Open Positions →</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="footer-logo">
+              <span class="fl-vps">vps</span>
+              <div class="fl-sep"></div>
+              <div class="fl-right"><span class="fl-ls">Lakeshore</span><span class="fl-mc">Medical Centre</span></div>
+            </div>
+            <div class="f-tagline">"Care beyond boundaries, medicine beyond limits."</div>
+            <div class="f-addr">
+              XVI/612, NH-66 Bypass, Maradu, Nettoor P.O., Kochi – 682040<br />Tel: +91-484-2701032 · A&amp;E: 99616
+              30000<br />info@lakeshorehospital.com
+            </div>
+          </div>
+          <div>
+            <div class="f-title">Patient Care</div>
+            <ul class="f-links">
+              <li><a href="vps_appointment.html">Book Appointment</a></li>
+              <li><a href="vps_doctors.html">Find a Doctor</a></li>
+              <li><a href="vps_packages.html">Health Packages</a></li>
+              <li><a href="#">Patient Portal</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="f-title">International</div>
+            <ul class="f-links">
+              <li><a href="vps_international.html">International Patients</a></li>
+              <li><a href="vps_contact.html">Contact IPS</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="f-title">About</div>
+            <ul class="f-links">
+              <li><a href="vps_about.html">About Us</a></li>
+              <li><a href="vps_academics.html">Academics</a></li>
+              <li><a href="vps_careers.html">Careers</a></li>
+              <li><a href="vps_contact.html">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="f-btm">
+          <div class="f-btm-l">© 2026 Lakeshore Hospital and Research Centre Ltd · Design Prototype</div>
+          <div class="f-btm-r"><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const obs = new IntersectionObserver(
+        (e) =>
+          e.forEach((en, i) => {
+            if (en.isIntersecting) {
+              setTimeout(() => en.target.classList.add("visible"), i * 70);
+              obs.unobserve(en.target);
+            }
+          }),
+        { threshold: 0.08, rootMargin: "0px 0px -30px 0px" },
+      );
+      document.querySelectorAll(".reveal").forEach((el) => obs.observe(el));
+    </script>
+  </body>
+</html>
