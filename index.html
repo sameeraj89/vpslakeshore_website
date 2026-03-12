@@ -1,2186 +1,576 @@
 <!doctype html>
-
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>VPS Lakeshore Medical Centre — Kochi, Kerala</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,700&amp;family=DM+Mono:wght@400;500&amp;display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      :root {
-        --navy: #002855;
-        --blue: #003f8a;
-        --brand: #1b6db5;
-        --azure: #0057b8;
-        --sky: #e8f1fb;
-        --red: #c8102e;
-        --red2: #a00d24;
-        --sand: #f7f4ef;
-        --warm: #ede8e0;
-        --line: #d4ccc4;
-        --ink: #0d1b2e;
-        --muted: #5c6878;
-        --serif: "Cormorant Garamond", Georgia, serif;
-        --sans: "DM Sans", sans-serif;
-        --mono: "DM Mono", monospace;
-      }
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        font-family: var(--sans);
-        color: var(--ink);
-        background: #fff;
-        overflow-x: hidden;
-        -webkit-font-smoothing: antialiased;
-      }
-      .container {
-        max-width: 1280px;
-        margin: 0 auto;
-        padding: 0 48px;
-      }
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>VPS Lakeshore Hospital — Multispecialty Hospital in Kochi, Kerala</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<style>
+/* ═══ DESIGN TOKENS ═══ */
+:root{
+  --navy:#0a1628;--navy-mid:#0f2240;--blue:#0050a0;--brand:#0066cc;--brand-dark:#004d99;
+  --crimson:#c8102e;--crimson-dark:#9e0c24;
+  --sky:#f0f5fa;--sky-light:#f7f9fc;--sand:#faf8f5;
+  --white:#fff;--ink:#0d1b2e;--ink-light:#3a4a5c;--muted:#6b7b8d;
+  --border:#e4e9f0;--border-light:#f0f2f5;
+  --sans:'Inter',system-ui,-apple-system,sans-serif;
+  --radius:10px;--radius-lg:16px;
+  --shadow-sm:0 1px 3px rgba(0,0,0,.04);--shadow:0 4px 20px rgba(0,0,0,.06);
+  --shadow-lg:0 16px 48px rgba(0,0,0,.08);
+  --ease:cubic-bezier(.4,0,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--sans);color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+.container{max-width:1280px;margin:0 auto;padding:0 40px}
 
-      /* ════════════════════════════════
-   LOGO — pure HTML/CSS
-   ════════════════════════════════ */
-      .logo {
-        display: inline-flex;
-        align-items: center;
-        text-decoration: none;
-        gap: 0;
-        flex-shrink: 0;
-      }
-      /* "vps" — bold, slightly italic, brand blue */
-      .logo-vps {
-        font-family: var(--sans);
-        font-size: 30px;
-        font-weight: 700;
-        font-style: italic;
-        color: var(--brand);
-        letter-spacing: -1px;
-        line-height: 1;
-      }
-      /* thin grey vertical bar */
-      .logo-sep {
-        width: 1.5px;
-        height: 42px;
-        background: #9eaab8;
-        margin: 0 13px;
-        flex-shrink: 0;
-      }
-      /* right side: "Lakeshore" + cross + "Medical Centre" */
-      .logo-right {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        line-height: 1;
-      }
-      .logo-top-row {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-      }
-      /* "Lakeshore" — bold, brand blue, capital L */
-      .logo-lakeshore {
-        font-family: var(--sans);
-        font-size: 30px;
-        font-weight: 700;
-        color: var(--brand);
-        letter-spacing: -0.5px;
-        line-height: 1;
-      }
-      /* Cross symbol — two overlapping capsules forming an X */
-      .logo-cross {
-        position: relative;
-        width: 34px;
-        height: 34px;
-        flex-shrink: 0;
-        margin-left: 2px;
-        margin-bottom: 2px;
-      }
-      .logo-cross-arm {
-        position: absolute;
-        width: 22px;
-        height: 11px;
-        border-radius: 6px;
-        top: 50%;
-        left: 50%;
-      }
-      /* Blue arm: top-left to bottom-right */
-      .logo-cross-blue {
-        background: var(--brand);
-        transform: translate(-50%, -50%) rotate(-45deg);
-      }
-      /* Red arm: top-right to bottom-left */
-      .logo-cross-red {
-        background: var(--red);
-        transform: translate(-50%, -50%) rotate(45deg);
-      }
-      /* "Medical Centre" — light, smaller */
-      .logo-mc {
-        font-family: var(--sans);
-        font-size: 12px;
-        font-weight: 400;
-        color: var(--brand);
-        letter-spacing: 0.4px;
-        margin-top: 4px;
-        padding-left: 1px;
-      }
+/* ═══ REVEAL — simple opacity fade only ═══ */
+.reveal{opacity:0;transition:opacity .5s var(--ease)}
+.reveal.visible{opacity:1}
 
-      /* ════════════════════════════════
-   UTILITY BAR
-   ════════════════════════════════ */
-      .util-bar {
-        background: var(--navy);
-        padding: 7px 0;
-      }
-      .util-inner {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .util-links,
-      .util-right {
-        display: flex;
-        gap: 22px;
-        align-items: center;
-      }
-      .util-links a,
-      .util-right a {
-        font-family: var(--mono);
-        font-size: 11px;
-        letter-spacing: 0.04em;
-        color: rgba(255, 255, 255, 0.62);
-        text-decoration: none;
-        transition: color 0.15s;
-      }
-      .util-links a:hover,
-      .util-right a:hover {
-        color: white;
-      }
-      .emerg {
-        background: var(--red);
-        color: white;
-        font-family: var(--mono);
-        font-size: 10px;
-        font-weight: 500;
-        letter-spacing: 0.08em;
-        padding: 3px 10px;
-        border-radius: 2px;
-      }
+/* ═══ UTILITY BAR ═══ */
+.util-bar{background:var(--navy);padding:6px 0;font-size:12px}
+.util-inner{display:flex;justify-content:space-between;align-items:center}
+.util-links{display:flex;gap:24px;align-items:center}
+.util-links a{color:rgba(255,255,255,.5);transition:color .2s;letter-spacing:.03em}
+.util-links a:hover{color:#fff}
+.util-right{display:flex;gap:16px;align-items:center}
+.util-right a{color:rgba(255,255,255,.5);transition:color .2s}
+.util-right a:hover{color:#fff}
+.emerg{display:inline-flex;align-items:center;gap:6px;background:var(--crimson);color:#fff;font-size:11px;font-weight:600;letter-spacing:.06em;padding:4px 14px;border-radius:4px}
 
-      /* ════════════════════════════════
-   NAV
-   ════════════════════════════════ */
-      nav {
-        background: white;
-        border-bottom: 1px solid #e6dfd6;
-        position: sticky;
-        top: 0;
-        z-index: 200;
-        box-shadow: 0 1px 16px rgba(0, 40, 85, 0.07);
-      }
-      .nav-inner {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: 78px;
-        padding: 0 48px;
-        max-width: 1280px;
-        margin: 0 auto;
-      }
-      .nav-links {
-        display: flex;
-        gap: 4px;
-        list-style: none;
-      }
-      .nav-links a {
-        font-size: 14px;
-        font-weight: 500;
-        color: var(--ink);
-        text-decoration: none;
-        padding: 8px 14px;
-        border-radius: 5px;
-        transition:
-          background 0.15s,
-          color 0.15s;
-      }
-      .nav-links a:hover {
-        background: var(--sky);
-        color: var(--blue);
-      }
-      .nav-cta {
-        display: flex;
-        gap: 10px;
-        margin-left: 20px;
-      }
-      .btn-outline {
-        border: 1.5px solid var(--navy);
-        color: var(--navy);
-        background: transparent;
-        padding: 9px 20px;
-        border-radius: 5px;
-        font-size: 13px;
-        font-weight: 600;
-        cursor: pointer;
-        text-decoration: none;
-        font-family: var(--sans);
-        transition: all 0.15s;
-      }
-      .btn-outline:hover {
-        background: var(--navy);
-        color: white;
-      }
-      .btn-primary {
-        background: var(--red);
-        color: white;
-        border: none;
-        padding: 10px 22px;
-        border-radius: 5px;
-        font-size: 13px;
-        font-weight: 600;
-        cursor: pointer;
-        text-decoration: none;
-        font-family: var(--sans);
-        transition: background 0.15s;
-      }
-      .btn-primary:hover {
-        background: var(--red2);
-      }
+/* ═══ HEADER ═══ */
+.site-header{background:var(--white);border-bottom:1px solid var(--border-light);position:sticky;top:0;z-index:100;padding:0}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;align-items:center;gap:12px;font-size:0}
+.logo-vps{font-size:22px;font-weight:800;color:var(--brand);letter-spacing:-.02em}
+.logo-sep{width:1.5px;height:32px;background:var(--border);margin:0 4px}
+.logo-name{font-size:24px;font-weight:700;color:var(--ink);letter-spacing:-.03em}
+.logo-sub{font-size:11px;color:var(--muted);letter-spacing:.04em;margin-top:-2px}
+.logo-icon{font-size:18px;color:var(--crimson);margin-left:2px}
+.main-nav{display:flex;gap:32px;align-items:center}
+.main-nav a{font-size:14px;font-weight:500;color:var(--ink-light);letter-spacing:.01em;transition:color .2s;padding:4px 0}
+.main-nav a:hover{color:var(--brand)}
+.header-actions{display:flex;gap:12px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;padding:10px 24px;border-radius:8px;cursor:pointer;border:none;transition:all .2s var(--ease);letter-spacing:.01em}
+.btn-outline{background:transparent;border:1.5px solid var(--brand);color:var(--brand)}
+.btn-outline:hover{background:var(--brand);color:#fff}
+.btn-primary{background:var(--crimson);color:#fff}
+.btn-primary:hover{background:var(--crimson-dark)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+.hamburger span{width:22px;height:2px;background:var(--ink);border-radius:2px;transition:.3s}
 
-      /* ════════════════════════════════
-   HERO
-   ════════════════════════════════ */
-      .hero {
-        background: var(--navy);
-        position: relative;
-        overflow: hidden;
-        min-height: 600px;
-        display: flex;
-        align-items: center;
-      }
-      .hero-glow {
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-      }
-      .hero-glow::before {
-        content: "";
-        position: absolute;
-        right: -80px;
-        top: -80px;
-        width: 650px;
-        height: 650px;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(0, 87, 184, 0.42) 0%, transparent 68%);
-      }
-      .hero-glow::after {
-        content: "";
-        position: absolute;
-        right: 240px;
-        bottom: -180px;
-        width: 440px;
-        height: 440px;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(200, 16, 46, 0.15) 0%, transparent 68%);
-      }
-      .hero-wave {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 80px;
-        opacity: 0.05;
-        pointer-events: none;
-      }
-      .hero-body {
-        position: relative;
-        z-index: 2;
-        padding: 80px 0;
-        width: 100%;
-      }
-      .hero-grid {
-        display: grid;
-        grid-template-columns: 1fr 390px;
-        gap: 60px;
-        align-items: center;
-      }
-      .hero-eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        font-family: var(--mono);
-        font-size: 11px;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: rgba(255, 255, 255, 0.5);
-        margin-bottom: 20px;
-      }
-      .dot {
-        width: 6px;
-        height: 6px;
-        background: var(--red);
-        border-radius: 50%;
-        flex-shrink: 0;
-      }
-      h1 {
-        font-family: var(--serif);
-        font-size: clamp(44px, 4.8vw, 64px);
-        font-weight: 300;
-        color: white;
-        line-height: 1.08;
-        letter-spacing: -0.025em;
-        margin-bottom: 24px;
-      }
-      h1 em {
-        font-style: italic;
-        color: rgba(255, 255, 255, 0.68);
-      }
-      h1 strong {
-        font-weight: 600;
-      }
-      .hero-sub {
-        font-size: 16px;
-        font-weight: 300;
-        color: rgba(255, 255, 255, 0.58);
-        line-height: 1.72;
-        max-width: 510px;
-        margin-bottom: 36px;
-      }
-      .hero-btns {
-        display: flex;
-        gap: 14px;
-        flex-wrap: wrap;
-      }
-      .btn-white {
-        background: white;
-        color: var(--navy);
-        padding: 13px 28px;
-        border-radius: 5px;
-        font-weight: 700;
-        font-size: 14px;
-        text-decoration: none;
-        font-family: var(--sans);
-        transition:
-          transform 0.15s,
-          box-shadow 0.15s;
-      }
-      .btn-white:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-      }
-      .btn-ghost {
-        border: 1.5px solid rgba(255, 255, 255, 0.32);
-        color: rgba(255, 255, 255, 0.82);
-        padding: 12px 26px;
-        border-radius: 5px;
-        font-size: 14px;
-        font-weight: 500;
-        text-decoration: none;
-        font-family: var(--sans);
-        transition:
-          border-color 0.15s,
-          color 0.15s;
-      }
-      .btn-ghost:hover {
-        border-color: white;
-        color: white;
-      }
+/* ═══ HERO ═══ */
+.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 60%,#1a3a6a 100%);color:#fff;padding:80px 0 60px;position:relative;overflow:hidden;min-height:520px;display:flex;align-items:center}
+.hero::after{content:'';position:absolute;right:-100px;top:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,102,204,.12) 0%,transparent 70%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1fr 380px;gap:48px;align-items:start}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:20px}
+.hero-badge::before{content:'';width:6px;height:6px;background:var(--crimson);border-radius:50%}
+.hero h1{font-size:48px;font-weight:700;line-height:1.15;letter-spacing:-.03em;margin-bottom:20px}
+.hero h1 em{font-style:normal;font-weight:300;opacity:.85}
+.hero-desc{font-size:15px;line-height:1.7;color:rgba(255,255,255,.6);max-width:520px;margin-bottom:32px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.hero .btn-outline{border-color:rgba(255,255,255,.3);color:#fff}
+.hero .btn-outline:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.5)}
+.hero .btn-primary{background:var(--crimson)}
 
-      /* Quick access card */
-      .qa-card {
-        background: rgba(255, 255, 255, 0.07);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        backdrop-filter: blur(16px);
-        border-radius: 12px;
-        padding: 28px 26px;
-      }
-      .qa-label {
-        font-family: var(--mono);
-        font-size: 10px;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        color: rgba(255, 255, 255, 0.38);
-        margin-bottom: 16px;
-      }
-      .qlink {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 12px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-        text-decoration: none;
-        transition: padding-left 0.15s;
-      }
-      .qlink:last-child {
-        border-bottom: none;
-        padding-bottom: 0;
-      }
-      .qlink:hover {
-        padding-left: 6px;
-      }
-      .qlink-name {
-        font-size: 14px;
-        font-weight: 500;
-        color: white;
-      }
-      .qlink-sub {
-        font-size: 11.5px;
-        color: rgba(255, 255, 255, 0.38);
-        margin-top: 2px;
-      }
-      .qlink-arr {
-        color: rgba(255, 255, 255, 0.28);
-        font-size: 20px;
-        transition:
-          color 0.15s,
-          transform 0.15s;
-      }
-      .qlink:hover .qlink-arr {
-        color: white;
-        transform: translateX(4px);
-      }
+/* Quick Access Panel */
+.quick-access{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-lg);padding:28px;backdrop-filter:blur(8px)}
+.quick-access h3{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:16px}
+.qa-item{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:1px solid rgba(255,255,255,.06);cursor:pointer;transition:all .2s}
+.qa-item:hover{padding-left:4px}
+.qa-title{font-size:14px;font-weight:600;color:#fff}
+.qa-sub{font-size:12px;color:rgba(255,255,255,.4);margin-top:2px}
+.qa-arrow{color:rgba(255,255,255,.3);font-size:12px}
 
-      /* Hero stats */
-      .hero-stats {
-        display: flex;
-        gap: 44px;
-        flex-wrap: wrap;
-        margin-top: 50px;
-        padding-top: 34px;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        position: relative;
-        z-index: 2;
-      }
-      .stat-n {
-        font-family: var(--serif);
-        font-size: 38px;
-        font-weight: 600;
-        color: white;
-        line-height: 1;
-        letter-spacing: -0.02em;
-      }
-      .stat-n sup {
-        font-size: 18px;
-      }
-      .stat-l {
-        font-size: 12px;
-        color: rgba(255, 255, 255, 0.44);
-        margin-top: 4px;
-      }
+/* ═══ SEARCH STRIP ═══ */
+.search-strip{background:var(--sky-light);padding:24px 0;border-bottom:1px solid var(--border-light)}
+.search-inner{display:flex;align-items:center;gap:20px}
+.search-label{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.search-box{flex:1;display:flex;align-items:center;background:var(--white);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.search-box input{flex:1;border:none;padding:12px 16px;font-size:14px;font-family:var(--sans);outline:none;color:var(--ink)}
+.search-btn{background:var(--brand);color:#fff;border:none;padding:12px 24px;font-size:13px;font-weight:600;cursor:pointer;transition:background .2s}
+.search-btn:hover{background:var(--brand-dark)}
+.search-tags{display:flex;gap:8px;flex-wrap:wrap}
+.search-tag{font-size:12px;color:var(--muted);border:1px solid var(--border);padding:6px 14px;border-radius:20px;cursor:pointer;transition:all .2s;white-space:nowrap}
+.search-tag:hover{border-color:var(--brand);color:var(--brand)}
 
-      /* ════════════════════════════════
-   SEARCH BELT
-   ════════════════════════════════ */
-      .search-belt {
-        background: var(--sand);
-        border-bottom: 1px solid #e0d8ce;
-        padding: 26px 0;
-      }
-      .search-row {
-        display: flex;
-        gap: 14px;
-        align-items: center;
-        flex-wrap: wrap;
-      }
-      .search-label {
-        font-family: var(--mono);
-        font-size: 11px;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--muted);
-        white-space: nowrap;
-      }
-      .search-box {
-        flex: 1;
-        min-width: 260px;
-        display: flex;
-        background: white;
-        border: 1.5px solid #d4ccc4;
-        border-radius: 6px;
-        overflow: hidden;
-        transition:
-          border-color 0.15s,
-          box-shadow 0.15s;
-      }
-      .search-box:focus-within {
-        border-color: var(--azure);
-        box-shadow: 0 0 0 3px rgba(0, 87, 184, 0.08);
-      }
-      .search-box input {
-        flex: 1;
-        border: none;
-        outline: none;
-        padding: 11px 18px;
-        font-size: 14px;
-        font-family: var(--sans);
-        color: var(--ink);
-      }
-      .search-box button {
-        background: var(--navy);
-        color: white;
-        border: none;
-        padding: 0 22px;
-        font-size: 13px;
-        font-weight: 600;
-        font-family: var(--sans);
-        cursor: pointer;
-        transition: background 0.15s;
-      }
-      .search-box button:hover {
-        background: var(--blue);
-      }
-      .pills {
-        display: flex;
-        gap: 8px;
-        flex-wrap: wrap;
-      }
-      .pill {
-        font-size: 12px;
-        color: var(--muted);
-        padding: 5px 13px;
-        border: 1px solid #d4ccc4;
-        border-radius: 20px;
-        background: white;
-        cursor: pointer;
-        text-decoration: none;
-        transition:
-          border-color 0.15s,
-          color 0.15s;
-      }
-      .pill:hover {
-        border-color: var(--blue);
-        color: var(--blue);
-      }
+/* ═══ SECTION COMMON ═══ */
+.section{padding:80px 0}
+.section-sm{padding:64px 0}
+.section-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--crimson);margin-bottom:12px}
+.section-title{font-size:36px;font-weight:700;line-height:1.2;letter-spacing:-.02em;color:var(--ink);margin-bottom:8px}
+.section-title em{font-style:italic;font-weight:400;color:var(--brand)}
+.section-desc{font-size:15px;color:var(--muted);line-height:1.6;max-width:560px}
 
-      /* ════════════════════════════════
-   SECTION HEADERS
-   ════════════════════════════════ */
-      .sec-eye {
-        font-family: var(--mono);
-        font-size: 10.5px;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        color: var(--red);
-        margin-bottom: 10px;
-      }
-      .sec-title {
-        font-family: var(--serif);
-        font-size: clamp(30px, 3.5vw, 44px);
-        font-weight: 300;
-        color: var(--navy);
-        line-height: 1.1;
-        letter-spacing: -0.02em;
-      }
-      .sec-title strong {
-        font-weight: 600;
-      }
-      .sec-hdr {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-        margin-bottom: 46px;
-      }
-      .sec-lnk {
-        font-size: 13px;
-        font-weight: 600;
-        color: var(--blue);
-        text-decoration: none;
-        white-space: nowrap;
-      }
-      .sec-lnk::after {
-        content: " →";
-      }
-      .sec-lnk:hover {
-        color: var(--navy);
-      }
+/* ═══ CENTRES OF EXCELLENCE ═══ */
+.coe-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px}
+.coe-card{background:var(--sky-light);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:28px;transition:all .25s var(--ease);position:relative}
+.coe-card:hover{border-color:var(--brand);box-shadow:var(--shadow)}
+.coe-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:16px}
+.coe-icon.cardiac{background:#fee2e2;color:#dc2626}
+.coe-icon.onco{background:#d1fae5;color:#059669}
+.coe-icon.neuro{background:#fef3c7;color:#d97706}
+.coe-icon.liver{background:#dbeafe;color:#2563eb}
+.coe-icon.ortho{background:#e0e7ff;color:#4f46e5}
+.coe-icon.robotic{background:#cffafe;color:#0891b2}
+.coe-icon.gastro{background:#dcfce7;color:#16a34a}
+.coe-icon.renal{background:#f3e8ff;color:#7c3aed}
+.coe-name{font-size:16px;font-weight:600;color:var(--ink);margin-bottom:6px}
+.coe-desc{font-size:13px;color:var(--muted);line-height:1.5}
+.coe-arrow{position:absolute;top:24px;right:24px;color:var(--border);font-size:12px;transition:color .2s}
+.coe-card:hover .coe-arrow{color:var(--brand)}
+.coe-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:0}
+.coe-link{font-size:13px;font-weight:600;color:var(--brand);display:inline-flex;align-items:center;gap:6px;transition:gap .2s}
+.coe-link:hover{gap:10px}
 
-      /* ════════════════════════════════
-   SPECIALTIES
-   ════════════════════════════════ */
-      .specialties {
-        padding: 88px 0;
-        background: white;
-      }
-      .spec-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 2px;
-      }
-      .spec-card {
-        background: var(--sand);
-        padding: 28px 24px;
-        text-decoration: none;
-        display: block;
-        position: relative;
-        overflow: hidden;
-        transition:
-          background 0.2s,
-          transform 0.2s;
-      }
-      .spec-card::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-        background: var(--red);
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform 0.25s ease;
-      }
-      .spec-card:hover {
-        background: var(--warm);
-        transform: translateY(-2px);
-      }
-      .spec-card:hover::after {
-        transform: scaleX(1);
-      }
-      .spec-icon {
-        width: 42px;
-        height: 42px;
-        background: var(--navy);
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 19px;
-        margin-bottom: 14px;
-      }
-      .spec-name {
-        font-family: var(--serif);
-        font-size: 19px;
-        font-weight: 600;
-        color: var(--navy);
-        line-height: 1.2;
-        margin-bottom: 7px;
-      }
-      .spec-desc {
-        font-size: 13px;
-        color: var(--muted);
-        line-height: 1.55;
-      }
-      .spec-arr {
-        position: absolute;
-        top: 22px;
-        right: 20px;
-        color: #c4bdb4;
-        font-size: 17px;
-        transition:
-          color 0.15s,
-          transform 0.15s;
-      }
-      .spec-card:hover .spec-arr {
-        color: var(--navy);
-        transform: translate(3px, -3px);
-      }
+/* ═══ WHY CHOOSE US (replaces Patient Care & Innovation) ═══ */
+.why-section{background:var(--sky-light);border-top:1px solid var(--border-light);border-bottom:1px solid var(--border-light)}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:40px}
+.why-item{text-align:center;padding:24px 16px}
+.why-icon{width:56px;height:56px;border-radius:50%;background:var(--white);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:22px;color:var(--brand)}
+.why-title{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:6px}
+.why-desc{font-size:13px;color:var(--muted);line-height:1.5}
 
-      /* ════════════════════════════════
-   TRUST NUMBERS
-   ════════════════════════════════ */
-      .trust {
-        background: var(--navy);
-        padding: 60px 0;
-      }
-      .trust-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1px;
-        background: rgba(255, 255, 255, 0.08);
-      }
-      .trust-item {
-        background: var(--navy);
-        padding: 32px 28px;
-        text-align: center;
-        transition: background 0.2s;
-      }
-      .trust-item:hover {
-        background: var(--blue);
-      }
-      .trust-n {
-        font-family: var(--serif);
-        font-size: 50px;
-        font-weight: 300;
-        color: white;
-        line-height: 1;
-        letter-spacing: -0.03em;
-      }
-      .trust-n sup {
-        font-size: 22px;
-      }
-      .trust-u {
-        font-family: var(--mono);
-        font-size: 10px;
-        letter-spacing: 0.14em;
-        color: rgba(255, 255, 255, 0.36);
-        text-transform: uppercase;
-        display: block;
-        margin: 6px 0 8px;
-      }
-      .trust-d {
-        font-size: 12.5px;
-        color: rgba(255, 255, 255, 0.5);
-        line-height: 1.5;
-      }
+/* ═══ INTERNATIONAL PATIENTS ═══ */
+.intl{background:linear-gradient(135deg,var(--navy) 0%,#0f2240 100%);color:#fff}
+.intl .section-label{color:rgba(255,255,255,.4)}
+.intl .section-title{color:#fff}
+.intl .section-title em{color:rgba(255,255,255,.7)}
+.intl .section-desc{color:rgba(255,255,255,.5)}
+.intl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.intl-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:24px;transition:all .25s}
+.intl-card:hover{background:rgba(255,255,255,.08)}
+.intl-card i{font-size:24px;color:rgba(255,255,255,.4);margin-bottom:12px}
+.intl-card h4{font-size:15px;font-weight:600;margin-bottom:6px}
+.intl-card p{font-size:13px;color:rgba(255,255,255,.5);line-height:1.5}
 
-      /* ════════════════════════════════
-   FEATURED PANELS (care / research)
-   ════════════════════════════════ */
-      .featured {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-      }
-      .feat {
-        padding: 76px 54px;
-        position: relative;
-        overflow: hidden;
-      }
-      .feat.care {
-        background: var(--sand);
-      }
-      .feat.research {
-        background: var(--sky);
-      }
-      .feat::before {
-        content: "";
-        position: absolute;
-        top: -60px;
-        right: -60px;
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        opacity: 0.07;
-      }
-      .feat.care::before {
-        background: var(--red);
-      }
-      .feat.research::before {
-        background: var(--azure);
-      }
-      .feat-tag {
-        display: inline-block;
-        font-family: var(--mono);
-        font-size: 10px;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        padding: 5px 11px;
-        border-radius: 2px;
-        margin-bottom: 20px;
-      }
-      .feat.care .feat-tag {
-        background: var(--red);
-        color: white;
-      }
-      .feat.research .feat-tag {
-        background: var(--navy);
-        color: white;
-      }
-      .feat-h {
-        font-family: var(--serif);
-        font-size: clamp(26px, 3vw, 38px);
-        font-weight: 300;
-        color: var(--navy);
-        line-height: 1.1;
-        letter-spacing: -0.02em;
-        margin-bottom: 14px;
-      }
-      .feat-h strong {
-        font-weight: 600;
-      }
-      .feat-body {
-        font-size: 15px;
-        color: var(--muted);
-        line-height: 1.7;
-        margin-bottom: 26px;
-        max-width: 400px;
-      }
-      .feat-list {
-        list-style: none;
-        margin-bottom: 32px;
-      }
-      .feat-list li {
-        font-size: 14px;
-        color: var(--ink);
-        padding: 9px 0;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-      .feat-list li::before {
-        content: "";
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        flex-shrink: 0;
-      }
-      .feat.care .feat-list li::before {
-        background: var(--red);
-      }
-      .feat.research .feat-list li::before {
-        background: var(--azure);
-      }
-      .btn-dark {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: var(--navy);
-        color: white;
-        padding: 12px 22px;
-        border-radius: 5px;
-        font-size: 13px;
-        font-weight: 600;
-        text-decoration: none;
-        font-family: var(--sans);
-        transition:
-          background 0.15s,
-          transform 0.15s;
-      }
-      .btn-dark:hover {
-        background: var(--blue);
-        transform: translateY(-1px);
-      }
+/* ═══ NEWS ═══ */
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.news-card{border:1px solid var(--border-light);border-radius:var(--radius-lg);overflow:hidden;transition:all .25s var(--ease)}
+.news-card:hover{box-shadow:var(--shadow);border-color:var(--border)}
+.news-img{height:200px;background:var(--sky);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:32px}
+.news-body{padding:24px}
+.news-date{font-size:12px;color:var(--muted);margin-bottom:8px}
+.news-title{font-size:16px;font-weight:600;color:var(--ink);line-height:1.4;margin-bottom:8px}
+.news-excerpt{font-size:13px;color:var(--muted);line-height:1.5}
+.news-header{display:flex;justify-content:space-between;align-items:flex-end}
 
-      /* ════════════════════════════════
-   INTERNATIONAL
-   ════════════════════════════════ */
-      .intl {
-        padding: 88px 0;
-        background: white;
-      }
-      .intl-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 72px;
-        align-items: center;
-      }
-      .intl-vis {
-        background: var(--navy);
-        border-radius: 12px;
-        aspect-ratio: 4/3;
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        align-items: flex-end;
-      }
-      .intl-vis-bg {
-        position: absolute;
-        inset: 0;
-        background:
-          radial-gradient(circle at 30% 30%, rgba(0, 87, 184, 0.55) 0%, transparent 60%),
-          radial-gradient(circle at 75% 75%, rgba(200, 16, 46, 0.2) 0%, transparent 60%);
-      }
-      .intl-vis-content {
-        position: relative;
-        z-index: 1;
-        padding: 28px;
-        width: 100%;
-      }
-      .intl-vis-hl {
-        font-family: var(--serif);
-        font-size: 34px;
-        font-weight: 300;
-        color: white;
-        line-height: 1.1;
-        letter-spacing: -0.02em;
-        margin-bottom: 18px;
-      }
-      .intl-vis-hl strong {
-        font-weight: 600;
-      }
-      .intl-tags {
-        display: flex;
-        gap: 8px;
-        flex-wrap: wrap;
-      }
-      .itag {
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        color: rgba(255, 255, 255, 0.75);
-        font-size: 11px;
-        font-family: var(--mono);
-        padding: 4px 10px;
-        border-radius: 3px;
-        letter-spacing: 0.06em;
-      }
-      .intl-body {
-        font-size: 15px;
-        color: var(--muted);
-        line-height: 1.7;
-        margin-bottom: 30px;
-      }
-      .intl-svcs {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
-        margin-bottom: 32px;
-      }
-      .isvc {
-        display: flex;
-        align-items: flex-start;
-        gap: 12px;
-      }
-      .isvc-icon {
-        width: 34px;
-        height: 34px;
-        background: var(--sky);
-        border-radius: 7px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 16px;
-        flex-shrink: 0;
-      }
-      .isvc-name {
-        font-size: 13px;
-        font-weight: 600;
-        color: var(--ink);
-        line-height: 1.3;
-      }
-      .isvc-sub {
-        font-size: 12px;
-        color: var(--muted);
-      }
+/* ═══ DOCTORS ═══ */
+.doc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:40px}
+.doc-card{text-align:center;padding:32px 20px;border:1px solid var(--border-light);border-radius:var(--radius-lg);transition:all .25s var(--ease)}
+.doc-card:hover{border-color:var(--brand);box-shadow:var(--shadow)}
+.doc-avatar{width:96px;height:96px;border-radius:50%;background:linear-gradient(135deg,var(--sky) 0%,var(--border-light) 100%);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:36px;color:var(--muted)}
+.doc-name{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:4px}
+.doc-spec{font-size:12px;color:var(--brand);font-weight:500;margin-bottom:4px}
+.doc-qual{font-size:12px;color:var(--muted)}
 
-      /* ════════════════════════════════
-   NEWS
-   ════════════════════════════════ */
-      .news {
-        padding: 88px 0;
-        background: var(--sand);
-      }
-      .news-grid {
-        display: grid;
-        grid-template-columns: 2fr 1fr 1fr;
-        gap: 2px;
-        margin-top: 46px;
-      }
-      .nc {
-        background: white;
-        padding: 32px 28px;
-        display: flex;
-        flex-direction: column;
-        text-decoration: none;
-        transition: transform 0.2s;
-      }
-      .nc:hover {
-        transform: translateY(-3px);
-      }
-      .nc.big {
-        padding: 42px 36px;
-      }
-      .nc-cat {
-        font-family: var(--mono);
-        font-size: 10px;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        color: var(--red);
-        margin-bottom: 12px;
-      }
-      .nc-hl {
-        font-family: var(--serif);
-        font-size: 20px;
-        font-weight: 600;
-        color: var(--navy);
-        line-height: 1.25;
-        margin-bottom: 10px;
-        flex: 1;
-      }
-      .nc.big .nc-hl {
-        font-size: 28px;
-      }
-      .nc-exc {
-        font-size: 13.5px;
-        color: var(--muted);
-        line-height: 1.6;
-        margin-bottom: 20px;
-      }
-      .nc-meta {
-        font-family: var(--mono);
-        font-size: 11px;
-        color: #a09890;
-        letter-spacing: 0.05em;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .nc-meta span {
-        color: #d4ccc4;
-      }
-      .badges {
-        margin-top: 42px;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
-      }
-      .badge {
-        border: 1.5px solid #e4ddd4;
-        border-radius: 8px;
-        padding: 17px 19px;
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        background: white;
-        transition:
-          border-color 0.15s,
-          box-shadow 0.15s;
-      }
-      .badge:hover {
-        border-color: var(--navy);
-        box-shadow: 0 4px 20px rgba(0, 40, 85, 0.08);
-      }
-      .badge-icon {
-        width: 38px;
-        height: 38px;
-        background: var(--sky);
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 18px;
-        flex-shrink: 0;
-      }
-      .badge-t {
-        font-size: 13px;
-        font-weight: 600;
-        color: var(--ink);
-        line-height: 1.3;
-      }
-      .badge-s {
-        font-size: 11px;
-        color: var(--muted);
-        font-family: var(--mono);
-        margin-top: 2px;
-      }
+/* ═══ TESTIMONIALS ═══ */
+.testimonials{background:var(--sky-light);border-top:1px solid var(--border-light)}
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.test-card{background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:28px;position:relative}
+.test-quote{font-size:14px;color:var(--ink-light);line-height:1.7;font-style:italic;margin-bottom:20px}
+.test-author{font-size:13px;font-weight:600;color:var(--ink)}
+.test-origin{font-size:12px;color:var(--muted)}
+.test-stars{color:#f59e0b;font-size:12px;margin-bottom:12px;letter-spacing:2px}
+.test-mark{position:absolute;top:20px;right:24px;font-size:40px;color:var(--border-light);font-family:Georgia,serif;line-height:1}
 
-      /* ════════════════════════════════
-   DOCTORS
-   ════════════════════════════════ */
-      .doctors {
-        padding: 88px 0;
-        background: white;
-      }
-      .doc-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
-        margin-top: 46px;
-      }
-      .doc-card {
-        border: 1.5px solid #ebe5dc;
-        border-radius: 10px;
-        overflow: hidden;
-        text-decoration: none;
-        display: block;
-        transition:
-          box-shadow 0.2s,
-          transform 0.2s;
-      }
-      .doc-card:hover {
-        box-shadow: 0 12px 36px rgba(0, 40, 85, 0.11);
-        transform: translateY(-3px);
-      }
-      .doc-photo {
-        height: 172px;
-        background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .doc-init {
-        font-family: var(--serif);
-        font-size: 38px;
-        font-weight: 300;
-        color: rgba(255, 255, 255, 0.26);
-        letter-spacing: -0.02em;
-      }
-      .doc-info {
-        padding: 18px 19px;
-      }
-      .doc-name {
-        font-family: var(--serif);
-        font-size: 17px;
-        font-weight: 600;
-        color: var(--navy);
-        line-height: 1.2;
-        margin-bottom: 4px;
-      }
-      .doc-role {
-        font-size: 11.5px;
-        color: var(--muted);
-        margin-bottom: 3px;
-        font-weight: 500;
-      }
-      .doc-dept {
-        font-size: 11.5px;
-        color: var(--muted);
-        margin-bottom: 11px;
-        line-height: 1.4;
-      }
-      .doc-tag {
-        display: inline-block;
-        background: var(--sky);
-        color: var(--blue);
-        font-size: 10.5px;
-        font-family: var(--mono);
-        padding: 3px 9px;
-        border-radius: 3px;
-        letter-spacing: 0.04em;
-      }
+/* ═══ ACCREDITATIONS ═══ */
+.accred-bar{padding:48px 0;border-top:1px solid var(--border-light);border-bottom:1px solid var(--border-light)}
+.accred-inner{display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap}
+.accred-item{display:flex;flex-direction:column;align-items:center;gap:8px;opacity:.5;transition:opacity .2s}
+.accred-item:hover{opacity:1}
+.accred-icon{font-size:28px;color:var(--ink)}
+.accred-name{font-size:11px;font-weight:600;letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
 
-      /* ════════════════════════════════
-   TESTIMONIALS
-   ════════════════════════════════ */
-      .testimonials {
-        padding: 88px 0;
-        background: var(--navy);
-        position: relative;
-        overflow: hidden;
-      }
-      .testimonials::before {
-        content: '"';
-        position: absolute;
-        top: -30px;
-        left: 50px;
-        font-family: var(--serif);
-        font-size: 280px;
-        color: rgba(255, 255, 255, 0.03);
-        line-height: 1;
-        pointer-events: none;
-      }
-      .test-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-        margin-top: 46px;
-      }
-      .test-card {
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 10px;
-        padding: 28px 24px;
-      }
-      .test-q {
-        font-family: var(--serif);
-        font-size: 16px;
-        font-weight: 300;
-        color: rgba(255, 255, 255, 0.82);
-        line-height: 1.65;
-        font-style: italic;
-        margin-bottom: 22px;
-      }
-      .test-auth {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-      .auth-av {
-        width: 38px;
-        height: 38px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.1);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: var(--serif);
-        font-size: 15px;
-        color: rgba(255, 255, 255, 0.44);
-        flex-shrink: 0;
-      }
-      .auth-name {
-        font-size: 13px;
-        font-weight: 600;
-        color: white;
-      }
-      .auth-from {
-        font-size: 11px;
-        color: rgba(255, 255, 255, 0.36);
-        font-family: var(--mono);
-        margin-top: 2px;
-      }
+/* ═══ FOOTER ═══ */
+.site-footer{background:var(--navy);color:rgba(255,255,255,.5);padding:64px 0 24px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-brand .logo-vps{color:rgba(255,255,255,.7)}
+.footer-brand .logo-name{color:#fff}
+.footer-brand .logo-sub{color:rgba(255,255,255,.3)}
+.footer-desc{font-size:13px;line-height:1.7;margin-top:16px;color:rgba(255,255,255,.4);max-width:300px}
+.footer-col h4{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:16px}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.5);padding:4px 0;transition:color .2s}
+.footer-col a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:rgba(255,255,255,.3)}
+.footer-social{display:flex;gap:16px}
+.footer-social a{color:rgba(255,255,255,.3);transition:color .2s;font-size:16px}
+.footer-social a:hover{color:#fff}
 
-      /* ════════════════════════════════
-   ACCREDITATION
-   ════════════════════════════════ */
-      .accred {
-        background: var(--warm);
-        border-top: 1px solid #ddd6cc;
-        border-bottom: 1px solid #ddd6cc;
-        padding: 34px 0;
-      }
-      .accred-inner {
-        display: flex;
-        align-items: center;
-        gap: 44px;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .accred-label {
-        font-family: var(--mono);
-        font-size: 10px;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        color: var(--muted);
-      }
-      .accred-items {
-        display: flex;
-        gap: 26px;
-        align-items: center;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .accred-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 4px;
-        opacity: 0.6;
-        transition: opacity 0.15s;
-      }
-      .accred-item:hover {
-        opacity: 1;
-      }
-      .accred-box {
-        width: 56px;
-        height: 34px;
-        background: var(--navy);
-        border-radius: 4px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .accred-box span {
-        font-family: var(--mono);
-        font-size: 9px;
-        font-weight: 500;
-        color: white;
-        letter-spacing: 0.1em;
-      }
-      .accred-name {
-        font-size: 10px;
-        color: var(--muted);
-        font-family: var(--mono);
-        text-align: center;
-        line-height: 1.3;
-      }
+/* WhatsApp float */
+.whatsapp-float{position:fixed;bottom:28px;right:28px;width:56px;height:56px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:26px;box-shadow:0 4px 16px rgba(37,211,102,.3);z-index:999;transition:transform .2s}
+.whatsapp-float:hover{transform:scale(1.1)}
 
-      /* ════════════════════════════════
-   FOOTER
-   ════════════════════════════════ */
-      footer {
-        background: #0a1828;
-        color: rgba(255, 255, 255, 0.52);
-        padding: 68px 0 32px;
-      }
-      .footer-grid {
-        display: grid;
-        grid-template-columns: 2fr 1fr 1fr 1fr;
-        gap: 48px;
-        margin-bottom: 52px;
-      }
-      .footer-tagline {
-        font-family: var(--serif);
-        font-style: italic;
-        font-size: 14px;
-        color: rgba(255, 255, 255, 0.38);
-        line-height: 1.6;
-        margin: 14px 0 16px;
-      }
-      .footer-addr {
-        font-size: 12.5px;
-        line-height: 1.75;
-        color: rgba(255, 255, 255, 0.36);
-      }
-      .f-title {
-        font-size: 11px;
-        font-weight: 600;
-        color: white;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        margin-bottom: 16px;
-        font-family: var(--mono);
-      }
-      .f-links {
-        list-style: none;
-      }
-      .f-links li {
-        margin-bottom: 9px;
-      }
-      .f-links a {
-        font-size: 13.5px;
-        color: rgba(255, 255, 255, 0.46);
-        text-decoration: none;
-        transition: color 0.15s;
-      }
-      .f-links a:hover {
-        color: white;
-      }
-      .footer-btm {
-        border-top: 1px solid rgba(255, 255, 255, 0.07);
-        padding-top: 26px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 16px;
-      }
-      .footer-btm-l {
-        font-size: 11.5px;
-        color: rgba(255, 255, 255, 0.26);
-        font-family: var(--mono);
-      }
-      .footer-btm-r {
-        display: flex;
-        gap: 18px;
-      }
-      .footer-btm-r a {
-        font-size: 11.5px;
-        color: rgba(255, 255, 255, 0.26);
-        text-decoration: none;
-        font-family: var(--mono);
-        transition: color 0.15s;
-      }
-      .footer-btm-r a:hover {
-        color: rgba(255, 255, 255, 0.65);
-      }
-      /* Footer logo variant */
-      .footer-logo {
-        display: inline-flex;
-        align-items: center;
-      }
-      .fl-vps {
-        font-family: var(--sans);
-        font-size: 27px;
-        font-weight: 700;
-        font-style: italic;
-        color: rgba(255, 255, 255, 0.75);
-        letter-spacing: -0.5px;
-      }
-      .fl-sep {
-        width: 1.5px;
-        height: 38px;
-        background: rgba(255, 255, 255, 0.2);
-        margin: 0 11px;
-      }
-      .fl-right {
-        display: flex;
-        flex-direction: column;
-      }
-      .fl-ls {
-        font-family: var(--sans);
-        font-size: 25px;
-        font-weight: 700;
-        color: rgba(255, 255, 255, 0.75);
-        letter-spacing: -0.5px;
-        line-height: 1;
-      }
-      .fl-mc {
-        font-family: var(--sans);
-        font-size: 11px;
-        font-weight: 400;
-        color: rgba(255, 255, 255, 0.35);
-        letter-spacing: 0.3px;
-        margin-top: 3px;
-      }
+/* ═══ MOBILE NAV ═══ */
+.mobile-nav{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--white);z-index:200;padding:80px 32px 32px;flex-direction:column;gap:0}
+.mobile-nav.open{display:flex}
+.mobile-nav a{font-size:18px;font-weight:500;color:var(--ink);padding:16px 0;border-bottom:1px solid var(--border-light)}
+.mobile-close{position:absolute;top:20px;right:20px;font-size:24px;color:var(--ink);cursor:pointer;padding:8px}
 
-      /* ════════════════════════════════
-   ANIMATIONS
-   ════════════════════════════════ */
-      @keyframes fadeUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      .hero-content {
-        animation: fadeUp 0.65s ease both;
-      }
-      .hero-card-anim {
-        animation: fadeUp 0.65s ease 0.18s both;
-      }
-      .hero-stats-anim {
-        animation: fadeUp 0.65s ease 0.32s both;
-      }
-      .reveal {
-        opacity: 0;
-        transform: translateY(22px);
-        transition:
-          opacity 0.6s ease,
-          transform 0.6s ease;
-      }
-      .reveal.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:1024px){
+  .container{padding:0 24px}
+  .hero-grid{grid-template-columns:1fr}
+  .quick-access{display:none}
+  .hero h1{font-size:36px}
+  .coe-grid{grid-template-columns:repeat(2,1fr)}
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+  .intl-grid{grid-template-columns:repeat(2,1fr)}
+  .news-grid{grid-template-columns:1fr}
+  .doc-grid{grid-template-columns:repeat(2,1fr)}
+  .test-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:repeat(2,1fr)}
+  .main-nav{display:none}
+  .hamburger{display:flex}
+}
+@media(max-width:640px){
+  .container{padding:0 16px}
+  .hero{padding:48px 0 40px;min-height:auto}
+  .hero h1{font-size:28px}
+  .section{padding:56px 0}
+  .section-title{font-size:28px}
+  .coe-grid,.why-grid,.intl-grid,.doc-grid{grid-template-columns:1fr}
+  .search-inner{flex-direction:column;align-items:stretch}
+  .search-tags{justify-content:center}
+  .util-bar{display:none}
+  .accred-inner{gap:24px}
+  .footer-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
 
-      /* ════════════════════════════════
-   RESPONSIVE
-   ════════════════════════════════ */
-      @media (max-width: 1100px) {
-        .hero-grid {
-          grid-template-columns: 1fr;
-          gap: 40px;
-        }
-        .spec-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        .doc-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        .footer-grid {
-          grid-template-columns: 1fr 1fr;
-        }
-      }
-      @media (max-width: 900px) {
-        .featured {
-          grid-template-columns: 1fr;
-        }
-        .intl-grid {
-          grid-template-columns: 1fr;
-          gap: 40px;
-        }
-        .test-grid {
-          grid-template-columns: 1fr;
-        }
-        .news-grid {
-          grid-template-columns: 1fr;
-        }
-        .trust-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        .nav-links {
-          display: none;
-        }
-        .badges {
-          grid-template-columns: 1fr;
-        }
-      }
-      @media (max-width: 600px) {
-        .container {
-          padding: 0 20px;
-        }
-        .nav-inner {
-          padding: 0 20px;
-        }
-        .spec-grid {
-          grid-template-columns: 1fr;
-        }
-        .doc-grid {
-          grid-template-columns: 1fr;
-        }
-        .intl-svcs {
-          grid-template-columns: 1fr;
-        }
-        .footer-grid {
-          grid-template-columns: 1fr;
-        }
-        .logo-vps {
-          font-size: 22px;
-        }
-        .logo-lakeshore {
-          font-size: 22px;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Utility Bar -->
-    <div class="util-bar">
-      <div class="container">
-        <div class="util-inner">
-          <div class="util-links">
-            <a href="#">For Patients</a>
-            <a href="#">For Doctors</a>
-            <a href="vps_academics.html">Academics</a>
-            <a href="vps_careers.html">Careers</a>
-            <a href="#">عربى</a>
-          </div>
-          <div class="util-right">
-            <span class="emerg">A&amp;E: 99616 30000</span>
-            <a href="#">Help Desk: 99616 40000</a>
-            <a href="#">Patient Portal</a>
-          </div>
-        </div>
+<!-- 1. UTILITY BAR -->
+<div class="util-bar">
+<div class="container util-inner">
+<div class="util-links">
+  <a href="#">For Patients</a>
+  <a href="#">For Doctors</a>
+  <a href="#">Academics</a>
+  <a href="#">Careers</a>
+  <a href="#">عربي</a>
+</div>
+<div class="util-right">
+  <span class="emerg"><i class="fas fa-phone-alt"></i> A&E: 99616 30000</span>
+  <a href="tel:9961640000">Help Desk: 99616 40000</a>
+  <a href="#">Patient Portal</a>
+</div>
+</div>
+</div>
+
+<!-- 2. HEADER -->
+<header class="site-header">
+<div class="container header-inner">
+  <a class="logo" href="#">
+    <span class="logo-vps">vps</span>
+    <span class="logo-sep"></span>
+    <div>
+      <span class="logo-name">Lakeshore</span> <i class="logo-icon fas fa-plus-circle"></i>
+      <div class="logo-sub">Medical Centre</div>
+    </div>
+  </a>
+  <nav class="main-nav">
+    <a href="#">Departments</a>
+    <a href="#">Doctors</a>
+    <a href="#">International</a>
+    <a href="#">Research</a>
+    <a href="#">About</a>
+  </nav>
+  <div class="header-actions">
+    <a class="btn btn-outline" href="#">Video Consultation</a>
+    <a class="btn btn-primary" href="#">Book Appointment</a>
+  </div>
+  <div class="hamburger" onclick="document.querySelector('.mobile-nav').classList.add('open')">
+    <span></span><span></span><span></span>
+  </div>
+</div>
+</header>
+
+<!-- Mobile Nav -->
+<nav class="mobile-nav">
+  <div class="mobile-close" onclick="this.parentElement.classList.remove('open')"><i class="fas fa-times"></i></div>
+  <a href="#">Departments</a><a href="#">Doctors</a><a href="#">International</a><a href="#">Research</a><a href="#">About</a>
+  <a href="#">Book Appointment</a><a href="#">Video Consultation</a>
+</nav>
+
+<!-- 3. HERO -->
+<section class="hero">
+<div class="container hero-grid">
+  <div>
+    <div class="hero-badge">Kerala's Premier Quaternary Care Hospital · Kochi</div>
+    <h1>Where <em>world-class</em><br/>medicine meets<br/><strong>compassionate care</strong></h1>
+    <p class="hero-desc">470 beds. 35+ super-specialties. India's first and world's first surgical milestones. Treating patients from 40+ countries since 2003.</p>
+    <div class="hero-btns">
+      <a class="btn btn-outline" href="#">Book an Appointment</a>
+      <a class="btn btn-primary" href="#">Find a Specialist →</a>
+    </div>
+  </div>
+  <div class="quick-access">
+    <h3>Quick Access</h3>
+    <div class="qa-item"><div><div class="qa-title">Book Appointment</div><div class="qa-sub">All departments, online scheduling</div></div><span class="qa-arrow">›</span></div>
+    <div class="qa-item"><div><div class="qa-title">Accident & Emergency</div><div class="qa-sub">24/7 · Air, water & surface ambulance</div></div><span class="qa-arrow">›</span></div>
+    <div class="qa-item"><div><div class="qa-title">International Patients</div><div class="qa-sub">Visa support · Multilingual care</div></div><span class="qa-arrow">›</span></div>
+    <div class="qa-item"><div><div class="qa-title">Video Consultation</div><div class="qa-sub">Connect with specialists online</div></div><span class="qa-arrow">›</span></div>
+    <div class="qa-item"><div><div class="qa-title">Patient Portal</div><div class="qa-sub">Reports, records & billing</div></div><span class="qa-arrow">›</span></div>
+  </div>
+</div>
+</section>
+
+<!-- 4. SEARCH STRIP -->
+<section class="search-strip">
+<div class="container search-inner">
+  <span class="search-label">Find Care</span>
+  <div class="search-box">
+    <input type="text" placeholder="Search conditions, doctors, departments, treatments..."/>
+    <button class="search-btn">Search</button>
+  </div>
+  <div class="search-tags">
+    <span class="search-tag">Oncology</span>
+    <span class="search-tag">Cardiology</span>
+    <span class="search-tag">Liver Transplant</span>
+    <span class="search-tag">Neurology</span>
+    <span class="search-tag">Robotic Surgery</span>
+  </div>
+</div>
+</section>
+
+<!-- 5. CENTRES OF EXCELLENCE -->
+<section class="coe section reveal">
+<div class="container">
+  <div class="coe-header">
+    <div>
+      <div class="section-label">Centres of Excellence</div>
+      <h2 class="section-title">Specialized care across<br/><em>every specialty</em></h2>
+    </div>
+    <a class="coe-link" href="#">All Departments →</a>
+  </div>
+  <div class="coe-grid">
+    <div class="coe-card"><span class="coe-arrow">›</span><div class="coe-icon cardiac"><i class="fas fa-heartbeat"></i></div><h3 class="coe-name">Cardiac Sciences</h3><p class="coe-desc">Interventional cardiology, cardiac surgery, heart transplantation & ECMO.</p></div>
+    <div class="coe-card"><span class="coe-arrow">›</span><div class="coe-icon onco"><i class="fas fa-ribbon"></i></div><h3 class="coe-name">Oncology</h3><p class="coe-desc">Medical, surgical & radiation oncology. India's first Centre for Complex Head & Neck Cancer.</p></div>
+    <div class="coe-card"><span class="coe-arrow">›</span><div class="coe-icon neuro"><i class="fas fa-brain"></i></div><h3 class="coe-name">Neuro Sciences</h3><p class="coe-desc">Neurology, neurosurgery, stroke care, epilepsy & complex brain tumour management.</p></div>
+    <div class="coe-card"><span class="coe-arrow">›</span><div class="coe-icon liver"><i class="fas fa-shield-virus"></i></div><h3 class="coe-name">Comprehensive Liver Care</h3><p class="coe-desc">Liver transplantation, hepatology, liver pathology & intensive liver care.</p></div>
+    <div class="coe-card"><span class="coe-arrow">›</span><div class="coe-icon ortho"><i class="fas fa-bone"></i></div><h3 class="coe-name">Orthopaedics & Spine</h3><p class="coe-desc">Joint replacement, trauma, spine & scoliosis surgery, sports medicine.</p></div>
+    <div class="coe-card"><span class="coe-arrow">›</span><div class="coe-icon robotic"><i class="fas fa-robot"></i></div><h3 class="coe-name">Robotic & Minimal Access</h3><p class="coe-desc">World's first endo-robotic surgery for post-cricoid cancer (2023).</p></div>
+    <div class="coe-card"><span class="coe-arrow">›</span><div class="coe-icon gastro"><i class="fas fa-stomach"></i></div><h3 class="coe-name">Gastro Sciences</h3><p class="coe-desc">Medical gastroenterology, surgical gastro, HPB surgery & endoscopy.</p></div>
+    <div class="coe-card"><span class="coe-arrow">›</span><div class="coe-icon renal"><i class="fas fa-kidneys"></i></div><h3 class="coe-name">Nephrology & Renal</h3><p class="coe-desc">Nephrology, urology, kidney transplantation & dialysis services.</p></div>
+  </div>
+</div>
+</section>
+
+<!-- 6. WHY CHOOSE US (clean, no heavy dual-panel) -->
+<section class="why-section section-sm reveal">
+<div class="container">
+  <div style="text-align:center;margin-bottom:8px">
+    <div class="section-label">Why VPS Lakeshore</div>
+    <h2 class="section-title" style="margin:0 auto">Trusted by patients from <em>40+ countries</em></h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-item">
+      <div class="why-icon"><i class="fas fa-hospital"></i></div>
+      <div class="why-title">470+ Beds & 43 ICUs</div>
+      <div class="why-desc">State-of-the-art intensive care units across every major specialty.</div>
+    </div>
+    <div class="why-item">
+      <div class="why-icon"><i class="fas fa-award"></i></div>
+      <div class="why-title">India & World Firsts</div>
+      <div class="why-desc">Pioneering surgical milestones in robotic, oncologic & transplant surgery.</div>
+    </div>
+    <div class="why-item">
+      <div class="why-icon"><i class="fas fa-globe-asia"></i></div>
+      <div class="why-title">International Care</div>
+      <div class="why-desc">Dedicated multilingual coordinators, visa support & airport transfers.</div>
+    </div>
+    <div class="why-item">
+      <div class="why-icon"><i class="fas fa-user-md"></i></div>
+      <div class="why-title">160+ Specialists</div>
+      <div class="why-desc">Highly trained physicians from premier institutions worldwide.</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- 7. NEWS -->
+<section class="section reveal">
+<div class="container">
+  <div class="news-header">
+    <div>
+      <div class="section-label">Latest Updates</div>
+      <h2 class="section-title">News & <em>Highlights</em></h2>
+    </div>
+    <a class="coe-link" href="#">All News →</a>
+  </div>
+  <div class="news-grid">
+    <div class="news-card">
+      <div class="news-img"><i class="fas fa-robot"></i></div>
+      <div class="news-body">
+        <div class="news-date">March 2025</div>
+        <h3 class="news-title">World's first endo-robotic surgery for post-cricoid cancer</h3>
+        <p class="news-excerpt">VPS Lakeshore achieves a global first in robotic surgical oncology, offering new hope for complex head and neck cancers.</p>
       </div>
     </div>
-    <!-- Navigation -->
-    <nav>
-      <div class="nav-inner">
-        <!-- ── LOGO ── -->
-        <a class="logo" href="index.html">
-          <span class="logo-vps">vps</span>
-          <div class="logo-sep"></div>
-          <div class="logo-right">
-            <div class="logo-top-row">
-              <span class="logo-lakeshore">Lakeshore</span>
-              <!-- Cross: two rotated capsules overlapping -->
-              <div aria-hidden="true" class="logo-cross">
-                <div class="logo-cross-arm logo-cross-blue"></div>
-                <div class="logo-cross-arm logo-cross-red"></div>
-              </div>
-            </div>
-            <span class="logo-mc">Medical Centre</span>
-          </div>
-        </a>
-        <ul class="nav-links">
-          <li><a href="vps_departments.html">Departments</a></li>
-          <li><a href="vps_doctors.html">Doctors</a></li>
-          <li><a href="vps_international.html">International</a></li>
-          <li><a href="vps_academics.html">Research</a></li>
-          <li><a href="vps_about.html">About</a></li>
-        </ul>
-        <div class="nav-cta">
-          <a class="btn-outline" href="#">Video Consultation</a>
-          <a class="btn-primary" href="vps_appointment.html">Book Appointment</a>
-        </div>
-      </div>
-    </nav>
-    <!-- Hero -->
-    <section class="hero">
-      <div class="hero-glow"></div>
-      <svg class="hero-wave" preserveaspectratio="none" viewbox="0 0 1440 80">
-        <path d="M0,40 C360,72 720,8 1080,40 C1260,56 1380,24 1440,40 L1440,80 L0,80 Z" fill="white"></path>
-      </svg>
-      <div class="container hero-body">
-        <div class="hero-grid">
-          <div class="hero-content">
-            <div class="hero-eyebrow"><span class="dot"></span>Kerala's Premier Quaternary Care Hospital · Kochi</div>
-            <h1>Where <em>world-class</em><br />medicine meets<br /><strong>compassionate care</strong></h1>
-            <p class="hero-sub">
-              470 beds. 35+ super-specialties. India's first and world's first surgical milestones. Treating patients
-              from 40+ countries since 2003.
-            </p>
-            <div class="hero-btns">
-              <a class="btn-white" href="vps_appointment.html">Book an Appointment</a>
-              <a class="btn-ghost" href="vps_doctors.html">Find a Specialist →</a>
-            </div>
-          </div>
-          <div class="qa-card hero-card-anim">
-            <div class="qa-label">Quick Access</div>
-            <a class="qlink" href="vps_appointment.html"
-              ><div>
-                <div class="qlink-name">Book Appointment</div>
-                <div class="qlink-sub">All departments, online scheduling</div>
-              </div>
-              <div class="qlink-arr">›</div></a
-            >
-            <a class="qlink" href="vps_contact.html"
-              ><div>
-                <div class="qlink-name">Accident &amp; Emergency</div>
-                <div class="qlink-sub">24/7 · Air, water &amp; surface ambulance</div>
-              </div>
-              <div class="qlink-arr">›</div></a
-            >
-            <a class="qlink" href="vps_international.html"
-              ><div>
-                <div class="qlink-name">International Patients</div>
-                <div class="qlink-sub">Visa support · Multilingual care</div>
-              </div>
-              <div class="qlink-arr">›</div></a
-            >
-            <a class="qlink" href="#"
-              ><div>
-                <div class="qlink-name">Video Consultation</div>
-                <div class="qlink-sub">Connect with specialists online</div>
-              </div>
-              <div class="qlink-arr">›</div></a
-            >
-            <a class="qlink" href="#"
-              ><div>
-                <div class="qlink-name">Patient Portal</div>
-                <div class="qlink-sub">Reports, records &amp; billing</div>
-              </div>
-              <div class="qlink-arr">›</div></a
-            >
-          </div>
-        </div>
-        <div class="hero-stats hero-stats-anim">
-          <div>
-            <div class="stat-n">470<sup>+</sup></div>
-            <div class="stat-l">Beds &amp; ICUs</div>
-          </div>
-          <div>
-            <div class="stat-n">35<sup>+</sup></div>
-            <div class="stat-l">Super-Specialties</div>
-          </div>
-          <div>
-            <div class="stat-n">43</div>
-            <div class="stat-l">Intensive Care Units</div>
-          </div>
-          <div>
-            <div class="stat-n">160<sup>+</sup></div>
-            <div class="stat-l">Specialist Doctors</div>
-          </div>
-          <div>
-            <div class="stat-n">40<sup>+</sup></div>
-            <div class="stat-l">Countries Served</div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Search -->
-    <div class="search-belt">
-      <div class="container">
-        <div class="search-row">
-          <span class="search-label">Find Care</span>
-          <div class="search-box">
-            <input placeholder="Search conditions, doctors, departments, treatments…" type="text" />
-            <button>Search</button>
-          </div>
-          <div class="pills">
-            <a class="pill" href="vps_departments.html">Oncology</a>
-            <a class="pill" href="vps_departments.html">Cardiology</a>
-            <a class="pill" href="vps_departments.html">Liver Transplant</a>
-            <a class="pill" href="vps_departments.html">Neurology</a>
-            <a class="pill" href="vps_departments.html">Robotic Surgery</a>
-          </div>
-        </div>
+    <div class="news-card">
+      <div class="news-img"><i class="fas fa-lungs"></i></div>
+      <div class="news-body">
+        <div class="news-date">February 2025</div>
+        <h3 class="news-title">Advanced ECMO programme saves critical cardiac patients</h3>
+        <p class="news-excerpt">The hospital's dedicated ECMO unit continues to deliver outstanding outcomes for patients with acute cardiac failure.</p>
       </div>
     </div>
-    <!-- Specialties -->
-    <section class="specialties">
-      <div class="container">
-        <div class="sec-hdr reveal">
-          <div>
-            <div class="sec-eye">Centres of Excellence</div>
-            <h2 class="sec-title">Advanced care across<br /><strong>every specialty</strong></h2>
-          </div>
-          <a class="sec-lnk" href="https://www.vpslakeshorehospital.com/departments">All Departments</a>
-        </div>
-        <div class="spec-grid reveal">
-          <a class="spec-card" href="vps_departments.html"
-            ><div class="spec-icon">🫀</div>
-            <div class="spec-name">Cardiac Sciences</div>
-            <div class="spec-desc">Interventional cardiology, cardiac surgery, heart transplantation &amp; ECMO.</div>
-            <div class="spec-arr">↗</div></a
-          >
-          <a class="spec-card" href="vps_departments.html"
-            ><div class="spec-icon">🔬</div>
-            <div class="spec-name">Oncology</div>
-            <div class="spec-desc">
-              Medical, surgical &amp; radiation oncology. India's first Centre for Complex Head &amp; Neck Cancer.
-            </div>
-            <div class="spec-arr">↗</div></a
-          >
-          <a class="spec-card" href="vps_departments.html"
-            ><div class="spec-icon">🧠</div>
-            <div class="spec-name">Neuro Sciences</div>
-            <div class="spec-desc">
-              Neurology, neurosurgery, stroke care, epilepsy &amp; complex brain tumour management.
-            </div>
-            <div class="spec-arr">↗</div></a
-          >
-          <a class="spec-card" href="vps_departments.html"
-            ><div class="spec-icon">🫘</div>
-            <div class="spec-name">Comprehensive Liver Care</div>
-            <div class="spec-desc">Liver transplantation, hepatology, liver pathology &amp; intensive liver care.</div>
-            <div class="spec-arr">↗</div></a
-          >
-          <a class="spec-card" href="vps_departments.html"
-            ><div class="spec-icon">🦴</div>
-            <div class="spec-name">Orthopaedics &amp; Spine</div>
-            <div class="spec-desc">
-              Joint replacement, trauma, spine &amp; scoliosis surgery, sports medicine &amp; foot &amp; ankle care.
-            </div>
-            <div class="spec-arr">↗</div></a
-          >
-          <a class="spec-card" href="vps_departments.html"
-            ><div class="spec-icon">🤖</div>
-            <div class="spec-name">Robotic &amp; Minimal Access Surgery</div>
-            <div class="spec-desc">
-              World's first endo-robotic surgery for post-cricoid cancer performed here in 2023.
-            </div>
-            <div class="spec-arr">↗</div></a
-          >
-          <a class="spec-card" href="vps_departments.html"
-            ><div class="spec-icon">🍃</div>
-            <div class="spec-name">Gastro Sciences</div>
-            <div class="spec-desc">
-              Medical gastroenterology, surgical gastroenterology, HPB surgery &amp; endoscopy.
-            </div>
-            <div class="spec-arr">↗</div></a
-          >
-          <a class="spec-card" href="vps_departments.html"
-            ><div class="spec-icon">💉</div>
-            <div class="spec-name">Nephrology &amp; Renal Transplant</div>
-            <div class="spec-desc">Nephrology, urology, kidney transplantation &amp; dialysis services.</div>
-            <div class="spec-arr">↗</div></a
-          >
-        </div>
-      </div>
-    </section>
-    <!-- Trust Strip -->
-    <div class="trust">
-      <div class="container">
-        <div class="trust-grid reveal">
-          <div class="trust-item">
-            <div class="trust-n">470<sup>+</sup></div>
-            <span class="trust-u">Total Beds</span>
-            <div class="trust-d">Including 43 state-of-the-art Intensive Care Units</div>
-          </div>
-          <div class="trust-item">
-            <div class="trust-n">35<sup>+</sup></div>
-            <span class="trust-u">Specialties</span>
-            <div class="trust-d">Quaternary-level expertise across all major fields</div>
-          </div>
-          <div class="trust-item">
-            <div class="trust-n">10</div>
-            <span class="trust-u">Operation Theatres</span>
-            <div class="trust-d">Robotic, laparoscopic &amp; hybrid surgical systems</div>
-          </div>
-          <div class="trust-item">
-            <div class="trust-n">160<sup>+</sup></div>
-            <span class="trust-u">Specialist Doctors</span>
-            <div class="trust-d">Highly trained physicians from across the world</div>
-          </div>
-        </div>
+    <div class="news-card">
+      <div class="news-img"><i class="fas fa-trophy"></i></div>
+      <div class="news-body">
+        <div class="news-date">January 2025</div>
+        <h3 class="news-title">NABH & JCI accreditation renewed with highest scores</h3>
+        <p class="news-excerpt">Continuous quality improvement recognised by national and international accreditation bodies.</p>
       </div>
     </div>
-    <!-- Featured Panels -->
-    <div class="featured reveal">
-      <div class="feat care">
-        <div class="feat-tag">Patient Care</div>
-        <h2 class="feat-h">Care that puts the<br /><strong>patient first</strong></h2>
-        <p class="feat-body">
-          From your first consultation to post-treatment follow-up, our team coordinates care across specialties. Our
-          multilingual coordinators support patients at every step — from 40+ countries.
-        </p>
-        <ul class="feat-list">
-          <li>Dedicated International Patient Services (ips@lakeshorehospital.org)</li>
-          <li>Medical visa invitation &amp; travel coordination</li>
-          <li>Arabic, Hindi, Malayalam, English &amp; more</li>
-          <li>Cashless insurance processing, all major insurers</li>
-          <li>Air, water &amp; surface ambulance — listed in Limca Book of Records</li>
-        </ul>
-        <a class="btn-dark" href="vps_packages.html">Explore Patient Services →</a>
-      </div>
-      <div class="feat research">
-        <div class="feat-tag">Innovation &amp; Firsts</div>
-        <h2 class="feat-h">Breaking barriers<br /><strong>in medicine</strong></h2>
-        <p class="feat-body">
-          VPS Lakeshore has established national and world firsts in surgical technique — consistently bringing the most
-          advanced treatments to patients in Kerala and across India.
-        </p>
-        <ul class="feat-list">
-          <li>World's first endo-robotic surgery for post-cricoid cancer (2023)</li>
-          <li>India's first minimally invasive bunion correction surgery (2024)</li>
-          <li>India's first Centre for Complex Head &amp; Neck Cancer</li>
-          <li>Guinness World Record — Largest Model of a Human Organ</li>
-          <li>First Laparoscopic Cholecystectomy performed in Kerala (Dr. H. Ramesh)</li>
-        </ul>
-        <a class="btn-dark" href="vps_about.html">Our Surgical Milestones →</a>
-      </div>
+  </div>
+</div>
+</section>
+
+<!-- 8. INTERNATIONAL PATIENTS -->
+<section class="intl section reveal">
+<div class="container">
+  <div class="section-label">International Patients</div>
+  <h2 class="section-title">Healthcare without <em>borders</em></h2>
+  <p class="section-desc">End-to-end support for patients travelling from abroad — from visa assistance to post-treatment follow-up.</p>
+  <div class="intl-grid">
+    <div class="intl-card"><i class="fas fa-plane-arrival"></i><h4>Travel & Visa Support</h4><p>Medical visa assistance, airport pickup, accommodation & local transport arrangements.</p></div>
+    <div class="intl-card"><i class="fas fa-language"></i><h4>Multilingual Coordinators</h4><p>Arabic, Russian, Swahili & other language support with dedicated patient liaison officers.</p></div>
+    <div class="intl-card"><i class="fas fa-file-medical"></i><h4>Tele-Consultation</h4><p>Pre-arrival video consultations and post-discharge follow-up with your specialist team.</p></div>
+  </div>
+</div>
+</section>
+
+<!-- 9. DOCTORS -->
+<section class="section reveal">
+<div class="container">
+  <div class="coe-header">
+    <div>
+      <div class="section-label">Our Specialists</div>
+      <h2 class="section-title">Meet our <em>doctors</em></h2>
     </div>
-    <!-- International Patients -->
-    <section class="intl">
-      <div class="container">
-        <div class="intl-grid reveal">
-          <div class="intl-vis">
-            <div class="intl-vis-bg"></div>
-            <div class="intl-vis-content">
-              <div class="intl-vis-hl">Patients from<br /><strong>40+ countries</strong></div>
-              <div class="intl-tags">
-                <span class="itag">UAE</span><span class="itag">Oman</span><span class="itag">Kuwait</span>
-                <span class="itag">Saudi Arabia</span><span class="itag">Africa</span> <span class="itag">UK</span
-                ><span class="itag">Germany</span><span class="itag">Canada</span>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div class="sec-eye">International Patients</div>
-            <h2 class="sec-title" style="margin-bottom: 14px">
-              A destination for<br /><strong>global healthcare</strong>
-            </h2>
-            <p class="intl-body">
-              Patients travel to VPS Lakeshore for treatments unavailable or unaffordable elsewhere — especially from
-              the Gulf, Africa, and Europe. Our International Patient Services team manages the entire journey, from
-              remote consultations to return travel.
-            </p>
-            <div class="intl-svcs">
-              <div class="isvc">
-                <div class="isvc-icon">✈️</div>
-                <div>
-                  <div class="isvc-name">Travel &amp; Visa Support</div>
-                  <div class="isvc-sub">Medical visa letters &amp; documentation</div>
-                </div>
-              </div>
-              <div class="isvc">
-                <div class="isvc-icon">🌐</div>
-                <div>
-                  <div class="isvc-name">Multilingual Care</div>
-                  <div class="isvc-sub">Arabic, Hindi, English &amp; Malayalam</div>
-                </div>
-              </div>
-              <div class="isvc">
-                <div class="isvc-icon">📋</div>
-                <div>
-                  <div class="isvc-name">Remote Second Opinion</div>
-                  <div class="isvc-sub">Expert review of records online</div>
-                </div>
-              </div>
-              <div class="isvc">
-                <div class="isvc-icon">🏨</div>
-                <div>
-                  <div class="isvc-name">Accommodation</div>
-                  <div class="isvc-sub">Partner hotels near Nettoor, Kochi</div>
-                </div>
-              </div>
-            </div>
-            <a class="btn-dark" href="mailto:ips@lakeshorehospital.org">Contact: ips@lakeshorehospital.org →</a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- News -->
-    <section class="news">
-      <div class="container">
-        <div class="sec-hdr reveal">
-          <div>
-            <div class="sec-eye">Latest from Lakeshore</div>
-            <h2 class="sec-title">News, research<br /><strong>&amp; milestones</strong></h2>
-          </div>
-          <a class="sec-lnk" href="https://www.vpslakeshorehospital.com/news">All News</a>
-        </div>
-        <div class="news-grid reveal">
-          <a class="nc big" href="vps_news.html">
-            <div class="nc-cat">World First · Surgery</div>
-            <div class="nc-hl">
-              World's first endo-robotic surgery for post-cricoid cancer performed at VPS Lakeshore, Kochi
-            </div>
-            <div class="nc-exc">
-              A pioneering procedure removed a tumour extending from the head and neck into the oesophagus using robotic
-              assistance through endoscopic access — restoring the 75-year-old patient's ability to speak and swallow.
-            </div>
-            <div class="nc-meta">December 2023 <span>·</span> Surgical Innovation</div>
-          </a>
-          <a class="nc" href="vps_news.html">
-            <div class="nc-cat">India First · Orthopaedics</div>
-            <div class="nc-hl">India's first minimally invasive bunion correction surgery</div>
-            <div class="nc-exc">New technique using small incisions dramatically reduces recovery time and pain.</div>
-            <div class="nc-meta">January 2024 <span>·</span> Orthopaedics</div>
-          </a>
-          <a class="nc" href="vps_news.html">
-            <div class="nc-cat">Centre Launch</div>
-            <div class="nc-hl">India's first Centre for Complex Head &amp; Neck Cancer inaugurated</div>
-            <div class="nc-exc">
-              Dedicated centre integrating surgery, radiation and medical oncology for complex cases.
-            </div>
-            <div class="nc-meta">2024 <span>·</span> Oncology</div>
-          </a>
-        </div>
-        <div class="badges reveal">
-          <div class="badge">
-            <div class="badge-icon">🏆</div>
-            <div>
-              <div class="badge-t">Guinness World Record</div>
-              <div class="badge-s">Largest Model of a Human Organ</div>
-            </div>
-          </div>
-          <div class="badge">
-            <div class="badge-icon">✅</div>
-            <div>
-              <div class="badge-t">NABH Accredited</div>
-              <div class="badge-s">National Accreditation Board for Hospitals</div>
-            </div>
-          </div>
-          <div class="badge">
-            <div class="badge-icon">📖</div>
-            <div>
-              <div class="badge-t">Limca Book of Records</div>
-              <div class="badge-s">Air, water &amp; surface ambulance system</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Doctors — REAL names from website -->
-    <section class="doctors">
-      <div class="container">
-        <div class="sec-hdr reveal">
-          <div>
-            <div class="sec-eye">Our Specialists</div>
-            <h2 class="sec-title">Meet our leading<br /><strong>consultants</strong></h2>
-          </div>
-          <a class="sec-lnk" href="https://www.vpslakeshorehospital.com/doctors">All Doctors</a>
-        </div>
-        <div class="doc-grid reveal">
-          <a class="doc-card" href="vps_doctors.html">
-            <div class="doc-photo"><div class="doc-init">VG</div></div>
-            <div class="doc-info">
-              <div class="doc-name">Dr. V.P. Gangadharan</div>
-              <div class="doc-role">HOD &amp; Senior Consultant</div>
-              <div class="doc-dept">Medical &amp; Paediatric Oncology · 30+ yrs experience</div>
-              <span class="doc-tag">Oncology</span>
-            </div>
-          </a>
-          <a class="doc-card" href="vps_doctors.html">
-            <div class="doc-photo" style="background: linear-gradient(135deg, #003f8a, #0057b8)">
-              <div class="doc-init">HR</div>
-            </div>
-            <div class="doc-info">
-              <div class="doc-name">Dr. H. Ramesh</div>
-              <div class="doc-role">Director &amp; Senior Consultant</div>
-              <div class="doc-dept">Surgical Gastroenterology &amp; Liver Transplant · 34 yrs</div>
-              <span class="doc-tag">GI Surgery</span>
-            </div>
-          </a>
-          <a class="doc-card" href="vps_doctors.html">
-            <div class="doc-photo" style="background: linear-gradient(135deg, #002855, #003f8a)">
-              <div class="doc-init">MM</div>
-            </div>
-            <div class="doc-info">
-              <div class="doc-name">Dr. Murali Krishna Menon</div>
-              <div class="doc-role">HOD</div>
-              <div class="doc-dept">Neurology · 31 yrs experience</div>
-              <span class="doc-tag">Neurology</span>
-            </div>
-          </a>
-          <a class="doc-card" href="vps_doctors.html">
-            <div class="doc-photo" style="background: linear-gradient(135deg, #003f8a, #002255)">
-              <div class="doc-init">AK</div>
-            </div>
-            <div class="doc-info">
-              <div class="doc-name">Dr. Anand Kumar V</div>
-              <div class="doc-role">HOD &amp; Senior Consultant</div>
-              <div class="doc-dept">Interventional Cardiology · 21 yrs experience</div>
-              <span class="doc-tag">Cardiology</span>
-            </div>
-          </a>
-          <a class="doc-card" href="vps_doctors.html">
-            <div class="doc-photo" style="background: linear-gradient(135deg, #003f8a, #001f55)">
-              <div class="doc-init">SK</div>
-            </div>
-            <div class="doc-info">
-              <div class="doc-name">Dr. Sudish Karunakaran</div>
-              <div class="doc-role">HOD</div>
-              <div class="doc-dept">Neurosurgery · 24 yrs experience</div>
-              <span class="doc-tag">Neurosurgery</span>
-            </div>
-          </a>
-          <a class="doc-card" href="vps_doctors.html">
-            <div class="doc-photo" style="background: linear-gradient(135deg, #001f55, #003f8a)">
-              <div class="doc-init">RP</div>
-            </div>
-            <div class="doc-info">
-              <div class="doc-name">Dr. R. Padmakumar</div>
-              <div class="doc-role">HOD &amp; Senior Consultant</div>
-              <div class="doc-dept">Minimally Invasive Surgery · 27 yrs experience</div>
-              <span class="doc-tag">MIS</span>
-            </div>
-          </a>
-          <a class="doc-card" href="vps_doctors.html">
-            <div class="doc-photo" style="background: linear-gradient(135deg, #002855, #0057b8)">
-              <div class="doc-init">JV</div>
-            </div>
-            <div class="doc-info">
-              <div class="doc-name">Dr. Jacob Varghese</div>
-              <div class="doc-role">HOD</div>
-              <div class="doc-dept">Orthopaedics &amp; Joint Replacement · 34 yrs experience</div>
-              <span class="doc-tag">Orthopaedics</span>
-            </div>
-          </a>
-          <a class="doc-card" href="vps_doctors.html">
-            <div class="doc-photo" style="background: linear-gradient(135deg, #0057b8, #002855)">
-              <div class="doc-init">SJ</div>
-            </div>
-            <div class="doc-info">
-              <div class="doc-name">Dr. Shawn T. Joseph</div>
-              <div class="doc-role">Director</div>
-              <div class="doc-dept">Surgical Oncology · 17 yrs experience</div>
-              <span class="doc-tag">Surgical Oncology</span>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-    <!-- Testimonials -->
-    <section class="testimonials">
-      <div class="container">
-        <div class="sec-hdr">
-          <div>
-            <div class="sec-eye" style="color: rgba(255, 255, 255, 0.36)">Patient Stories</div>
-            <h2 class="sec-title" style="color: white">Healing that<br /><strong>crosses borders</strong></h2>
-          </div>
-          <a
-            class="sec-lnk"
-            href="https://www.vpslakeshorehospital.com/testimonials"
-            style="color: rgba(255, 255, 255, 0.5)"
-            >All Testimonials</a
-          >
-        </div>
-        <div class="test-grid reveal">
-          <div class="test-card">
-            <div class="test-q">
-              "It was an amazing experience. There was not a single negative point — the doctors, nurses, admin and
-              catering all met the highest standards. The hospital maintained very high ethical standards throughout."
-            </div>
-            <div class="test-auth">
-              <div class="auth-av">A</div>
-              <div>
-                <div class="auth-name">International Patient</div>
-                <div class="auth-from">Middle East · Neurosurgery</div>
-              </div>
-            </div>
-          </div>
-          <div class="test-card">
-            <div class="test-q">
-              "I am coming all the way from Canada and very much impressed with your hospital. Your system is far better
-              than our Canadian system — spotless, friendly, knowledgeable and proactive at every level."
-            </div>
-            <div class="test-auth">
-              <div class="auth-av">H</div>
-              <div>
-                <div class="auth-name">H. Ramesh (Patient)</div>
-                <div class="auth-from">Canada · Surgical Care</div>
-              </div>
-            </div>
-          </div>
-          <div class="test-card">
-            <div class="test-q">
-              "Dr. Sudhish Karunakaran turned everything around at once — he understood my situation and took me for
-              surgery which cured my disorder. I can't express how thankful I am to him and the entire team."
-            </div>
-            <div class="test-auth">
-              <div class="auth-av">P</div>
-              <div>
-                <div class="auth-name">Patient</div>
-                <div class="auth-from">Kerala · Trigeminal Neuralgia</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Accreditation -->
-    <div class="accred">
-      <div class="container">
-        <div class="accred-inner">
-          <span class="accred-label">Accreditations &amp; Recognition</span>
-          <div class="accred-items">
-            <div class="accred-item">
-              <div class="accred-box"><span>NABH</span></div>
-              <span class="accred-name">Quality<br />Accreditation</span>
-            </div>
-            <div class="accred-item">
-              <div class="accred-box"><span>VPS</span></div>
-              <span class="accred-name">VPS Healthcare<br />Group</span>
-            </div>
-            <div class="accred-item">
-              <div class="accred-box"><span>GWR</span></div>
-              <span class="accred-name">Guinness<br />World Record</span>
-            </div>
-            <div class="accred-item">
-              <div class="accred-box">
-                <span>Bureau<br />Veritas</span>
-              </div>
-              <span class="accred-name">Bureau Veritas<br />Certified</span>
-            </div>
-            <div class="accred-item">
-              <div class="accred-box"><span>LIMCA</span></div>
-              <span class="accred-name">Limca Book<br />of Records</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    <a class="coe-link" href="#">All Doctors →</a>
+  </div>
+  <div class="doc-grid">
+    <div class="doc-card"><div class="doc-avatar"><i class="fas fa-user-md"></i></div><div class="doc-name">Dr. Ravindranath K</div><div class="doc-spec">Cardiac Surgery</div><div class="doc-qual">MBBS, MS, MCh, FRCS</div></div>
+    <div class="doc-card"><div class="doc-avatar"><i class="fas fa-user-md"></i></div><div class="doc-name">Dr. Sandeep Nayak</div><div class="doc-spec">Surgical Oncology</div><div class="doc-qual">MBBS, MS, MCh Oncology</div></div>
+    <div class="doc-card"><div class="doc-avatar"><i class="fas fa-user-md"></i></div><div class="doc-name">Dr. Arun Oommen</div><div class="doc-spec">Neuro Sciences</div><div class="doc-qual">MBBS, MD, DM Neurology</div></div>
+    <div class="doc-card"><div class="doc-avatar"><i class="fas fa-user-md"></i></div><div class="doc-name">Dr. Tom Varghese</div><div class="doc-spec">Liver Transplant</div><div class="doc-qual">MBBS, MS, Fellowship (Liver)</div></div>
+  </div>
+</div>
+</section>
+
+<!-- 10. TESTIMONIALS -->
+<section class="testimonials section-sm reveal">
+<div class="container">
+  <div style="text-align:center;margin-bottom:8px">
+    <div class="section-label">Patient Stories</div>
+    <h2 class="section-title">What our patients <em>say</em></h2>
+  </div>
+  <div class="test-grid">
+    <div class="test-card">
+      <span class="test-mark">"</span>
+      <div class="test-stars">★★★★★</div>
+      <p class="test-quote">Outstanding care from start to finish. The international patient team made everything seamless — from visa to surgery to follow-up.</p>
+      <div class="test-author">Ahmed Al-Rashid</div>
+      <div class="test-origin">Oman · Cardiac Surgery</div>
     </div>
-    <!-- Footer -->
-    <footer>
-      <div class="container">
-        <div class="footer-grid">
-          <div>
-            <div class="footer-logo">
-              <span class="fl-vps">vps</span>
-              <div class="fl-sep"></div>
-              <div class="fl-right">
-                <span class="fl-ls">Lakeshore</span>
-                <span class="fl-mc">Medical Centre</span>
-              </div>
-            </div>
-            <div class="footer-tagline">"Care beyond boundaries,<br />medicine beyond limits."</div>
-            <div class="footer-addr">
-              XVI/612, Lakeshore Hospital and Research Centre Ltd<br />
-              NH-66 Bypass, Maradu, Nettoor P.O.<br />
-              Kochi – 682040, Kerala, India<br /><br />
-              Tel: +91-484-2701032 / 2701033<br />
-              Emergency: 99616 30000 · Help Desk: 99616 40000<br />
-              info@lakeshorehospital.com<br />
-              International: ips@lakeshorehospital.org
-            </div>
-          </div>
-          <div>
-            <div class="f-title">Patient Care</div>
-            <ul class="f-links">
-              <li><a href="vps_appointment.html">Book Appointment</a></li>
-              <li><a href="vps_doctors.html">Find a Doctor</a></li>
-              <li><a href="vps_departments.html">Departments</a></li>
-              <li><a href="vps_packages.html">Health Care Packages</a></li>
-              <li><a href="#">Video Consultation</a></li>
-              <li><a href="#">Patient Portal</a></li>
-            </ul>
-          </div>
-          <div>
-            <div class="f-title">International</div>
-            <ul class="f-links">
-              <li><a href="vps_international.html">Why VPS Lakeshore</a></li>
-              <li><a href="#">Medical Visa</a></li>
-              <li><a href="#">Travel Support</a></li>
-              <li><a href="#">Accommodation</a></li>
-              <li><a href="#">Insurance &amp; Billing</a></li>
-              <li><a href="vps_contact.html">Contact IPS Desk</a></li>
-            </ul>
-          </div>
-          <div>
-            <div class="f-title">About</div>
-            <ul class="f-links">
-              <li><a href="vps_about.html">About VPS Lakeshore</a></li>
-              <li><a href="#">Leadership</a></li>
-              <li><a href="vps_academics.html">Clinical Trials</a></li>
-              <li><a href="#">CSR Policy</a></li>
-              <li><a href="vps_careers.html">Careers</a></li>
-              <li><a href="vps_academics.html">Academics</a></li>
-              <li><a href="#">VPS Healthcare Group</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="footer-btm">
-          <div class="footer-btm-l">© 2026 Lakeshore Hospital and Research Centre Ltd · Kochi, Kerala</div>
-          <div class="footer-btm-r">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms &amp; Conditions</a>
-            <a href="#">Refund Policy</a>
-          </div>
-        </div>
+    <div class="test-card">
+      <span class="test-mark">"</span>
+      <div class="test-stars">★★★★★</div>
+      <p class="test-quote">My liver transplant at VPS Lakeshore gave me a second life. The expertise and compassion of the team is unmatched.</p>
+      <div class="test-author">Fatima Khamis</div>
+      <div class="test-origin">Tanzania · Liver Transplant</div>
+    </div>
+    <div class="test-card">
+      <span class="test-mark">"</span>
+      <div class="test-stars">★★★★★</div>
+      <p class="test-quote">World-class neurosurgery with Indian warmth. Dr. Oommen and his team were exceptional throughout my treatment.</p>
+      <div class="test-author">Rajesh Menon</div>
+      <div class="test-origin">Kerala · Neuro Sciences</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- 11. ACCREDITATIONS -->
+<div class="accred-bar reveal">
+<div class="container accred-inner">
+  <div class="accred-item"><div class="accred-icon"><i class="fas fa-certificate"></i></div><div class="accred-name">NABH</div></div>
+  <div class="accred-item"><div class="accred-icon"><i class="fas fa-globe"></i></div><div class="accred-name">JCI</div></div>
+  <div class="accred-item"><div class="accred-icon"><i class="fas fa-leaf"></i></div><div class="accred-name">NABL</div></div>
+  <div class="accred-item"><div class="accred-icon"><i class="fas fa-award"></i></div><div class="accred-name">ISO 9001</div></div>
+  <div class="accred-item"><div class="accred-icon"><i class="fas fa-shield-alt"></i></div><div class="accred-name">AAHRPP</div></div>
+  <div class="accred-item"><div class="accred-icon"><i class="fas fa-graduation-cap"></i></div><div class="accred-name">Kerala University</div></div>
+</div>
+</div>
+
+<!-- 12. FOOTER -->
+<footer class="site-footer">
+<div class="container">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">
+        <span class="logo-vps">vps</span>
+        <span class="logo-sep" style="background:rgba(255,255,255,.15)"></span>
+        <div><span class="logo-name">Lakeshore</span><div class="logo-sub">Medical Centre</div></div>
       </div>
-    </footer>
-    <script>
-      const reveals = document.querySelectorAll(".reveal");
-      const obs = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((e, i) => {
-            if (e.isIntersecting) {
-              setTimeout(() => e.target.classList.add("visible"), i * 80);
-              obs.unobserve(e.target);
-            }
-          });
-        },
-        { threshold: 0.08, rootMargin: "0px 0px -30px 0px" },
-      );
-      reveals.forEach((el) => obs.observe(el));
-    </script>
-  </body>
+      <p class="footer-desc">NH Bypass, Maradu, Nettoor, Kochi, Kerala 682040, India</p>
+      <p class="footer-desc" style="margin-top:8px"><i class="fas fa-phone-alt" style="margin-right:6px"></i> +91 99616 30000</p>
+    </div>
+    <div class="footer-col">
+      <h4>Patients</h4>
+      <a href="#">Book Appointment</a>
+      <a href="#">Find a Doctor</a>
+      <a href="#">Patient Portal</a>
+      <a href="#">Insurance & TPA</a>
+      <a href="#">Visitor Information</a>
+    </div>
+    <div class="footer-col">
+      <h4>Departments</h4>
+      <a href="#">Cardiac Sciences</a>
+      <a href="#">Oncology</a>
+      <a href="#">Neuro Sciences</a>
+      <a href="#">Liver Transplant</a>
+      <a href="#">Orthopaedics</a>
+    </div>
+    <div class="footer-col">
+      <h4>About</h4>
+      <a href="#">Our Story</a>
+      <a href="#">Leadership</a>
+      <a href="#">Careers</a>
+      <a href="#">Research</a>
+      <a href="#">Contact Us</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 VPS Lakeshore Hospital. All rights reserved.</span>
+    <div class="footer-social">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+  </div>
+</div>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/919961630000" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<script>
+// Simple reveal on scroll — opacity only, no slide
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})
+},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
 </html>
